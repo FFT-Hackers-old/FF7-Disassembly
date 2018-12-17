@@ -1442,6 +1442,12 @@
       "sz": 4
     },
     {
+      "address": 8091048,
+      "flags": 21504,
+      "name": "commandTypeExecutionArray",
+      "sz": 1
+    },
+    {
       "address": 8091392,
       "flags": 21504,
       "name": "FormulaExecutionOrderArray",
@@ -1484,6 +1490,12 @@
       "sz": 4
     },
     {
+      "address": 9432648,
+      "flags": 542135296,
+      "name": "commandTypeHandlers",
+      "sz": 4
+    },
+    {
       "address": 9433592,
       "flags": 542135296,
       "name": "FormulaPtrTable",
@@ -1496,10 +1508,34 @@
       "sz": 4
     },
     {
+      "address": 10128166,
+      "flags": 21504,
+      "name": "PoisonTicker",
+      "sz": 1
+    },
+    {
+      "address": 10131596,
+      "flags": 536892416,
+      "name": "ActionQueueHighBytes",
+      "sz": 4
+    },
+    {
+      "address": 10131600,
+      "flags": 536892416,
+      "name": "ActionQueueLowBytes",
+      "sz": 4
+    },
+    {
       "address": 10137820,
       "flags": 21504,
       "name": "Actor1Statuses",
       "sz": 1
+    },
+    {
+      "address": 10137824,
+      "flags": 536892416,
+      "name": "ActorFlags",
+      "sz": 4
     },
     {
       "address": 10150528,
@@ -1511,6 +1547,12 @@
       "address": 10152064,
       "flags": 536892416,
       "name": "EventToConsume?",
+      "sz": 4
+    },
+    {
+      "address": 10152392,
+      "flags": 536892416,
+      "name": "ExecutionArrayIndexPtr",
       "sz": 4
     },
     {
@@ -18876,6 +18918,10 @@
       "start": 4309179
     },
     {
+      "name": "EnqueueBattleActions",
+      "start": 4400522
+    },
+    {
       "name": "EnqueueAction",
       "start": 4400775
     },
@@ -18892,7 +18938,11 @@
       "start": 4410800
     },
     {
-      "name": "ManageEventList",
+      "name": "createEventCallback?",
+      "start": 4411336
+    },
+    {
+      "name": "CreateEvent",
       "start": 4411705
     },
     {
@@ -18902,6 +18952,10 @@
     {
       "name": "ConsumeEvents",
       "start": 4411837
+    },
+    {
+      "name": "MainActionRoutine",
+      "start": 4414849
     },
     {
       "name": "_is_wctype",
@@ -18915,6 +18969,10 @@
     {
       "name": "ApplyPrcntStatMods",
       "start": 6061797
+    },
+    {
+      "name": "BattleQueuePop",
+      "start": 6061972
     },
     {
       "name": "ChooseFormulas",
