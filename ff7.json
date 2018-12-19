@@ -2,6 +2,12 @@
   "arrays": [],
   "data": [
     {
+      "address": 4344002,
+      "flags": 542137344,
+      "name": "AnimationScriptOpcodes",
+      "sz": 456
+    },
+    {
       "address": 8072641,
       "flags": 17408,
       "name": "_rtforatn200",
@@ -1442,6 +1448,12 @@
       "sz": 4
     },
     {
+      "address": 8090897,
+      "flags": 21504,
+      "name": "FormulaCommandDefaults?",
+      "sz": 1
+    },
+    {
       "address": 8091048,
       "flags": 21504,
       "name": "commandTypeExecutionArray",
@@ -1554,6 +1566,18 @@
       "flags": 536892416,
       "name": "ExecutionArrayIndexPtr",
       "sz": 4
+    },
+    {
+      "address": 10152548,
+      "flags": 536892416,
+      "name": "AttackerIndexTemp",
+      "sz": 4
+    },
+    {
+      "address": 12456312,
+      "flags": 268456960,
+      "name": "AnimationDataStart?",
+      "sz": 2
     },
     {
       "address": 1656632396,
@@ -18914,8 +18938,16 @@
       "type": "char *__cdecl _strchr(const char *, int);"
     },
     {
-      "name": "BeginMainBattleLoop?",
+      "name": "EndBattle?",
+      "start": 4307155
+    },
+    {
+      "name": "MainBattleLoop",
       "start": 4309179
+    },
+    {
+      "name": "runAnimationScript",
+      "start": 4324260
     },
     {
       "name": "EnqueueBattleActions",
@@ -18946,12 +18978,16 @@
       "start": 4411705
     },
     {
-      "name": "IncrementArg1",
+      "name": "IncrementTo127",
       "start": 4411811
     },
     {
       "name": "ConsumeEvents",
       "start": 4411837
+    },
+    {
+      "name": "BattleQueueMain?",
+      "start": 4413321
     },
     {
       "name": "MainActionRoutine",
@@ -18967,6 +19003,10 @@
       "start": 5805580
     },
     {
+      "name": "ExecuteAnimation?",
+      "start": 6061546
+    },
+    {
       "name": "ApplyPrcntStatMods",
       "start": 6061797
     },
@@ -18975,11 +19015,39 @@
       "start": 6061972
     },
     {
+      "name": "copyAttackIndex",
+      "start": 6066096
+    },
+    {
+      "name": "ModifyCommandTypeEnemy",
+      "start": 6067105
+    },
+    {
+      "name": "LoadAbilityData",
+      "start": 6067411
+    },
+    {
+      "name": "SetPoisonActionData",
+      "start": 6070208
+    },
+    {
+      "name": "copyAdditionalEffects",
+      "start": 6072098
+    },
+    {
+      "name": "StatusMasksFromAbility",
+      "start": 6072166
+    },
+    {
+      "name": "TakesAnimationAsArg",
+      "start": 6073212
+    },
+    {
       "name": "ChooseFormulas",
       "start": 6100799
     },
     {
-      "name": "BigFunctionCallsMainDamage",
+      "name": "ApplyActionDamage",
       "start": 6134080
     },
     {
