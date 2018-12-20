@@ -1562,6 +1562,12 @@
       "sz": 1
     },
     {
+      "address": 10136950,
+      "flags": 268456960,
+      "name": "commandIndexCopy",
+      "sz": 2
+    },
+    {
       "address": 10137820,
       "flags": 21504,
       "name": "Actor1Statuses",
@@ -1577,6 +1583,12 @@
       "address": 10144664,
       "flags": 21504,
       "name": "CmdAnimationArray2",
+      "sz": 1
+    },
+    {
+      "address": 10144667,
+      "flags": 21504,
+      "name": "CommandIndexCopy2",
       "sz": 1
     },
     {
