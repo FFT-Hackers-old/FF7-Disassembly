@@ -1490,6 +1490,12 @@
       "sz": 4
     },
     {
+      "address": 8110992,
+      "flags": 537936896,
+      "name": "__ctype",
+      "sz": 4
+    },
+    {
       "address": 8131080,
       "flags": 536892416,
       "name": "AdditionalEffectIndexedArray2",
@@ -1559,6 +1565,12 @@
       "address": 10079756,
       "flags": 542135296,
       "name": "BattleContextPtr",
+      "sz": 4
+    },
+    {
+      "address": 10093880,
+      "flags": 536892416,
+      "name": "InsertedCD",
       "sz": 4
     },
     {
@@ -1731,9 +1743,9 @@
     },
     {
       "address": 12456304,
-      "flags": 268456960,
+      "flags": 21504,
       "name": "ActorID",
-      "sz": 2
+      "sz": 1
     },
     {
       "address": 12456312,
@@ -1763,6 +1775,12 @@
       "address": 12456372,
       "flags": 21504,
       "name": "ScriptPositionCounter?",
+      "sz": 1
+    },
+    {
+      "address": 14420956,
+      "flags": 21504,
+      "name": "RequiredCD",
       "sz": 1
     }
   ],
@@ -1825,6 +1843,10 @@
     }
   ],
   "functions": [
+    {
+      "name": "GetInsertedCD",
+      "start": 4213373
+    },
     {
       "name": "fptc",
       "start": 4238209,
@@ -2970,7 +2992,8 @@
     },
     {
       "name": "?CleanupTopologyInformation@ResourceManager@details@Concurrency@@CAXXZ",
-      "start": 6824015
+      "start": 6824015,
+      "type": "void __cdecl ?CleanupTopologyInformation@ResourceManager@details@Concurrency@@CAXXZ();"
     },
     {
       "name": "PlaceAnimationEffectCallback",
@@ -3001,6 +3024,10 @@
       "start": 7028870
     },
     {
+      "name": "DisplayPromptCD",
+      "start": 7080384
+    },
+    {
       "name": "CallsIncrementVTimers",
       "start": 7137459
     },
@@ -3010,7 +3037,8 @@
     },
     {
       "name": "?_Get_future_error_what@std@@YAPBDH@Z",
-      "start": 7475039
+      "start": 7475039,
+      "type": "const char *__cdecl ?_Get_future_error_what@std@@YAPBDH@Z(int);"
     },
     {
       "name": "unknown_libname_14",
@@ -3079,7 +3107,8 @@
     },
     {
       "name": "??0_Lockit@std@@QAE@XZ",
-      "start": 8050592
+      "start": 8050592,
+      "type": "_DWORD __thiscall(std::_Lockit *__hidden this);"
     },
     {
       "name": "?_CleanUp@std@@YAXXZ",
@@ -3088,7 +3117,8 @@
     },
     {
       "name": "??1_Lockit@std@@QAE@XZ",
-      "start": 8050784
+      "start": 8050784,
+      "type": "_DWORD __thiscall(std::_Lockit *__hidden this);"
     },
     {
       "name": "DirectSoundEnumerateA",
@@ -3185,12 +3215,13 @@
     },
     {
       "name": "?_JumpToContinuation@@YGXPAXPAUEHRegistrationNode@@@Z",
-      "start": 8055584
+      "start": 8055584,
+      "type": "void __stdcall(void *, struct EHRegistrationNode *);"
     },
     {
       "name": "?_UnwindNestedFrames@@YGXPAUEHRegistrationNode@@PAUEHExceptionRecord@@@Z",
       "start": 8055664,
-      "type": "int __stdcall(PVOID TargetFrame, PEXCEPTION_RECORD ExceptionRecord);"
+      "type": "void __stdcall(PVOID TargetFrame, PEXCEPTION_RECORD ExceptionRecord);"
     },
     {
       "name": "___CxxFrameHandler",
@@ -3199,25 +3230,28 @@
     },
     {
       "name": "?_CallCatchBlock2@@YAPAXPAUEHRegistrationNode@@PBU_s_FuncInfo@@PAXHK@Z",
-      "start": 8055824
+      "start": 8055824,
+      "type": "void *__cdecl ?_CallCatchBlock2@@YAPAXPAUEHRegistrationNode@@PBU_s_FuncInfo@@PAXHK@Z(struct EHRegistrationNode *, const struct _s_FuncInfo *, void *, int, unsigned int);"
     },
     {
       "name": "?CatchGuardHandler@@YA?AW4_EXCEPTION_DISPOSITION@@PAUEHExceptionRecord@@PAUCatchGuardRN@@PAX2@Z",
       "start": 8055920,
-      "type": "int __cdecl ?CatchGuardHandler@@YA?AW4_EXCEPTION_DISPOSITION@@PAUEHExceptionRecord@@PAUCatchGuardRN@@PAX2@Z(PEXCEPTION_RECORD ExceptionRecord, PVOID TargetFrame, int);"
+      "type": "enum _EXCEPTION_DISPOSITION __cdecl ?CatchGuardHandler@@YA?AW4_EXCEPTION_DISPOSITION@@PAUEHExceptionRecord@@PAUCatchGuardRN@@PAX2@Z(PEXCEPTION_RECORD ExceptionRecord, PVOID TargetFrame, struct _CONTEXT *, void *);"
     },
     {
       "name": "?_CallSETranslator@@YAHPAUEHExceptionRecord@@PAUEHRegistrationNode@@PAX2PBU_s_FuncInfo@@H1@Z",
-      "start": 8055968
+      "start": 8055968,
+      "type": "int __cdecl ?_CallSETranslator@@YAHPAUEHExceptionRecord@@PAUEHRegistrationNode@@PAX2PBU_s_FuncInfo@@H1@Z(struct EHExceptionRecord *, struct EHRegistrationNode *, void *, void *, const struct _s_FuncInfo *, int, struct EHRegistrationNode *);"
     },
     {
       "name": "?TranslatorGuardHandler@@YA?AW4_EXCEPTION_DISPOSITION@@PAUEHExceptionRecord@@PAUTranslatorGuardRN@@PAX2@Z",
       "start": 8056176,
-      "type": "int __cdecl ?TranslatorGuardHandler@@YA?AW4_EXCEPTION_DISPOSITION@@PAUEHExceptionRecord@@PAUTranslatorGuardRN@@PAX2@Z(PEXCEPTION_RECORD ExceptionRecord, PVOID TargetFrame, int);"
+      "type": "enum _EXCEPTION_DISPOSITION __cdecl ?TranslatorGuardHandler@@YA?AW4_EXCEPTION_DISPOSITION@@PAUEHExceptionRecord@@PAUTranslatorGuardRN@@PAX2@Z(PEXCEPTION_RECORD ExceptionRecord, PVOID TargetFrame, struct _CONTEXT *, void *);"
     },
     {
       "name": "?_GetRangeOfTrysToCheck@@YAPBU_s_TryBlockMapEntry@@PBU_s_FuncInfo@@HHPAI1@Z",
-      "start": 8056320
+      "start": 8056320,
+      "type": "const struct _s_TryBlockMapEntry *__cdecl ?_GetRangeOfTrysToCheck@@YAPBU_s_TryBlockMapEntry@@PBU_s_FuncInfo@@HHPAI1@Z(const struct _s_FuncInfo *, int, int, unsigned int *, unsigned int *);"
     },
     {
       "name": "_clock",
@@ -3486,12 +3520,12 @@
     {
       "name": "?FindHandler@@YAXPAUEHExceptionRecord@@PAUEHRegistrationNode@@PAU_CONTEXT@@PAXPBU_s_FuncInfo@@EH1@Z",
       "start": 8066000,
-      "type": "int __cdecl ?FindHandler@@YAXPAUEHExceptionRecord@@PAUEHRegistrationNode@@PAU_CONTEXT@@PAXPBU_s_FuncInfo@@EH1@Z(PEXCEPTION_RECORD ExceptionRecord, int, int, int, int, char, int, PVOID TargetFrame);"
+      "type": "void __cdecl ?FindHandler@@YAXPAUEHExceptionRecord@@PAUEHRegistrationNode@@PAU_CONTEXT@@PAXPBU_s_FuncInfo@@EH1@Z(PEXCEPTION_RECORD ExceptionRecord, struct EHRegistrationNode *, struct _CONTEXT *, void *, const struct _s_FuncInfo *, char, int, PVOID TargetFrame);"
     },
     {
       "name": "?FindHandlerForForeignException@@YAXPAUEHExceptionRecord@@PAUEHRegistrationNode@@PAU_CONTEXT@@PAXPBU_s_FuncInfo@@HH1@Z",
       "start": 8066704,
-      "type": "int __cdecl ?FindHandlerForForeignException@@YAXPAUEHExceptionRecord@@PAUEHRegistrationNode@@PAU_CONTEXT@@PAXPBU_s_FuncInfo@@HH1@Z(PEXCEPTION_RECORD ExceptionRecord, int, int, int, int, int, int, PVOID TargetFrame);"
+      "type": "void __cdecl ?FindHandlerForForeignException@@YAXPAUEHExceptionRecord@@PAUEHRegistrationNode@@PAU_CONTEXT@@PAXPBU_s_FuncInfo@@HH1@Z(PEXCEPTION_RECORD ExceptionRecord, struct EHRegistrationNode *, struct _CONTEXT *, void *, const struct _s_FuncInfo *, int, int, PVOID TargetFrame);"
     },
     {
       "name": "___FrameUnwindToState",
@@ -3500,27 +3534,32 @@
     {
       "name": "?CatchIt@@YAXPAUEHExceptionRecord@@PAUEHRegistrationNode@@PAU_CONTEXT@@PAXPBU_s_FuncInfo@@PBU_s_HandlerType@@PBU_s_CatchableType@@PBU_s_TryBlockMapEntry@@H1@Z",
       "start": 8067152,
-      "type": "int __cdecl ?CatchIt@@YAXPAUEHExceptionRecord@@PAUEHRegistrationNode@@PAU_CONTEXT@@PAXPBU_s_FuncInfo@@PBU_s_HandlerType@@PBU_s_CatchableType@@PBU_s_TryBlockMapEntry@@H1@Z(PEXCEPTION_RECORD ExceptionRecord, int, int, int, int, int, int, int, int, PVOID TargetFrame);"
+      "type": "void __cdecl ?CatchIt@@YAXPAUEHExceptionRecord@@PAUEHRegistrationNode@@PAU_CONTEXT@@PAXPBU_s_FuncInfo@@PBU_s_HandlerType@@PBU_s_CatchableType@@PBU_s_TryBlockMapEntry@@H1@Z(PEXCEPTION_RECORD ExceptionRecord, struct EHRegistrationNode *, struct _CONTEXT *, void *, const struct _s_FuncInfo *, const struct _s_HandlerType *, const struct _s_CatchableType *, const struct _s_TryBlockMapEntry *, int, PVOID TargetFrame);"
     },
     {
       "name": "?CallCatchBlock@@YAPAXPAUEHExceptionRecord@@PAUEHRegistrationNode@@PAU_CONTEXT@@PBU_s_FuncInfo@@PAXHK@Z",
-      "start": 8067296
+      "start": 8067296,
+      "type": "void *__cdecl ?CallCatchBlock@@YAPAXPAUEHExceptionRecord@@PAUEHRegistrationNode@@PAU_CONTEXT@@PBU_s_FuncInfo@@PAXHK@Z(struct EHExceptionRecord *, struct EHRegistrationNode *, struct _CONTEXT *, const struct _s_FuncInfo *, void *, int, unsigned int);"
     },
     {
       "name": "?ExFilterRethrow@@YAHPAU_EXCEPTION_POINTERS@@@Z",
-      "start": 8067648
+      "start": 8067648,
+      "type": "int __cdecl ?ExFilterRethrow@@YAHPAU_EXCEPTION_POINTERS@@@Z(struct _EXCEPTION_POINTERS *);"
     },
     {
       "name": "?BuildCatchObject@@YAXPAUEHExceptionRecord@@PAUEHRegistrationNode@@PBU_s_HandlerType@@PBU_s_CatchableType@@@Z",
-      "start": 8067696
+      "start": 8067696,
+      "type": "void __cdecl ?BuildCatchObject@@YAXPAUEHExceptionRecord@@PAUEHRegistrationNode@@PBU_s_HandlerType@@PBU_s_CatchableType@@@Z(struct EHExceptionRecord *, struct EHRegistrationNode *, const struct _s_HandlerType *, const struct _s_CatchableType *);"
     },
     {
       "name": "?_DestructExceptionObject@@YAXPAUEHExceptionRecord@@E@Z",
-      "start": 8068224
+      "start": 8068224,
+      "type": "void __cdecl ?_DestructExceptionObject@@YAXPAUEHExceptionRecord@@E@Z(struct EHExceptionRecord *, char);"
     },
     {
       "name": "?AdjustPointer@@YAPAXPAXABUPMD@@@Z",
-      "start": 8068352
+      "start": 8068352,
+      "type": "void *__cdecl ?AdjustPointer@@YAPAXPAXABUPMD@@@Z(void *, const struct PMD *);"
     },
     {
       "name": "__CallSettingFrame@12",
@@ -3528,7 +3567,8 @@
     },
     {
       "name": "?terminate@@YAXXZ",
-      "start": 8068480
+      "start": 8068480,
+      "type": "void __cdecl ?terminate@@YAXXZ __noreturn();"
     },
     {
       "name": "__ftime",
@@ -3657,6 +3697,10 @@
       "start": 8072556
     },
     {
+      "name": "__rtpiby2",
+      "start": 8072604
+    },
+    {
       "name": "postv",
       "start": 8072629
     },
@@ -3716,21 +3760,23 @@
     },
     {
       "name": "?__CxxSetUnhandledExceptionFilter@@YAXXZ",
-      "start": 8074448
+      "start": 8074448,
+      "type": "void __cdecl ?__CxxSetUnhandledExceptionFilter@@YAXXZ();"
     },
     {
       "name": "?__CxxRestoreUnhandledExceptionFilter@@YAXXZ",
-      "start": 8074480
+      "start": 8074480,
+      "type": "void __cdecl ?__CxxRestoreUnhandledExceptionFilter@@YAXXZ();"
     },
     {
       "name": "?_ValidateRead@@YAHPBXI@Z",
       "start": 8074496,
-      "type": "int __cdecl ?_ValidateRead@@YAHPBXI@Z(void *lp, UINT_PTR ucb);"
+      "type": "int __cdecl ?_ValidateRead@@YAHPBXI@Z(const void *lp, UINT_PTR ucb);"
     },
     {
       "name": "?_ValidateWrite@@YAHPAXI@Z",
       "start": 8074528,
-      "type": "int __cdecl ?_ValidateWrite@@YAHPAXI@Z(LPVOID lp, UINT_PTR ucb);"
+      "type": "int __cdecl ?_ValidateWrite@@YAHPAXI@Z(void *lp, UINT_PTR ucb);"
     },
     {
       "name": "?_ValidateExecute@@YAHP6GHXZ@Z",
@@ -4032,32 +4078,80 @@
           "type": 2
         },
         {
+          "from": 4241490,
+          "type": 3
+        },
+        {
           "from": 8063683,
           "type": 2
+        },
+        {
+          "from": 8063772,
+          "type": 3
         },
         {
           "from": 8066963,
           "type": 2
         },
         {
+          "from": 8067059,
+          "type": 3
+        },
+        {
           "from": 8067331,
           "type": 2
+        },
+        {
+          "from": 8067492,
+          "type": 3
         },
         {
           "from": 8067731,
           "type": 2
         },
         {
+          "from": 8068177,
+          "type": 3
+        },
+        {
           "from": 8068259,
           "type": 2
+        },
+        {
+          "from": 8068309,
+          "type": 3
         },
         {
           "from": 8068515,
           "type": 2
         },
         {
+          "from": 8068560,
+          "type": 3
+        },
+        {
           "from": 8068659,
           "type": 2
+        },
+        {
+          "from": 8068695,
+          "type": 3
+        },
+        {
+          "from": 4241469,
+          "type": 3
+        },
+        {
+          "from": 8063751,
+          "type": 3
+        },
+        {
+          "from": 8067046,
+          "type": 3
+        },
+        {
+          "from": 8067479,
+          "type": 3
         },
         {
           "from": 4241245,
@@ -4068,12 +4162,20 @@
           "type": 2
         },
         {
+          "from": 4241512,
+          "type": 3
+        },
+        {
           "from": 8063727,
           "type": 2
         },
         {
           "from": 8063787,
           "type": 2
+        },
+        {
+          "from": 8063796,
+          "type": 3
         },
         {
           "from": 8066998,
@@ -4086,6 +4188,10 @@
         {
           "from": 8067062,
           "type": 2
+        },
+        {
+          "from": 8067092,
+          "type": 3
         },
         {
           "from": 8067400,
@@ -4104,9 +4210,17 @@
           "type": 2
         },
         {
+          "from": 8067462,
+          "type": 3
+        },
+        {
           "from": 8067504,
           "offset": 4294967295,
           "type": 1
+        },
+        {
+          "from": 8067518,
+          "type": 3
         },
         {
           "from": 8067777,
@@ -4117,12 +4231,20 @@
           "type": 2
         },
         {
+          "from": 8068192,
+          "type": 3
+        },
+        {
           "from": 8068279,
           "type": 2
         },
         {
           "from": 8068317,
           "type": 2
+        },
+        {
+          "from": 8068324,
+          "type": 3
         },
         {
           "from": 8068518,
@@ -4139,6 +4261,10 @@
         {
           "from": 8068570,
           "type": 2
+        },
+        {
+          "from": 8068582,
+          "type": 3
         },
         {
           "from": 8068662,
@@ -4185,14 +4311,46 @@
       "name": "_EH3_EXCEPTION_REGISTRATION",
       "xrefs": [
         {
+          "from": 4241512,
+          "type": 3
+        },
+        {
+          "from": 8063796,
+          "type": 3
+        },
+        {
+          "from": 8067092,
+          "type": 3
+        },
+        {
           "from": 8067407,
           "offset": 4294967295,
           "type": 1
         },
         {
+          "from": 8067462,
+          "type": 3
+        },
+        {
+          "from": 8067518,
+          "type": 3
+        },
+        {
+          "from": 8068192,
+          "type": 3
+        },
+        {
+          "from": 8068324,
+          "type": 3
+        },
+        {
           "from": 8068537,
           "offset": 4294967295,
           "type": 1
+        },
+        {
+          "from": 8068582,
+          "type": 3
         },
         {
           "from": 8068678,
@@ -4411,8 +4569,18 @@
           "type": 1
         },
         {
+          "from": 4213642,
+          "offset": 4294967295,
+          "type": 1
+        },
+        {
           "from": 4213937,
           "type": 2
+        },
+        {
+          "from": 4235826,
+          "offset": 4294967295,
+          "type": 1
         },
         {
           "from": 4235874,
@@ -4444,6 +4612,10 @@
         },
         {
           "from": 4241419,
+          "type": 3
+        },
+        {
+          "from": 4241425,
           "type": 3
         },
         {
@@ -4499,8 +4671,20 @@
           "type": 2
         },
         {
+          "from": 4214111,
+          "type": 3
+        },
+        {
           "from": 4235834,
           "type": 2
+        },
+        {
+          "from": 4236059,
+          "type": 3
+        },
+        {
+          "from": 4236079,
+          "type": 3
         },
         {
           "from": 4213662,
@@ -4644,17 +4828,15 @@
       "name": "_cpinfo",
       "xrefs": [
         {
+          "from": 4249598,
+          "type": 3
+        },
+        {
           "from": 4277938,
-          "offset": 4294967295,
-          "type": 1
+          "type": 3
         },
         {
           "from": 4278017,
-          "offset": 4294967295,
-          "type": 1
-        },
-        {
-          "from": 4249598,
           "type": 3
         },
         {
@@ -4662,12 +4844,36 @@
           "type": 3
         },
         {
+          "from": 4249606,
+          "offset": 4294967295,
+          "type": 1
+        },
+        {
+          "from": 4250258,
+          "type": 3
+        },
+        {
+          "from": 4250271,
+          "offset": 4294967295,
+          "type": 1
+        },
+        {
           "from": 4277958,
           "type": 3
         },
         {
+          "from": 4277962,
+          "offset": 4294967295,
+          "type": 1
+        },
+        {
           "from": 4278037,
           "type": 3
+        },
+        {
+          "from": 4278041,
+          "offset": 4294967295,
+          "type": 1
         }
       ]
     },
@@ -4767,7 +4973,12 @@
         }
       ],
       "name": "SYSTEMTIME",
-      "xrefs": []
+      "xrefs": [
+        {
+          "from": 8057054,
+          "type": 3
+        }
+      ]
     },
     {
       "idx": 12,
@@ -4950,15 +5161,263 @@
       "name": "tagRECT",
       "xrefs": [
         {
+          "from": 6440641,
+          "type": 3
+        },
+        {
+          "from": 6441035,
+          "type": 3
+        },
+        {
+          "from": 6441504,
+          "type": 3
+        },
+        {
+          "from": 6441940,
+          "type": 3
+        },
+        {
+          "from": 6444728,
+          "type": 3
+        },
+        {
+          "from": 6448040,
+          "type": 3
+        },
+        {
+          "from": 6448672,
+          "type": 3
+        },
+        {
+          "from": 6449382,
+          "type": 3
+        },
+        {
+          "from": 6449835,
+          "type": 3
+        },
+        {
+          "from": 6455220,
+          "type": 3
+        },
+        {
+          "from": 6455656,
+          "type": 3
+        },
+        {
+          "from": 6456167,
+          "type": 3
+        },
+        {
+          "from": 6456603,
+          "type": 3
+        },
+        {
+          "from": 6461236,
+          "type": 3
+        },
+        {
+          "from": 6461868,
+          "type": 3
+        },
+        {
+          "from": 6462578,
+          "type": 3
+        },
+        {
+          "from": 6463031,
+          "type": 3
+        },
+        {
           "from": 6777410,
           "type": 2
+        },
+        {
+          "from": 6777468,
+          "type": 3
+        },
+        {
+          "from": 6440795,
+          "type": 3
+        },
+        {
+          "from": 6440913,
+          "type": 3
+        },
+        {
+          "from": 6441190,
+          "type": 3
+        },
+        {
+          "from": 6441316,
+          "type": 3
+        },
+        {
+          "from": 6441631,
+          "type": 3
+        },
+        {
+          "from": 6441780,
+          "type": 3
+        },
+        {
+          "from": 6442067,
+          "type": 3
+        },
+        {
+          "from": 6442219,
+          "type": 3
+        },
+        {
+          "from": 6444733,
+          "type": 3
+        },
+        {
+          "from": 6448257,
+          "type": 3
+        },
+        {
+          "from": 6448439,
+          "type": 3
+        },
+        {
+          "from": 6448550,
+          "type": 3
+        },
+        {
+          "from": 6448889,
+          "type": 3
+        },
+        {
+          "from": 6449084,
+          "type": 3
+        },
+        {
+          "from": 6449195,
+          "type": 3
+        },
+        {
+          "from": 6449536,
+          "type": 3
+        },
+        {
+          "from": 6449695,
+          "type": 3
+        },
+        {
+          "from": 6449988,
+          "type": 3
+        },
+        {
+          "from": 6450151,
+          "type": 3
+        },
+        {
+          "from": 6455416,
+          "type": 3
+        },
+        {
+          "from": 6455534,
+          "type": 3
+        },
+        {
+          "from": 6455853,
+          "type": 3
+        },
+        {
+          "from": 6455979,
+          "type": 3
+        },
+        {
+          "from": 6456294,
+          "type": 3
+        },
+        {
+          "from": 6456443,
+          "type": 3
+        },
+        {
+          "from": 6456730,
+          "type": 3
+        },
+        {
+          "from": 6456882,
+          "type": 3
+        },
+        {
+          "from": 6461453,
+          "type": 3
+        },
+        {
+          "from": 6461635,
+          "type": 3
+        },
+        {
+          "from": 6461746,
+          "type": 3
+        },
+        {
+          "from": 6462085,
+          "type": 3
+        },
+        {
+          "from": 6462280,
+          "type": 3
+        },
+        {
+          "from": 6462391,
+          "type": 3
+        },
+        {
+          "from": 6462712,
+          "type": 3
+        },
+        {
+          "from": 6462871,
+          "type": 3
+        },
+        {
+          "from": 6463165,
+          "type": 3
+        },
+        {
+          "from": 6463327,
+          "type": 3
         },
         {
           "from": 6777417,
           "type": 2
         },
         {
+          "from": 6777480,
+          "type": 3
+        },
+        {
+          "from": 6440736,
+          "type": 3
+        },
+        {
+          "from": 6441130,
+          "type": 3
+        },
+        {
+          "from": 6441581,
+          "type": 3
+        },
+        {
+          "from": 6442017,
+          "type": 3
+        },
+        {
+          "from": 6444739,
+          "type": 3
+        },
+        {
           "from": 6448132,
+          "type": 3
+        },
+        {
+          "from": 6448137,
           "type": 3
         },
         {
@@ -4966,7 +5425,23 @@
           "type": 3
         },
         {
+          "from": 6448769,
+          "type": 3
+        },
+        {
+          "from": 6449477,
+          "type": 3
+        },
+        {
+          "from": 6449930,
+          "type": 3
+        },
+        {
           "from": 6455312,
+          "type": 3
+        },
+        {
+          "from": 6455317,
           "type": 3
         },
         {
@@ -4974,7 +5449,23 @@
           "type": 3
         },
         {
+          "from": 6455753,
+          "type": 3
+        },
+        {
+          "from": 6456244,
+          "type": 3
+        },
+        {
+          "from": 6456680,
+          "type": 3
+        },
+        {
           "from": 6461328,
+          "type": 3
+        },
+        {
+          "from": 6461333,
           "type": 3
         },
         {
@@ -4982,12 +5473,36 @@
           "type": 3
         },
         {
+          "from": 6461965,
+          "type": 3
+        },
+        {
+          "from": 6462655,
+          "type": 3
+        },
+        {
+          "from": 6463108,
+          "type": 3
+        },
+        {
           "from": 6777427,
           "type": 2
         },
         {
+          "from": 6777465,
+          "type": 3
+        },
+        {
+          "from": 6444745,
+          "type": 3
+        },
+        {
           "from": 6777433,
           "type": 2
+        },
+        {
+          "from": 6777477,
+          "type": 3
         }
       ]
     },
@@ -5124,11 +5639,6 @@
           "type": 2
         },
         {
-          "from": 6777188,
-          "offset": 4294967295,
-          "type": 1
-        },
-        {
           "from": 6777202,
           "type": 2
         },
@@ -5143,16 +5653,6 @@
         {
           "from": 6777222,
           "type": 2
-        },
-        {
-          "from": 6777179,
-          "offset": 4294967295,
-          "type": 1
-        },
-        {
-          "from": 6777195,
-          "offset": 4294967295,
-          "type": 1
         },
         {
           "from": 6777242,
@@ -5454,6 +5954,22 @@
       "name": "tagMIDIOUTCAPSA",
       "xrefs": [
         {
+          "from": 7608432,
+          "type": 3
+        },
+        {
+          "from": 7608494,
+          "type": 3
+        },
+        {
+          "from": 7608520,
+          "type": 3
+        },
+        {
+          "from": 7608419,
+          "type": 3
+        },
+        {
           "from": 7608445,
           "offset": 4294967295,
           "type": 1
@@ -5528,11 +6044,6 @@
         {
           "from": 7618776,
           "type": 2
-        },
-        {
-          "from": 7618769,
-          "offset": 4294967295,
-          "type": 1
         },
         {
           "from": 7618783,
@@ -5667,6 +6178,10 @@
           "type": 3
         },
         {
+          "from": 8064607,
+          "type": 3
+        },
+        {
           "from": 8064641,
           "type": 3
         },
@@ -5688,6 +6203,10 @@
         },
         {
           "from": 8068862,
+          "type": 3
+        },
+        {
+          "from": 8068890,
           "type": 3
         },
         {
@@ -6012,16 +6531,6 @@
         {
           "from": 8060326,
           "type": 3
-        },
-        {
-          "from": 4240583,
-          "offset": 4294967295,
-          "type": 1
-        },
-        {
-          "from": 8060311,
-          "offset": 4294967295,
-          "type": 1
         }
       ]
     },
@@ -6060,7 +6569,69 @@
         }
       ],
       "name": "_finddata_t",
-      "xrefs": []
+      "xrefs": [
+        {
+          "from": 6880030,
+          "type": 3
+        },
+        {
+          "from": 6880079,
+          "type": 3
+        },
+        {
+          "from": 6880526,
+          "type": 3
+        },
+        {
+          "from": 6880619,
+          "type": 3
+        },
+        {
+          "from": 6880043,
+          "offset": 4294967295,
+          "type": 1
+        },
+        {
+          "from": 6880092,
+          "offset": 4294967295,
+          "type": 1
+        },
+        {
+          "from": 6880128,
+          "offset": 4294967295,
+          "type": 1
+        },
+        {
+          "from": 6880539,
+          "offset": 4294967295,
+          "type": 1
+        },
+        {
+          "from": 6880558,
+          "offset": 4294967295,
+          "type": 1
+        },
+        {
+          "from": 6880632,
+          "offset": 4294967295,
+          "type": 1
+        },
+        {
+          "from": 6880651,
+          "offset": 4294967295,
+          "type": 1
+        },
+        {
+          "from": 6880709,
+          "offset": 4294967295,
+          "type": 1
+        },
+        {
+          "from": 6880728,
+          "offset": 4294967295,
+          "type": 1
+        }
+      ]
     },
     {
       "idx": 30,
