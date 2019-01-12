@@ -38,18 +38,6 @@
       "sz": 1
     },
     {
-      "address": 8072648,
-      "flags": 536888320,
-      "name": "_rtforatnby0",
-      "sz": 4
-    },
-    {
-      "address": 8072654,
-      "flags": 268452864,
-      "name": "_rtsignpiby2",
-      "sz": 2
-    },
-    {
       "address": 8085504,
       "flags": 542143488,
       "name": "RegDeleteValueA",
@@ -1490,6 +1478,12 @@
       "sz": 4
     },
     {
+      "address": 8102000,
+      "flags": 542135296,
+      "name": "gKernelTablesPtr",
+      "sz": 4
+    },
+    {
       "address": 8110992,
       "flags": 537936896,
       "name": "__ctype",
@@ -1566,6 +1560,12 @@
       "flags": 542135296,
       "name": "BattleContextPtr",
       "sz": 4
+    },
+    {
+      "address": 10083372,
+      "flags": 21504,
+      "name": "gRandomTable",
+      "sz": 1
     },
     {
       "address": 10093880,
@@ -1778,6 +1778,37 @@
       "sz": 1
     },
     {
+      "address": 14390672,
+      "flags": 21504,
+      "name": "gCommandDataTable",
+      "sz": 1
+    },
+    {
+      "address": 14404320,
+      "flags": 21504,
+      "name": "gAccessoryDataTable",
+      "sz": 1
+    },
+    {
+      "address": 14409568,
+      "flags": 1610634240,
+      "name": "gMateriaDataTable",
+      "sz": 2000,
+      "type": "MateriaData"
+    },
+    {
+      "address": 14411568,
+      "flags": 21504,
+      "name": "gWeaponDataTable",
+      "sz": 1
+    },
+    {
+      "address": 14417292,
+      "flags": 21504,
+      "name": "gInitDataTable",
+      "sz": 1
+    },
+    {
       "address": 14420956,
       "flags": 21504,
       "name": "RequiredCD",
@@ -1844,6 +1875,10 @@
   ],
   "functions": [
     {
+      "name": "LoadKernelBin",
+      "start": 4199130
+    },
+    {
       "name": "GetInsertedCD",
       "start": 4213373
     },
@@ -1906,6 +1941,10 @@
     {
       "name": "__forcdecpt",
       "start": 4241808
+    },
+    {
+      "name": "__cropzeros",
+      "start": 4241904
     },
     {
       "name": "__positive",
@@ -2272,6 +2311,10 @@
       "start": 4257008
     },
     {
+      "name": "___endstdio",
+      "start": 4257200
+    },
+    {
       "name": "_wctomb",
       "start": 4257232,
       "type": "int __cdecl _wctomb(char *, wchar_t);"
@@ -2318,6 +2361,10 @@
     {
       "name": "__free_lc_time",
       "start": 4259104
+    },
+    {
+      "name": "_storeTimeFmt",
+      "start": 4259680
     },
     {
       "name": "___init_numeric",
@@ -2668,6 +2715,11 @@
       "name": "_strchr",
       "start": 4279840,
       "type": "char *__cdecl _strchr(const char *, int);"
+    },
+    {
+      "name": "LoadKernelSegment",
+      "start": 4300535,
+      "type": "unsigned __int32 __cdecl LoadKernelSegment(void *dst);"
     },
     {
       "name": "EndBattle?",
@@ -3607,12 +3659,44 @@
       "start": 8070407
     },
     {
+      "name": "__rttospopde",
+      "start": 8070547
+    },
+    {
       "name": "__rttosnpop",
       "start": 8070556
     },
     {
+      "name": "__rtnospopde",
+      "start": 8070557
+    },
+    {
+      "name": "__rtzeropop",
+      "start": 8070564
+    },
+    {
+      "name": "__rtonepop",
+      "start": 8070571
+    },
+    {
+      "name": "__tosnan1",
+      "start": 8070578
+    },
+    {
+      "name": "__nosnan2",
+      "start": 8070621
+    },
+    {
+      "name": "__nan2",
+      "start": 8070663
+    },
+    {
       "name": "__rttosnpopde",
       "start": 8070745
+    },
+    {
+      "name": "__rtchsifneg",
+      "start": 8070755
     },
     {
       "name": "chsifnegret",
@@ -3655,12 +3739,64 @@
       "start": 8071097
     },
     {
+      "name": "fFYTOX",
+      "start": 8071264
+    },
+    {
+      "name": "__rtinfpopse",
+      "start": 8071384
+    },
+    {
+      "name": "__fFLN",
+      "start": 8071402
+    },
+    {
+      "name": "_rtforln0",
+      "start": 8071428
+    },
+    {
+      "name": "_rtforloginf",
+      "start": 8071444
+    },
+    {
+      "name": "fFLOGm",
+      "start": 8071449
+    },
+    {
+      "name": "_rtforyto0",
+      "start": 8071464
+    },
+    {
+      "name": "_rtfor0tox",
+      "start": 8071469
+    },
+    {
       "name": "zerotoxdone",
       "start": 8071495
     },
     {
+      "name": "_rtfor0toneg",
+      "start": 8071496
+    },
+    {
+      "name": "tranzeropop",
+      "start": 8071522
+    },
+    {
+      "name": "tranindfpop",
+      "start": 8071529
+    },
+    {
       "name": "_expbigret",
       "start": 8071570
+    },
+    {
+      "name": "__rtinfpop",
+      "start": 8071583
+    },
+    {
+      "name": "_rtforexpinf",
+      "start": 8071601
     },
     {
       "name": "__ffexpm1",
@@ -3673,6 +3809,10 @@
     {
       "name": "_isintTOSret",
       "start": 8071718
+    },
+    {
+      "name": "_usepowhlp",
+      "start": 8071733
     },
     {
       "name": "noerror",
@@ -3701,8 +3841,16 @@
       "start": 8072604
     },
     {
+      "name": "_rtforatn20",
+      "start": 8072613
+    },
+    {
       "name": "postv",
       "start": 8072629
+    },
+    {
+      "name": "zeronpop",
+      "start": 8072630
     },
     {
       "name": "__cintrindisp2",
@@ -3820,6 +3968,42 @@
       "start": 8076985
     },
     {
+      "name": "unknown_libname_26",
+      "start": 8077004
+    },
+    {
+      "name": "unknown_libname_27",
+      "start": 8077080
+    },
+    {
+      "name": "unknown_libname_28",
+      "start": 8077156
+    },
+    {
+      "name": "unknown_libname_29",
+      "start": 8077208
+    },
+    {
+      "name": "unknown_libname_30",
+      "start": 8077260
+    },
+    {
+      "name": "unknown_libname_31",
+      "start": 8077336
+    },
+    {
+      "name": "unknown_libname_32",
+      "start": 8077412
+    },
+    {
+      "name": "unknown_libname_33",
+      "start": 8077464
+    },
+    {
+      "name": "unknown_libname_34",
+      "start": 8077516
+    },
+    {
       "name": "unknown_libname_35",
       "start": 8077537
     },
@@ -3838,6 +4022,22 @@
     {
       "name": "unknown_libname_39",
       "start": 8078772
+    },
+    {
+      "name": "unknown_libname_40",
+      "start": 8078953
+    },
+    {
+      "name": "unknown_libname_41",
+      "start": 8078959
+    },
+    {
+      "name": "unknown_libname_42",
+      "start": 8078965
+    },
+    {
+      "name": "unknown_libname_43",
+      "start": 8078968
     },
     {
       "name": "__set_exp",
@@ -4281,6 +4481,10 @@
         {
           "from": 8068705,
           "type": 2
+        },
+        {
+          "from": 8068717,
+          "type": 3
         }
       ]
     },
@@ -4356,6 +4560,10 @@
           "from": 8068678,
           "offset": 4294967295,
           "type": 1
+        },
+        {
+          "from": 8068717,
+          "type": 3
         },
         {
           "from": 4241245,
@@ -4832,6 +5040,10 @@
           "type": 3
         },
         {
+          "from": 4261408,
+          "type": 3
+        },
+        {
           "from": 4277938,
           "type": 3
         },
@@ -4854,6 +5066,24 @@
         },
         {
           "from": 4250271,
+          "offset": 4294967295,
+          "type": 1
+        },
+        {
+          "from": 4261436,
+          "type": 3
+        },
+        {
+          "from": 4261444,
+          "offset": 4294967295,
+          "type": 1
+        },
+        {
+          "from": 4261603,
+          "type": 3
+        },
+        {
+          "from": 4261611,
           "offset": 4294967295,
           "type": 1
         },
@@ -4919,11 +5149,153 @@
       "name": "_TIME_ZONE_INFORMATION",
       "xrefs": [
         {
+          "from": 4273859,
+          "type": 3
+        },
+        {
+          "from": 4273983,
+          "offset": 4294967295,
+          "type": 1
+        },
+        {
           "from": 8057065,
           "type": 3
         },
         {
+          "from": 4273892,
+          "type": 3
+        },
+        {
+          "from": 4274782,
+          "type": 3
+        },
+        {
+          "from": 4274792,
+          "type": 3
+        },
+        {
+          "from": 4274799,
+          "type": 3
+        },
+        {
+          "from": 4274812,
+          "type": 3
+        },
+        {
+          "from": 4274821,
+          "type": 3
+        },
+        {
+          "from": 4274828,
+          "type": 3
+        },
+        {
+          "from": 4274850,
+          "type": 3
+        },
+        {
+          "from": 4274857,
+          "type": 3
+        },
+        {
+          "from": 4274875,
+          "type": 3
+        },
+        {
+          "from": 4274883,
+          "type": 3
+        },
+        {
+          "from": 4274897,
+          "type": 3
+        },
+        {
+          "from": 4274906,
+          "type": 3
+        },
+        {
+          "from": 4274914,
+          "type": 3
+        },
+        {
+          "from": 4274934,
+          "type": 3
+        },
+        {
+          "from": 4273864,
+          "type": 3
+        },
+        {
+          "from": 4274004,
+          "offset": 4294967295,
+          "type": 1
+        },
+        {
+          "from": 4273920,
+          "type": 3
+        },
+        {
+          "from": 4274603,
+          "type": 3
+        },
+        {
+          "from": 4274613,
+          "type": 3
+        },
+        {
+          "from": 4274621,
+          "type": 3
+        },
+        {
+          "from": 4274637,
+          "type": 3
+        },
+        {
+          "from": 4274645,
+          "type": 3
+        },
+        {
+          "from": 4274652,
+          "type": 3
+        },
+        {
+          "from": 4274678,
+          "type": 3
+        },
+        {
+          "from": 4274685,
+          "type": 3
+        },
+        {
+          "from": 4274699,
+          "type": 3
+        },
+        {
+          "from": 4274707,
+          "type": 3
+        },
+        {
+          "from": 4274723,
+          "type": 3
+        },
+        {
+          "from": 4274731,
+          "type": 3
+        },
+        {
+          "from": 4274746,
+          "type": 3
+        },
+        {
+          "from": 4274757,
+          "type": 3
+        },
+        {
           "from": 8057054,
+          "type": 3
+        },
+        {
+          "from": 4273929,
           "type": 3
         }
       ]
@@ -4975,7 +5347,127 @@
       "name": "SYSTEMTIME",
       "xrefs": [
         {
+          "from": 4274603,
+          "type": 3
+        },
+        {
+          "from": 4274782,
+          "type": 3
+        },
+        {
+          "from": 4273892,
+          "type": 3
+        },
+        {
+          "from": 4273920,
+          "type": 3
+        },
+        {
+          "from": 4274685,
+          "type": 3
+        },
+        {
+          "from": 4274757,
+          "type": 3
+        },
+        {
+          "from": 4274857,
+          "type": 3
+        },
+        {
+          "from": 4274934,
+          "type": 3
+        },
+        {
           "from": 8057054,
+          "type": 3
+        },
+        {
+          "from": 4274652,
+          "type": 3
+        },
+        {
+          "from": 4274828,
+          "type": 3
+        },
+        {
+          "from": 4274678,
+          "type": 3
+        },
+        {
+          "from": 4274746,
+          "type": 3
+        },
+        {
+          "from": 4274850,
+          "type": 3
+        },
+        {
+          "from": 4274914,
+          "type": 3
+        },
+        {
+          "from": 4274645,
+          "type": 3
+        },
+        {
+          "from": 4274731,
+          "type": 3
+        },
+        {
+          "from": 4274812,
+          "type": 3
+        },
+        {
+          "from": 4274897,
+          "type": 3
+        },
+        {
+          "from": 4274637,
+          "type": 3
+        },
+        {
+          "from": 4274723,
+          "type": 3
+        },
+        {
+          "from": 4274821,
+          "type": 3
+        },
+        {
+          "from": 4274906,
+          "type": 3
+        },
+        {
+          "from": 4274613,
+          "type": 3
+        },
+        {
+          "from": 4274699,
+          "type": 3
+        },
+        {
+          "from": 4274792,
+          "type": 3
+        },
+        {
+          "from": 4274875,
+          "type": 3
+        },
+        {
+          "from": 4274621,
+          "type": 3
+        },
+        {
+          "from": 4274707,
+          "type": 3
+        },
+        {
+          "from": 4274799,
+          "type": 3
+        },
+        {
+          "from": 4274883,
           "type": 3
         }
       ]
@@ -5132,7 +5624,28 @@
         }
       ],
       "name": "tagJOYCAPSA",
-      "xrefs": []
+      "xrefs": [
+        {
+          "from": 4323779,
+          "type": 3
+        },
+        {
+          "from": 4323813,
+          "type": 3
+        },
+        {
+          "from": 4323848,
+          "type": 3
+        },
+        {
+          "from": 4323883,
+          "type": 3
+        },
+        {
+          "from": 4323933,
+          "type": 3
+        }
+      ]
     },
     {
       "idx": 14,
@@ -5160,6 +5673,14 @@
       ],
       "name": "tagRECT",
       "xrefs": [
+        {
+          "from": 6436926,
+          "type": 3
+        },
+        {
+          "from": 6437230,
+          "type": 3
+        },
         {
           "from": 6440641,
           "type": 3
@@ -5234,6 +5755,14 @@
         },
         {
           "from": 6777468,
+          "type": 3
+        },
+        {
+          "from": 6437031,
+          "type": 3
+        },
+        {
+          "from": 6437334,
           "type": 3
         },
         {
@@ -5390,6 +5919,14 @@
         },
         {
           "from": 6777480,
+          "type": 3
+        },
+        {
+          "from": 6436993,
+          "type": 3
+        },
+        {
+          "from": 6437296,
           "type": 3
         },
         {
@@ -6660,7 +7197,15 @@
       "name": "_timeb",
       "xrefs": [
         {
+          "from": 8056465,
+          "type": 3
+        },
+        {
           "from": 8056461,
+          "type": 3
+        },
+        {
+          "from": 8056498,
           "type": 3
         },
         {
@@ -7325,6 +7870,38 @@
         }
       ],
       "name": "AIBattleVars",
+      "xrefs": []
+    },
+    {
+      "idx": 41,
+      "members": [
+        {
+          "name": "apLevel",
+          "offset": 0,
+          "size": 8
+        },
+        {
+          "name": "equipEffect",
+          "offset": 8,
+          "size": 1
+        },
+        {
+          "name": "statusEffect",
+          "offset": 9,
+          "size": 4
+        },
+        {
+          "name": "type",
+          "offset": 13,
+          "size": 1
+        },
+        {
+          "name": "data",
+          "offset": 14,
+          "size": 6
+        }
+      ],
+      "name": "MateriaData",
       "xrefs": []
     }
   ]
