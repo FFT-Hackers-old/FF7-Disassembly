@@ -1803,10 +1803,23 @@
       "sz": 1
     },
     {
+      "address": 14417208,
+      "flags": 536892416,
+      "name": "SavemapChecksum",
+      "sz": 4
+    },
+    {
       "address": 14417292,
       "flags": 21504,
       "name": "gInitDataTable",
       "sz": 1
+    },
+    {
+      "address": 14419124,
+      "flags": 1610634240,
+      "name": "gMateriaInventory",
+      "sz": 800,
+      "type": "Materia"
     },
     {
       "address": 14420956,
@@ -2851,6 +2864,10 @@
       "start": 6061972
     },
     {
+      "name": "SomethingToDoMateriaInventory",
+      "start": 6063341
+    },
+    {
       "name": "copyAttackIndex",
       "start": 6066096
     },
@@ -3080,17 +3097,121 @@
       "start": 7080384
     },
     {
+      "name": "SomethingToDoMateriaInventory2",
+      "start": 7127274
+    },
+    {
+      "name": "SomethingToDoMateriaInventory3",
+      "start": 7127423
+    },
+    {
       "name": "CallsIncrementVTimers",
       "start": 7137459
+    },
+    {
+      "name": "CopySomething",
+      "start": 7294256
+    },
+    {
+      "name": "NopInt32",
+      "start": 7296144
+    },
+    {
+      "name": "SomethingToDoMateriaInventory4",
+      "start": 7333460
+    },
+    {
+      "name": "SomethingToDoMateriaInventory5",
+      "start": 7333829
+    },
+    {
+      "name": "SomethingToDoMateriaInventory6",
+      "start": 7334339
+    },
+    {
+      "name": "SomethingToDoMateriaInventory7",
+      "start": 7384100
+    },
+    {
+      "name": "SomethingToDoMateriaInventory8",
+      "start": 7384619
+    },
+    {
+      "name": "SomethingToDoMateriaInventory9",
+      "start": 7385138
+    },
+    {
+      "name": "SomethingToDoMateriaInventory10",
+      "start": 7388169
+    },
+    {
+      "name": "SomethingToDoMateriaInventory11",
+      "start": 7391066
+    },
+    {
+      "name": "SomethingToDoMateriaInventory12",
+      "start": 7391531
+    },
+    {
+      "name": "SomethingToDoMateriaInventory13",
+      "start": 7393035
+    },
+    {
+      "name": "SomethingToDoMateriaInventory14",
+      "start": 7398058
+    },
+    {
+      "name": "SomethingToDoMateriaInventory15",
+      "start": 7400692
+    },
+    {
+      "name": "SomethingToDoMateriaInventory16",
+      "start": 7402217
+    },
+    {
+      "name": "SomethingToDoMateriaInventory17",
+      "start": 7402974
+    },
+    {
+      "name": "SomethingToDoMateriaInventory18",
+      "start": 7404493
+    },
+    {
+      "name": "SomethingToDoMateriaInventory19",
+      "start": 7437333
+    },
+    {
+      "name": "SomethingToDoMateriaInventory20",
+      "start": 7438294
+    },
+    {
+      "name": "SomethingToDoMateriaInventory21",
+      "start": 7438604
     },
     {
       "name": "__cfltcvt_init_10",
       "start": 7440715
     },
     {
+      "name": "SomethingToDoMateriaInventory22",
+      "start": 7445792
+    },
+    {
+      "name": "SomethingToDoMateriaInventory23",
+      "start": 7449182
+    },
+    {
+      "name": "SomethingToDoMateriaInventory24",
+      "start": 7449251
+    },
+    {
       "name": "?_Get_future_error_what@std@@YAPBDH@Z",
       "start": 7475039,
       "type": "const char *__cdecl ?_Get_future_error_what@std@@YAPBDH@Z(int);"
+    },
+    {
+      "name": "LoadSave",
+      "start": 7475963
     },
     {
       "name": "unknown_libname_14",
@@ -3119,6 +3240,10 @@
     {
       "name": "unknown_libname_19",
       "start": 7549760
+    },
+    {
+      "name": "Breakpoint",
+      "start": 7649919
     },
     {
       "name": "??__E?m_badAllocExceptionPtr@__ExceptionPtr@@0V?$shared_ptr@V__ExceptionPtr@@@std@@A@@YAXXZ",
@@ -7902,6 +8027,23 @@
         }
       ],
       "name": "MateriaData",
+      "xrefs": []
+    },
+    {
+      "idx": 42,
+      "members": [
+        {
+          "name": "id",
+          "offset": 0,
+          "size": 1
+        },
+        {
+          "name": "ap",
+          "offset": 1,
+          "size": 3
+        }
+      ],
+      "name": "Materia",
       "xrefs": []
     }
   ]
