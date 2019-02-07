@@ -1700,6 +1700,12 @@
       "sz": 4
     },
     {
+      "address": 10142548,
+      "flags": 268456960,
+      "name": "itemInventory",
+      "sz": 2
+    },
+    {
       "address": 10144664,
       "flags": 21504,
       "name": "CmdAnimationArray2",
@@ -1803,9 +1809,10 @@
     },
     {
       "address": 14404320,
-      "flags": 21504,
+      "flags": 1610634240,
       "name": "gAccessoryDataTable",
-      "sz": 1
+      "sz": 512,
+      "type": "AccessoryData"
     },
     {
       "address": 14404832,
@@ -19271,6 +19278,10 @@
       "start": 4400775
     },
     {
+      "name": "restrictionMaskRefs",
+      "start": 4403628
+    },
+    {
       "name": "SetElementalData?",
       "start": 4404608
     },
@@ -19388,8 +19399,17 @@
       "start": 6073212
     },
     {
+      "name": "handleAccessorySpecialEffect",
+      "start": 6095511,
+      "type": "__int16 *__cdecl handleAccessorySpecialEffect(int actor, int accessory_id);"
+    },
+    {
       "name": "BattleStatSetup?",
       "start": 6096528
+    },
+    {
+      "name": "RestrictionMaskCheck",
+      "start": 6100256
     },
     {
       "name": "ChooseFormulas",
@@ -19585,6 +19605,18 @@
       "start": 7080384
     },
     {
+      "name": "addEquipmentStatBoosts",
+      "start": 7099483
+    },
+    {
+      "name": "getArmorField",
+      "start": 7125358
+    },
+    {
+      "name": "getAccessoryField",
+      "start": 7125374
+    },
+    {
       "name": "SomethingToDoMateriaInventory2",
       "start": 7127274
     },
@@ -19605,6 +19637,10 @@
       "start": 7296144
     },
     {
+      "name": "HandleMateriaSlot?",
+      "start": 7327045
+    },
+    {
       "name": "SomethingToDoMateriaInventory4",
       "start": 7333460
     },
@@ -19615,6 +19651,20 @@
     {
       "name": "SomethingToDoMateriaInventory6",
       "start": 7334339
+    },
+    {
+      "name": "HandleEquipMain?",
+      "start": 7363862
+    },
+    {
+      "name": "HandleRenderMateriaSlot?",
+      "start": 7370576,
+      "type": "int __cdecl HandleRenderMateriaSlot?(int a1, int a2, int materia_slots_ptr);"
+    },
+    {
+      "name": "ChecksEquipMasks",
+      "start": 7373805,
+      "type": "signed int __cdecl ChecksEquipMasks(int item_type);"
     },
     {
       "name": "SomethingToDoMateriaInventory7",
@@ -57648,6 +57698,10 @@
       "start": 1995498880
     },
     {
+      "name": "",
+      "start": 1996613392
+    },
+    {
       "name": "oleaut32_VarUI2FromStr",
       "start": 1996631536
     },
@@ -86116,6 +86170,68 @@
         }
       ],
       "name": "ArmorData",
+      "xrefs": [
+        {
+          "from": 7098826,
+          "type": 3
+        }
+      ]
+    },
+    {
+      "idx": 44,
+      "members": [
+        {
+          "name": "statToBoost1",
+          "offset": 0,
+          "size": 1
+        },
+        {
+          "name": "statToBoost2",
+          "offset": 1,
+          "size": 1
+        },
+        {
+          "name": "statBoostAmount1",
+          "offset": 2,
+          "size": 1
+        },
+        {
+          "name": "statBoostAmount2",
+          "offset": 3,
+          "size": 1
+        },
+        {
+          "name": "elementInteraction",
+          "offset": 4,
+          "size": 1
+        },
+        {
+          "name": "specialEffect",
+          "offset": 5,
+          "size": 1
+        },
+        {
+          "name": "elementsMask",
+          "offset": 6,
+          "size": 2
+        },
+        {
+          "name": "statDefMask",
+          "offset": 8,
+          "size": 4
+        },
+        {
+          "name": "equipMask",
+          "offset": 12,
+          "size": 2
+        },
+        {
+          "name": "restrictionMask",
+          "offset": 14,
+          "size": 2
+        }
+      ],
+      "name": "AccessoryData",
       "xrefs": []
     }
   ]
