@@ -1574,6 +1574,12 @@
       "sz": 4
     },
     {
+      "address": 9546648,
+      "flags": 542135296,
+      "name": "HandlerPtrTable",
+      "sz": 4
+    },
+    {
       "address": 10079756,
       "flags": 542135296,
       "name": "BattleContextPtr",
@@ -1702,8 +1708,20 @@
     {
       "address": 10142548,
       "flags": 268456960,
-      "name": "itemInventory",
+      "name": "battleInventory",
       "sz": 2
+    },
+    {
+      "address": 10142550,
+      "flags": 21504,
+      "name": "itemquantity",
+      "sz": 1
+    },
+    {
+      "address": 10142552,
+      "flags": 21504,
+      "name": "restrictionMask?",
+      "sz": 1
     },
     {
       "address": 10144664,
@@ -1808,6 +1826,12 @@
       "sz": 1
     },
     {
+      "address": 14394536,
+      "flags": 268456960,
+      "name": "saveMapCharacterHP",
+      "sz": 2
+    },
+    {
       "address": 14404320,
       "flags": 1610634240,
       "name": "gAccessoryDataTable",
@@ -1846,6 +1870,36 @@
       "sz": 1
     },
     {
+      "address": 14417323,
+      "flags": 21504,
+      "name": "characterStatusFlags",
+      "sz": 1
+    },
+    {
+      "address": 14418480,
+      "flags": 21504,
+      "name": "partyMember1",
+      "sz": 1
+    },
+    {
+      "address": 14418481,
+      "flags": 21504,
+      "name": "partyMember2",
+      "sz": 1
+    },
+    {
+      "address": 14418482,
+      "flags": 21504,
+      "name": "partMember3",
+      "sz": 1
+    },
+    {
+      "address": 14418484,
+      "flags": 268456960,
+      "name": "saveMapInventory",
+      "sz": 2
+    },
+    {
       "address": 14419124,
       "flags": 1610634240,
       "name": "gMateriaInventory",
@@ -1857,6 +1911,18 @@
       "flags": 21504,
       "name": "RequiredCD",
       "sz": 1
+    },
+    {
+      "address": 14489576,
+      "flags": 536892416,
+      "name": "menuSpellUserPartyIndex",
+      "sz": 4
+    },
+    {
+      "address": 14490252,
+      "flags": 536892416,
+      "name": "partyMemberIndex?",
+      "sz": 4
     },
     {
       "address": 1656632396,
@@ -19408,7 +19474,7 @@
       "start": 6096528
     },
     {
-      "name": "RestrictionMaskCheck",
+      "name": "initializeBattleInventory",
       "start": 6100256
     },
     {
@@ -19617,6 +19683,25 @@
       "start": 7125374
     },
     {
+      "name": "healCharHPIndex",
+      "start": 7125610,
+      "type": "int __cdecl healCharHPIndex(int partyMemberIndex, __int16 amountToHeal);"
+    },
+    {
+      "name": "healCharMPIndex",
+      "start": 7125951
+    },
+    {
+      "name": "updateSaveMapItem?",
+      "start": 7126623,
+      "type": "signed __int16 __cdecl updateSaveMapItem?(unsigned __int16 encodedItemAndDecrement);"
+    },
+    {
+      "name": "getSMInventoryItemEntry",
+      "start": 7126871,
+      "type": "__int16 __cdecl getSMInventoryItemEntry(__int16 itemID);"
+    },
+    {
       "name": "SomethingToDoMateriaInventory2",
       "start": 7127274
     },
@@ -19715,6 +19800,22 @@
       "start": 7404493
     },
     {
+      "name": "checkHPFull2",
+      "start": 7423384
+    },
+    {
+      "name": "InventoryHandler?",
+      "start": 7426309
+    },
+    {
+      "name": "checkHPFull",
+      "start": 7436479
+    },
+    {
+      "name": "checkMPFull",
+      "start": 7436529
+    },
+    {
       "name": "SomethingToDoMateriaInventory19",
       "start": 7437333
     },
@@ -19778,6 +19879,10 @@
     {
       "name": "unknown_libname_19",
       "start": 7549760
+    },
+    {
+      "name": "playMenuSound?",
+      "start": 7624714
     },
     {
       "name": "??__E?m_badAllocExceptionPtr@__ExceptionPtr@@0V?$shared_ptr@V__ExceptionPtr@@@std@@A@@YAXXZ",
