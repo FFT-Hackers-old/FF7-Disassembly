@@ -1949,6 +1949,12 @@
       "sz": 4
     },
     {
+      "address": 14490196,
+      "flags": 536892416,
+      "name": "relItemIndex",
+      "sz": 4
+    },
+    {
       "address": 14490252,
       "flags": 536892416,
       "name": "partyMemberIndex?",
@@ -19756,6 +19762,11 @@
     {
       "name": "CopySomething",
       "start": 7294256
+    },
+    {
+      "name": "handleCursorPositionUpdate",
+      "start": 7294386,
+      "type": "void __cdecl handleCursorPositionUpdate(_DWORD *menuCursorContextPtr);"
     },
     {
       "name": "receivedCancelInput?",
