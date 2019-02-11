@@ -1913,6 +1913,12 @@
       "type": "Materia"
     },
     {
+      "address": 14420188,
+      "flags": 268456960,
+      "name": "memoryBanksAddressBase",
+      "sz": 2
+    },
+    {
       "address": 14420956,
       "flags": 21504,
       "name": "RequiredCD",
@@ -1937,9 +1943,15 @@
       "sz": 4
     },
     {
+      "address": 14490064,
+      "flags": 21504,
+      "name": "keyItemsInventory",
+      "sz": 1
+    },
+    {
       "address": 14490136,
       "flags": 536892416,
-      "name": "InventoryCursorPosition?",
+      "name": "inventoryCursorPosition",
       "sz": 4
     },
     {
@@ -1951,13 +1963,31 @@
     {
       "address": 14490196,
       "flags": 536892416,
-      "name": "relItemIndex",
+      "name": "relativeItemIndex",
       "sz": 4
     },
     {
       "address": 14490252,
       "flags": 536892416,
       "name": "partyMemberIndex?",
+      "sz": 4
+    },
+    {
+      "address": 14490304,
+      "flags": 536892416,
+      "name": "columnIndex",
+      "sz": 4
+    },
+    {
+      "address": 14490308,
+      "flags": 536892416,
+      "name": "rowIndex",
+      "sz": 4
+    },
+    {
+      "address": 14490324,
+      "flags": 536892416,
+      "name": "firstVisableRow",
       "sz": 4
     },
     {
@@ -19333,6 +19363,11 @@
       "type": "char *__cdecl _strchr(const char *, int);"
     },
     {
+      "name": "fetchTextFromArray",
+      "start": 4298300,
+      "type": "void **__cdecl fetchTextFromArray(unsigned int a1, signed int indexIntoTextArray, int a3);"
+    },
+    {
       "name": "LoadKernelSegment",
       "start": 4300535,
       "type": "unsigned __int32 __cdecl LoadKernelSegment(void *dst);"
@@ -19376,6 +19411,10 @@
     {
       "name": "CopyCommandAnimationDataForScript",
       "start": 4377593
+    },
+    {
+      "name": "EndBattleHandler?",
+      "start": 4394448
     },
     {
       "name": "IncrementTimers",
@@ -19613,8 +19652,21 @@
       "start": 6318756
     },
     {
+      "name": "fetchValueFromBank?",
+      "start": 6354768
+    },
+    {
+      "name": "readFieldMapVariable",
+      "start": 6356332,
+      "type": "__int16 __cdecl readFieldMapVariable(__int16 saveMapBank, __int16 variable);"
+    },
+    {
       "name": "unknown_libname_1",
       "start": 6359009
+    },
+    {
+      "name": "IncrementItemPickedUpOnField",
+      "start": 6415929
     },
     {
       "name": "unknown_libname_2",
@@ -19738,14 +19790,18 @@
       "start": 7125951
     },
     {
-      "name": "updateSaveMapItem?",
+      "name": "handleDecrementInventoryQuantity",
       "start": 7126623,
-      "type": "signed __int16 __cdecl updateSaveMapItem?(unsigned __int16 encodedItemAndDecrement);"
+      "type": "signed __int16 __cdecl handleDecrementInventoryQuantity(unsigned __int16 encodedItemAndDecrement);"
     },
     {
       "name": "getSMInventoryItemEntry",
       "start": 7126871,
       "type": "__int16 __cdecl getSMInventoryItemEntry(__int16 itemID);"
+    },
+    {
+      "name": "handleIncrementInventoryQuantity",
+      "start": 7127034
     },
     {
       "name": "SomethingToDoMateriaInventory2",
@@ -19873,7 +19929,7 @@
       "type": "signed __int16 __cdecl sortInventory(char saveMapPtr, unsigned int inventorySize, int (__cdecl sortInventory *func1)(int, int, char *), void (__cdecl sortInventory *func2)(int, int, char *));"
     },
     {
-      "name": "InventoryHandler?",
+      "name": "InventoryMenuHandler",
       "start": 7426309
     },
     {
