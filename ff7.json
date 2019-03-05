@@ -1580,6 +1580,36 @@
       "sz": 4
     },
     {
+      "address": 9561520,
+      "flags": 536892416,
+      "name": "battleBoxFloatArray",
+      "sz": 4
+    },
+    {
+      "address": 9561656,
+      "flags": 542135296,
+      "name": "battleMenuCursorStructSetters",
+      "sz": 4
+    },
+    {
+      "address": 9561784,
+      "flags": 542135296,
+      "name": "battleMenuInputHandlers",
+      "sz": 4
+    },
+    {
+      "address": 9564056,
+      "flags": 268456960,
+      "name": "previousBattleMenuState",
+      "sz": 2
+    },
+    {
+      "address": 9564060,
+      "flags": 268456960,
+      "name": "setToChangeBattleView",
+      "sz": 2
+    },
+    {
       "address": 9572256,
       "flags": 536892416,
       "name": "MateriaMenuState",
@@ -1716,6 +1746,12 @@
       "flags": 536892416,
       "name": "ActorFlags",
       "sz": 4
+    },
+    {
+      "address": 10141968,
+      "flags": 21504,
+      "name": "numberOfItemsHalved",
+      "sz": 1
     },
     {
       "address": 10142548,
@@ -1892,6 +1928,20 @@
       "sz": 2
     },
     {
+      "address": 14394784,
+      "flags": 1610634240,
+      "name": "EnabledMagics",
+      "sz": 448,
+      "type": "enabledSpellData"
+    },
+    {
+      "address": 14395232,
+      "flags": 1610634240,
+      "name": "summonData",
+      "sz": 128,
+      "type": "enabledSpellData"
+    },
+    {
       "address": 14404320,
       "flags": 1610634240,
       "name": "gAccessoryDataTable",
@@ -1993,6 +2043,30 @@
       "sz": 1
     },
     {
+      "address": 14426216,
+      "flags": 21504,
+      "name": "handlerStateArray",
+      "sz": 1
+    },
+    {
+      "address": 14431792,
+      "flags": 536892416,
+      "name": "PtrToBattleMenuArrays",
+      "sz": 4
+    },
+    {
+      "address": 14433396,
+      "flags": 21504,
+      "name": "commandTriggerIndex",
+      "sz": 1
+    },
+    {
+      "address": 14433404,
+      "flags": 21504,
+      "name": "currentlyActingPartyMemberIndex",
+      "sz": 1
+    },
+    {
       "address": 14489144,
       "flags": 536892416,
       "name": "matMenuActivePartyMemberIndex",
@@ -2043,7 +2117,7 @@
     {
       "address": 14490192,
       "flags": 536892416,
-      "name": "SecondArrayItem",
+      "name": "mainInventoryCursorData",
       "sz": 4
     },
     {
@@ -19482,7 +19556,8 @@
     },
     {
       "name": "runAnimationScript",
-      "start": 4324260
+      "start": 4324260,
+      "type": "char __cdecl runAnimationScript(__int16 actor_id, int ptr_to_script);"
     },
     {
       "name": "ProcessesMagicAnimCallback",
@@ -19537,6 +19612,15 @@
       "start": 4405698
     },
     {
+      "name": "useInBattleItem?",
+      "start": 4409705
+    },
+    {
+      "name": "decrementBattleInventoryItem",
+      "start": 4409984,
+      "type": "__int16 __cdecl decrementBattleInventoryItem(int inventory_index);"
+    },
+    {
       "name": "PoisonDamageCallback",
       "start": 4410800
     },
@@ -19584,6 +19668,21 @@
       "name": "_is_wctype",
       "start": 4420348,
       "type": "int __cdecl _is_wctype(wint_t, wctype_t);"
+    },
+    {
+      "name": "updateCommandsActive",
+      "start": 4421241,
+      "type": "void __cdecl updateCommandsActive(signed int currentlyActingPartyMemberIndex, int commandIndex);"
+    },
+    {
+      "name": "checkSpellCommandEnabled",
+      "start": 4421652,
+      "type": "signed int __cdecl checkSpellCommandEnabled(int currentlyActingPartyMemberIndex, __int16 actingCurrentMemberStatusMask, int startingOffset, int lengthOfRange);"
+    },
+    {
+      "name": "checkCommandsEnabled",
+      "start": 4422078,
+      "type": "int __cdecl checkCommandsEnabled(signed int partyMemberIndex, __int16 partyMemberStatusMask);"
     },
     {
       "name": "__cfltcvt_init_5",
@@ -19878,6 +19977,14 @@
       "type": "__int16 __cdecl display_hp_and_status(int a1, int a2, int party_member_id, int a4);"
     },
     {
+      "name": "EndBattleMenuHandler",
+      "start": 7105328
+    },
+    {
+      "name": "ExperienceGainMenu?",
+      "start": 7109460
+    },
+    {
       "name": "getArmorField",
       "start": 7125358
     },
@@ -19917,11 +20024,112 @@
       "start": 7127423
     },
     {
-      "name": "CallsIncrementVTimers",
+      "name": "dispatchBattleUpdates",
       "start": 7137459
     },
     {
-      "name": "CopySomething",
+      "name": "enableHandlerListen",
+      "start": 7146233,
+      "type": "int __cdecl enableHandlerListen(__int16 a1, __int16 a2, __int16 handler_index);"
+    },
+    {
+      "name": "renderBattleCommandMenus",
+      "start": 7174524
+    },
+    {
+      "name": "drawBattleMenuBoxes",
+      "start": 7176274,
+      "type": "int __cdecl drawBattleMenuBoxes(int a1, __int16 battleMenuHandlerIndex);"
+    },
+    {
+      "name": "renderBattleMenuMain",
+      "start": 7176938,
+      "type": "char __cdecl renderBattleMenuMain(int a1, __int16 battleMenuHandlerIndex);"
+    },
+    {
+      "name": "defaultCursorStruct",
+      "start": 7179376
+    },
+    {
+      "name": "setCommandMenuCursorStruct",
+      "start": 7180520
+    },
+    {
+      "name": "chooseBattleMenuCommands",
+      "start": 7180794
+    },
+    {
+      "name": "itemViewCursorInit",
+      "start": 7182380
+    },
+    {
+      "name": "battleItemMenuInputHandler",
+      "start": 7182563
+    },
+    {
+      "name": "magicViewCursorInit",
+      "start": 7183061
+    },
+    {
+      "name": "battleMagicViewInputHandler",
+      "start": 7183256
+    },
+    {
+      "name": "summonViewCursorInit",
+      "start": 7184303
+    },
+    {
+      "name": "battleSummonViewInputHandler",
+      "start": 7184498
+    },
+    {
+      "name": "enemySkillBattleMenuHandler",
+      "start": 7185320
+    },
+    {
+      "name": "BattleMenuHandler",
+      "start": 7188718
+    },
+    {
+      "name": "DisplayBaseBattleMenu",
+      "start": 7196737
+    },
+    {
+      "name": "renderItemsBattleView",
+      "start": 7203838
+    },
+    {
+      "name": "renderItemTypeIcon",
+      "start": 7204592,
+      "type": "int __cdecl renderItemTypeIcon(signed int a1, signed int a2, signed int a3, int a4, float a5);"
+    },
+    {
+      "name": "renderExtraSpellStuff",
+      "start": 7208037
+    },
+    {
+      "name": "renderEnemySkillBattleMenu",
+      "start": 7211451
+    },
+    {
+      "name": "handleAttackCommandExecuted",
+      "start": 7232594
+    },
+    {
+      "name": "mainBattleInputHandler",
+      "start": 7234193
+    },
+    {
+      "name": "setMenuBoxStruct",
+      "start": 7240609
+    },
+    {
+      "name": "drawMenuBox",
+      "start": 7240992,
+      "type": "signed __int16 *__cdecl drawMenuBox(signed __int16 *struct_pointer, int a2);"
+    },
+    {
+      "name": "initializeCursorStruct",
       "start": 7294256
     },
     {
@@ -19942,6 +20150,20 @@
       "start": 7296144
     },
     {
+      "name": "displayTextAtLocation",
+      "start": 7297795,
+      "type": "__int16(int a1, int a2, const char *string_to_display, unsigned __int8 a4, int a5, ...);"
+    },
+    {
+      "name": "renderSideScroller",
+      "start": 7303792,
+      "type": "int __cdecl renderSideScroller(int global_menu_size, float a2);"
+    },
+    {
+      "name": "renderNumbers",
+      "start": 7313209
+    },
+    {
       "name": "HandleMateriaSlot?",
       "start": 7327045
     },
@@ -19958,6 +20180,18 @@
       "start": 7334339
     },
     {
+      "name": "SaveGameHandler",
+      "start": 7335344
+    },
+    {
+      "name": "PHSHandler",
+      "start": 7343248
+    },
+    {
+      "name": "LimitBreakMenuHandler",
+      "start": 7348522
+    },
+    {
       "name": "HandleEquipMain?",
       "start": 7363862
     },
@@ -19970,6 +20204,10 @@
       "name": "ChecksEquipMasks",
       "start": 7373805,
       "type": "signed int __cdecl ChecksEquipMasks(int item_type);"
+    },
+    {
+      "name": "MateriaMenuEnemySkillHandler",
+      "start": 7379515
     },
     {
       "name": "SomethingToDoMateriaInventory7",
@@ -20036,6 +20274,10 @@
       "name": "sortInventory",
       "start": 7423837,
       "type": "signed __int16 __cdecl sortInventory(char saveMapPtr, unsigned int inventorySize, int (__cdecl sortInventory *func1)(int, int, char *), void (__cdecl sortInventory *func2)(int, int, char *));"
+    },
+    {
+      "name": "onEnterInventory",
+      "start": 7425778
     },
     {
       "name": "getItemIsUsable",
@@ -21751,10 +21993,6 @@
     {
       "name": "nvoglv32_DrvPresentBuffers",
       "start": 1774793040
-    },
-    {
-      "name": "sxs_SxsFindClrSurrogateInformation",
-      "start": 1777568000
     },
     {
       "name": "j_nullsub_35",
@@ -24985,10 +25223,6 @@
       "start": 1948591472
     },
     {
-      "name": "shlwapi_Ordinal478",
-      "start": 1948592720
-    },
-    {
       "name": "cryptbase_SystemFunction040",
       "start": 1948592768
     },
@@ -25023,10 +25257,6 @@
     {
       "name": "sspicli_LsaCallAuthenticationPackage",
       "start": 1948666352
-    },
-    {
-      "name": "shlwapi_Ordinal201",
-      "start": 1948674944
     },
     {
       "name": "sspicli_SspiLocalFree",
@@ -25155,10 +25385,6 @@
     {
       "name": "sspicli_SeciFreeCallContext",
       "start": 1948743200
-    },
-    {
-      "name": "shlwapi_Ordinal332",
-      "start": 1948743376
     },
     {
       "name": "sspicli_LogonUserExExW",
@@ -25407,10 +25633,6 @@
     {
       "name": "crypt32_CryptFreeOIDFunctionAddress",
       "start": 1948985888
-    },
-    {
-      "name": "imm32_ImmGetCandidateWindow",
-      "start": 1948986896
     },
     {
       "name": "crypt32_CryptMsgOpenToDecode",
@@ -28649,10 +28871,6 @@
       "start": 1954713328
     },
     {
-      "name": "setupapi_SetupDiLoadClassIcon",
-      "start": 1954768464
-    },
-    {
       "name": "shell32_SHRestricted",
       "start": 1954774016
     },
@@ -28697,14 +28915,6 @@
       "start": 1954827024
     },
     {
-      "name": "setupapi_SetupDiGetClassPropertyKeysExW",
-      "start": 1954830224
-    },
-    {
-      "name": "setupapi_SetupDiOpenClassRegKey",
-      "start": 1954831856
-    },
-    {
       "name": "shell32_SHChangeNotifyRegisterThread",
       "start": 1954884176
     },
@@ -28739,10 +28949,6 @@
     {
       "name": "shell32_Ordinal792",
       "start": 1954925904
-    },
-    {
-      "name": "setupapi_SetupRemoveInstallSectionFromDiskSpaceListA",
-      "start": 1954927232
     },
     {
       "name": "shell32_SHCreateItemWithParent",
@@ -28897,10 +29103,6 @@
       "start": 1955094736
     },
     {
-      "name": "setupapi_SetupUninstallOEMInfW",
-      "start": 1955094928
-    },
-    {
       "name": "shell32_SHCloneSpecialIDList",
       "start": 1955095184
     },
@@ -28917,16 +29119,8 @@
       "start": 1955100256
     },
     {
-      "name": "setupapi_SetupQueryInfOriginalFileInformationA",
-      "start": 1955102960
-    },
-    {
       "name": "shell32_Ordinal257",
       "start": 1955105072
-    },
-    {
-      "name": "setupapi_SetupVerifyInfFileW",
-      "start": 1955105392
     },
     {
       "name": "shell32_DllRegisterServer",
@@ -28969,14 +29163,6 @@
       "start": 1955108112
     },
     {
-      "name": "setupapi_SetupGetSourceInfoW",
-      "start": 1955108288
-    },
-    {
-      "name": "setupapi_SetupGetLineTextA",
-      "start": 1955108832
-    },
-    {
       "name": "shell32_Ordinal65",
       "start": 1955109056
     },
@@ -28985,48 +29171,8 @@
       "start": 1955110128
     },
     {
-      "name": "setupapi_SetupGetMultiSzFieldA",
-      "start": 1955110688
-    },
-    {
-      "name": "setupapi_SetupGetMultiSzFieldW",
-      "start": 1955111552
-    },
-    {
-      "name": "setupapi_pSetupDoLastKnownGoodBackup",
-      "start": 1955112272
-    },
-    {
       "name": "shell32_Ordinal683",
       "start": 1955113904
-    },
-    {
-      "name": "setupapi_SetupLogErrorA",
-      "start": 1955115104
-    },
-    {
-      "name": "setupapi_pSetupOutOfMemory",
-      "start": 1955118064
-    },
-    {
-      "name": "setupapi_pSetupCenterWindowRelativeToParent",
-      "start": 1955120208
-    },
-    {
-      "name": "setupapi_SetupAddToSourceListA",
-      "start": 1955120576
-    },
-    {
-      "name": "setupapi_SetupAddToSourceListW",
-      "start": 1955120752
-    },
-    {
-      "name": "setupapi_SetupCancelTemporarySourceList",
-      "start": 1955120928
-    },
-    {
-      "name": "setupapi_SetupQuerySourceListW",
-      "start": 1955121792
     },
     {
       "name": "shell32_OpenAs_RunDLL",
@@ -29253,14 +29399,6 @@
       "start": 1955162383
     },
     {
-      "name": "setupapi_pSetupInfGetDigitalSignatureInfo",
-      "start": 1955169184
-    },
-    {
-      "name": "setupapi_pSetupInstallCatalog",
-      "start": 1955169888
-    },
-    {
       "name": "shell32_Ordinal660",
       "start": 1955189680
     },
@@ -29319,38 +29457,6 @@
     {
       "name": "j_msvcrt_memset_13",
       "start": 1955239440
-    },
-    {
-      "name": "setupapi_CMP_WaitServicesAvailable",
-      "start": 1955277328
-    },
-    {
-      "name": "setupapi_CM_Add_Empty_Log_Conf",
-      "start": 1955277440
-    },
-    {
-      "name": "setupapi_CM_Find_Range",
-      "start": 1955279632
-    },
-    {
-      "name": "setupapi_CM_Get_Class_Key_Name_ExA",
-      "start": 1955280320
-    },
-    {
-      "name": "setupapi_CM_Get_Resource_Conflict_DetailsW",
-      "start": 1955284848
-    },
-    {
-      "name": "setupapi_CM_Request_Device_EjectW",
-      "start": 1955288080
-    },
-    {
-      "name": "setupapi_CM_Uninstall_DevNode",
-      "start": 1955289584
-    },
-    {
-      "name": "setupapi_CM_Unregister_Device_InterfaceW",
-      "start": 1955289776
     },
     {
       "name": "shell32_SHCreateStdEnumFmtEtc",
@@ -29781,14 +29887,6 @@
       "start": 1958079712
     },
     {
-      "name": "kernelbase_PathCchStripToRoot",
-      "start": 1973955744
-    },
-    {
-      "name": "kernelbase_GetMUIStringFromCache",
-      "start": 1973955936
-    },
-    {
       "name": "shcore_SHStrDupA",
       "start": 1973956464
     },
@@ -29817,14 +29915,6 @@
       "start": 1973962416
     },
     {
-      "name": "kernelbase_StrCmpICA",
-      "start": 1973963328
-    },
-    {
-      "name": "kernelbase_TlsGetValue",
-      "start": 1973963408
-    },
-    {
       "name": "shcore_Ordinal173",
       "start": 1973967632
     },
@@ -29835,10 +29925,6 @@
     {
       "name": "shcore_Ordinal120",
       "start": 1973968000
-    },
-    {
-      "name": "kernelbase_StrChrA_MB",
-      "start": 1973968512
     },
     {
       "name": "shcore_Ordinal174",
@@ -29873,14 +29959,6 @@
       "start": 1973977232
     },
     {
-      "name": "kernelbase_VirtualProtect",
-      "start": 1973979632
-    },
-    {
-      "name": "kernelbase_GetModuleFileNameA",
-      "start": 1973979712
-    },
-    {
       "name": "shcore_Ordinal186",
       "start": 1973983040
     },
@@ -29893,20 +29971,12 @@
       "start": 1973985408
     },
     {
-      "name": "kernelbase_OpenProcessToken",
-      "start": 1973985664
-    },
-    {
       "name": "shcore_Ordinal162",
       "start": 1973985920
     },
     {
       "name": "shcore_Ordinal172",
       "start": 1973986128
-    },
-    {
-      "name": "kernelbase_StrToIntW",
-      "start": 1973988096
     },
     {
       "name": "shcore_Ordinal1",
@@ -29997,44 +30067,8 @@
       "start": 1974007840
     },
     {
-      "name": "kernelbase_FreeLibraryAndExitThread",
-      "start": 1974012224
-    },
-    {
-      "name": "kernelbase_FreeSid",
-      "start": 1974012704
-    },
-    {
-      "name": "kernelbase_GetLogicalDriveStringsW",
-      "start": 1974013184
-    },
-    {
-      "name": "kernelbase_IsValidLocaleName",
-      "start": 1974015088
-    },
-    {
-      "name": "kernelbase_AccessCheckByType",
-      "start": 1974016704
-    },
-    {
-      "name": "kernelbase_IsThreadAFiber",
-      "start": 1974017344
-    },
-    {
-      "name": "kernelbase_GetSecurityDescriptorLength",
-      "start": 1974018240
-    },
-    {
-      "name": "kernelbase_GetAclInformation",
-      "start": 1974019088
-    },
-    {
       "name": "shcore_CreateRandomAccessStreamOverStream",
       "start": 1974020176
-    },
-    {
-      "name": "kernelbase_CreateIoCompletionPort",
-      "start": 1974032256
     },
     {
       "name": "shcore_Ordinal104",
@@ -30269,266 +30303,6 @@
       "start": 1974157081
     },
     {
-      "name": "kernelbase_QueryFullProcessImageNameA",
-      "start": 1974167184
-    },
-    {
-      "name": "kernelbase_GetFileVersionInfoByHandle",
-      "start": 1974167536
-    },
-    {
-      "name": "kernelbase_VerFindFileA",
-      "start": 1974169664
-    },
-    {
-      "name": "kernelbase_AreThereVisibleLogoffScriptsInternal",
-      "start": 1974170144
-    },
-    {
-      "name": "kernelbase_AreThereVisibleShutdownScriptsInternal",
-      "start": 1974170192
-    },
-    {
-      "name": "kernelbase_EnterCriticalPolicySectionInternal",
-      "start": 1974170240
-    },
-    {
-      "name": "kernelbase_ForceSyncFgPolicyInternal",
-      "start": 1974170288
-    },
-    {
-      "name": "kernelbase_FreeGPOListInternalA",
-      "start": 1974170336
-    },
-    {
-      "name": "kernelbase_FreeGPOListInternalW",
-      "start": 1974170384
-    },
-    {
-      "name": "kernelbase_GenerateGPNotificationInternal",
-      "start": 1974170432
-    },
-    {
-      "name": "kernelbase_GetAppliedGPOListInternalA",
-      "start": 1974170480
-    },
-    {
-      "name": "kernelbase_GetAppliedGPOListInternalW",
-      "start": 1974170528
-    },
-    {
-      "name": "kernelbase_GetGPOListInternalA",
-      "start": 1974170576
-    },
-    {
-      "name": "kernelbase_GetGPOListInternalW",
-      "start": 1974170624
-    },
-    {
-      "name": "kernelbase_GetNextFgPolicyRefreshInfoInternal",
-      "start": 1974170672
-    },
-    {
-      "name": "kernelbase_GetPreviousFgPolicyRefreshInfoInternal",
-      "start": 1974170720
-    },
-    {
-      "name": "kernelbase_HasPolicyForegroundProcessingCompletedInternal",
-      "start": 1974170768
-    },
-    {
-      "name": "kernelbase_IsSyncForegroundPolicyRefresh",
-      "start": 1974170816
-    },
-    {
-      "name": "kernelbase_LeaveCriticalPolicySectionInternal",
-      "start": 1974170864
-    },
-    {
-      "name": "kernelbase_RefreshPolicyExInternal",
-      "start": 1974170912
-    },
-    {
-      "name": "kernelbase_RefreshPolicyInternal",
-      "start": 1974170960
-    },
-    {
-      "name": "kernelbase_RsopLoggingEnabledInternal",
-      "start": 1974171008
-    },
-    {
-      "name": "kernelbase_WaitForMachinePolicyForegroundProcessingInternal",
-      "start": 1974171040
-    },
-    {
-      "name": "kernelbase_WaitForUserPolicyForegroundProcessingInternal",
-      "start": 1974171088
-    },
-    {
-      "name": "kernelbase_VerFindFileW",
-      "start": 1974171696
-    },
-    {
-      "name": "kernelbase_DsBindWithSpnExW",
-      "start": 1974172512
-    },
-    {
-      "name": "kernelbase_DsCrackNamesW",
-      "start": 1974172560
-    },
-    {
-      "name": "kernelbase_DsFreeDomainControllerInfoW",
-      "start": 1974172608
-    },
-    {
-      "name": "kernelbase_DsFreeNameResultW",
-      "start": 1974172640
-    },
-    {
-      "name": "kernelbase_DsFreeNgcKey",
-      "start": 1974172672
-    },
-    {
-      "name": "kernelbase_DsFreePasswordCredentials",
-      "start": 1974172704
-    },
-    {
-      "name": "kernelbase_DsGetDomainControllerInfoW",
-      "start": 1974172736
-    },
-    {
-      "name": "kernelbase_DsMakePasswordCredentialsW",
-      "start": 1974172784
-    },
-    {
-      "name": "kernelbase_DsReadNgcKeyW",
-      "start": 1974172832
-    },
-    {
-      "name": "kernelbase_DsUnBindW",
-      "start": 1974172880
-    },
-    {
-      "name": "kernelbase_DsWriteNgcKeyW",
-      "start": 1974172928
-    },
-    {
-      "name": "kernelbase_ZombifyActCtx",
-      "start": 1974172976
-    },
-    {
-      "name": "kernelbase_BaseCheckAppcompatCache",
-      "start": 1974173024
-    },
-    {
-      "name": "kernelbase_BaseCheckAppcompatCacheEx",
-      "start": 1974173056
-    },
-    {
-      "name": "kernelbase_BaseCleanupAppcompatCacheSupport",
-      "start": 1974173088
-    },
-    {
-      "name": "kernelbase_BaseDumpAppcompatCache",
-      "start": 1974173120
-    },
-    {
-      "name": "kernelbase_BaseFlushAppcompatCache",
-      "start": 1974173152
-    },
-    {
-      "name": "kernelbase_BaseFreeAppCompatDataForProcess",
-      "start": 1974173184
-    },
-    {
-      "name": "kernelbase_BaseInitAppcompatCacheSupport",
-      "start": 1974173216
-    },
-    {
-      "name": "kernelbase_BaseReadAppCompatDataForProcess",
-      "start": 1974173248
-    },
-    {
-      "name": "kernelbase_BaseUpdateAppcompatCache",
-      "start": 1974173280
-    },
-    {
-      "name": "kernelbase_GetApplicationRecoveryCallback",
-      "start": 1974173312
-    },
-    {
-      "name": "kernelbase_GetApplicationRestartSettings",
-      "start": 1974173456
-    },
-    {
-      "name": "kernelbase_WerRegisterAdditionalProcess",
-      "start": 1974173488
-    },
-    {
-      "name": "kernelbase_WerRegisterAppLocalDump",
-      "start": 1974173520
-    },
-    {
-      "name": "kernelbase_WerRegisterCustomMetadata",
-      "start": 1974173552
-    },
-    {
-      "name": "kernelbase_WerRegisterExcludedMemoryBlock",
-      "start": 1974173584
-    },
-    {
-      "name": "kernelbase_WerUnregisterAdditionalProcess",
-      "start": 1974173616
-    },
-    {
-      "name": "kernelbase_WerUnregisterAppLocalDump",
-      "start": 1974173648
-    },
-    {
-      "name": "kernelbase_WerUnregisterCustomMetadata",
-      "start": 1974173664
-    },
-    {
-      "name": "kernelbase_WerUnregisterExcludedMemoryBlock",
-      "start": 1974173696
-    },
-    {
-      "name": "kernelbase_WerUnregisterRuntimeExceptionModule",
-      "start": 1974173728
-    },
-    {
-      "name": "kernelbase_IsCharUpperW",
-      "start": 1974173760
-    },
-    {
-      "name": "kernelbase_CharNextExA",
-      "start": 1974173840
-    },
-    {
-      "name": "kernelbase_CharPrevExA",
-      "start": 1974173904
-    },
-    {
-      "name": "kernelbase_IsCharAlphaA",
-      "start": 1974174000
-    },
-    {
-      "name": "kernelbase_IsCharAlphaNumericA",
-      "start": 1974174128
-    },
-    {
-      "name": "kernelbase_IsCharLowerA",
-      "start": 1974174272
-    },
-    {
-      "name": "kernelbase_IsCharUpperA",
-      "start": 1974174384
-    },
-    {
-      "name": "kernelbase_EnumSystemLanguageGroupsW",
-      "start": 1974230784
-    },
-    {
       "name": "j_kernelbase_DebugBreak_6",
       "start": 1974236192
     },
@@ -30557,148 +30331,12 @@
       "start": 1974250016
     },
     {
-      "name": "kernelbase_GetUILanguageInfo",
-      "start": 1974252800
-    },
-    {
-      "name": "kernelbase_EnumSystemGeoID",
-      "start": 1974261952
-    },
-    {
-      "name": "kernelbase_GetGeoInfoW",
-      "start": 1974262592
-    },
-    {
-      "name": "kernelbase_SetUserGeoID",
-      "start": 1974264032
-    },
-    {
-      "name": "kernelbase_IsNLSDefinedString",
-      "start": 1974265744
-    },
-    {
-      "name": "kernelbase_QueryThreadpoolStackInformation",
-      "start": 1974269104
-    },
-    {
-      "name": "kernelbase_SetThreadpoolStackInformation",
-      "start": 1974269152
-    },
-    {
-      "name": "kernelbase_ExpungeConsoleCommandHistoryA",
-      "start": 1974271456
-    },
-    {
-      "name": "kernelbase_GetConsoleInputExeNameA",
-      "start": 1974272976
-    },
-    {
-      "name": "kernelbase_SetConsoleTitleW",
-      "start": 1974274448
-    },
-    {
-      "name": "kernelbase_FillConsoleOutputCharacterW",
-      "start": 1974276784
-    },
-    {
-      "name": "kernelbase_FlushConsoleInputBuffer",
-      "start": 1974279760
-    },
-    {
-      "name": "kernelbase_GetConsoleSelectionInfo",
-      "start": 1974280832
-    },
-    {
-      "name": "kernelbase_SetConsoleOutputCP",
-      "start": 1974282272
-    },
-    {
-      "name": "kernelbase_PathFindExtensionA",
-      "start": 1974288592
-    },
-    {
-      "name": "kernelbase_PathFindFileNameA",
-      "start": 1974288656
-    },
-    {
-      "name": "kernelbase_PathIsUNCA",
-      "start": 1974288800
-    },
-    {
-      "name": "kernelbase_PathIsUNCServerShareA",
-      "start": 1974288928
-    },
-    {
-      "name": "kernelbase_RegKrnGetHKEY_ClassesRootAddress",
-      "start": 1974294912
-    },
-    {
-      "name": "kernelbase_RegKrnSetDllHasThreadStateGlobal",
-      "start": 1974294960
-    },
-    {
-      "name": "kernelbase_RegFlushKey",
-      "start": 1974295056
-    },
-    {
-      "name": "kernelbase_RegLoadKeyA",
-      "start": 1974298416
-    },
-    {
-      "name": "kernelbase_RegRestoreKeyW",
-      "start": 1974302560
-    },
-    {
-      "name": "kernelbase_DelayLoadFailureHookLookup",
-      "start": 1974304096
-    },
-    {
-      "name": "kernelbase_PssQuerySnapshot",
-      "start": 1974304880
-    },
-    {
-      "name": "kernelbase_K32GetDeviceDriverBaseNameW",
-      "start": 1974308512
-    },
-    {
-      "name": "kernelbase_GetPerformanceInfo",
-      "start": 1974309376
-    },
-    {
       "name": "shcore_SHOpenRegStream2A",
       "start": 1974318176
     },
     {
       "name": "shcore_Ordinal103",
       "start": 1974318880
-    },
-    {
-      "name": "kernelbase_GetSharedLocalFolder",
-      "start": 1974325232
-    },
-    {
-      "name": "kernelbase_GetStateContainerDepth",
-      "start": 1974325392
-    },
-    {
-      "name": "kernelbase_OpenState",
-      "start": 1974326704
-    },
-    {
-      "name": "kernelbase_ReadStateContainerValue",
-      "start": 1974328320
-    },
-    {
-      "name": "kernelbase_SaveStateRootFolderPath",
-      "start": 1974329120
-    },
-    {
-      "name": "kernelbase_UnsubscribeStateChangeNotification",
-      "start": 1974329968
-    },
-    {
-      "name": "kernelbase_WriteStateAtomValue",
-      "start": 1974330096
     },
     {
       "name": "shcore_Ordinal116",
@@ -30791,10 +30429,6 @@
     {
       "name": "shlwapi_Ordinal268",
       "start": 1974544192
-    },
-    {
-      "name": "kernelbase_SetProcessAffinityUpdateMode",
-      "start": 1974544288
     },
     {
       "name": "shlwapi_Ordinal544",
@@ -30911,10 +30545,6 @@
     {
       "name": "shlwapi_Ordinal471",
       "start": 1974556992
-    },
-    {
-      "name": "kernelbase_RaiseFailFastException",
-      "start": 1974557264
     },
     {
       "name": "shlwapi_Ordinal635",
@@ -31225,442 +30855,6 @@
       "start": 1974675744
     },
     {
-      "name": "user32_GetPointerDevice",
-      "start": 1975175568
-    },
-    {
-      "name": "user32_GetPointerDeviceProperties",
-      "start": 1975175600
-    },
-    {
-      "name": "user32_GetPointerDevices",
-      "start": 1975175632
-    },
-    {
-      "name": "user32_GetPointerInputTransform",
-      "start": 1975175664
-    },
-    {
-      "name": "user32_GetRawInputDeviceList",
-      "start": 1975175776
-    },
-    {
-      "name": "user32_GetRawPointerDeviceData",
-      "start": 1975175792
-    },
-    {
-      "name": "user32_GetRegisteredRawInputDevices",
-      "start": 1975175808
-    },
-    {
-      "name": "user32_Ordinal2614",
-      "start": 1975175824
-    },
-    {
-      "name": "user32_GetSystemDpiForProcess",
-      "start": 1975175856
-    },
-    {
-      "name": "user32_GetThreadDesktop",
-      "start": 1975175888
-    },
-    {
-      "name": "user32_GetTopLevelWindow",
-      "start": 1975175920
-    },
-    {
-      "name": "user32_GetUserObjectInformationW",
-      "start": 1975175952
-    },
-    {
-      "name": "user32_GetWindowCompositionAttribute",
-      "start": 1975175984
-    },
-    {
-      "name": "user32_GetWindowFeedbackSetting",
-      "start": 1975176048
-    },
-    {
-      "name": "user32_GetWindowMinimizeRect",
-      "start": 1975176080
-    },
-    {
-      "name": "user32_GetWindowProcessHandle",
-      "start": 1975176112
-    },
-    {
-      "name": "user32_GhostWindowFromHungWindow",
-      "start": 1975176144
-    },
-    {
-      "name": "user32_Ordinal2539",
-      "start": 1975176176
-    },
-    {
-      "name": "user32_HungWindowFromGhostWindow",
-      "start": 1975176208
-    },
-    {
-      "name": "user32_InheritWindowMonitor",
-      "start": 1975176240
-    },
-    {
-      "name": "user32_InitializeInputDeviceInjection",
-      "start": 1975176272
-    },
-    {
-      "name": "user32_InitializePointerDeviceInjectionEx",
-      "start": 1975176304
-    },
-    {
-      "name": "user32_InjectDeviceInput",
-      "start": 1975176336
-    },
-    {
-      "name": "user32_InjectKeyboardInput",
-      "start": 1975176368
-    },
-    {
-      "name": "user32_InjectPointerInput",
-      "start": 1975176400
-    },
-    {
-      "name": "user32_Ordinal2593",
-      "start": 1975176432
-    },
-    {
-      "name": "user32_InvalidateRgn",
-      "start": 1975176464
-    },
-    {
-      "name": "user32_Ordinal2705",
-      "start": 1975176480
-    },
-    {
-      "name": "user32_IsMouseInPointerEnabled",
-      "start": 1975176496
-    },
-    {
-      "name": "user32_Ordinal2520",
-      "start": 1975176512
-    },
-    {
-      "name": "user32_Ordinal2703",
-      "start": 1975176528
-    },
-    {
-      "name": "user32_IsOneCoreTransformMode",
-      "start": 1975176544
-    },
-    {
-      "name": "user32_Ordinal2617",
-      "start": 1975176560
-    },
-    {
-      "name": "user32_Ordinal2706",
-      "start": 1975176608
-    },
-    {
-      "name": "user32_Ordinal2538",
-      "start": 1975176656
-    },
-    {
-      "name": "user32_LockWindowUpdate",
-      "start": 1975176688
-    },
-    {
-      "name": "user32_Ordinal2715",
-      "start": 1975176720
-    },
-    {
-      "name": "user32_MapVisualRelativePoints",
-      "start": 1975176768
-    },
-    {
-      "name": "user32_OpenInputDesktop",
-      "start": 1975176832
-    },
-    {
-      "name": "user32_OpenThreadDesktop",
-      "start": 1975176848
-    },
-    {
-      "name": "user32_PaintMenuBar",
-      "start": 1975176864
-    },
-    {
-      "name": "user32_PaintMonitor",
-      "start": 1975176880
-    },
-    {
-      "name": "user32_Ordinal2716",
-      "start": 1975176896
-    },
-    {
-      "name": "user32_PhysicalToLogicalPoint",
-      "start": 1975176912
-    },
-    {
-      "name": "user32_PhysicalToLogicalPointForPerMonitorDPI",
-      "start": 1975176928
-    },
-    {
-      "name": "user32_PrintWindow",
-      "start": 1975176944
-    },
-    {
-      "name": "user32_Ordinal2608",
-      "start": 1975176960
-    },
-    {
-      "name": "user32_RedrawWindow",
-      "start": 1975177040
-    },
-    {
-      "name": "user32_RegisterBSDRWindow",
-      "start": 1975177056
-    },
-    {
-      "name": "user32_RegisterErrorReportingDialog",
-      "start": 1975177088
-    },
-    {
-      "name": "user32_RegisterPointerDeviceNotifications",
-      "start": 1975177120
-    },
-    {
-      "name": "user32_RegisterRawInputDevices",
-      "start": 1975177136
-    },
-    {
-      "name": "user32_RegisterServicesProcess",
-      "start": 1975177152
-    },
-    {
-      "name": "user32_RegisterSessionPort",
-      "start": 1975177168
-    },
-    {
-      "name": "user32_RegisterTasklist",
-      "start": 1975177200
-    },
-    {
-      "name": "user32_Ordinal2546",
-      "start": 1975177232
-    },
-    {
-      "name": "user32_ReleaseDwmHitTestWaiters",
-      "start": 1975177248
-    },
-    {
-      "name": "user32_RemoveInjectionDevice",
-      "start": 1975177264
-    },
-    {
-      "name": "user32_ReportInertia",
-      "start": 1975177296
-    },
-    {
-      "name": "user32_ResolveDesktopForWOW",
-      "start": 1975177328
-    },
-    {
-      "name": "user32_SendInput",
-      "start": 1975177360
-    },
-    {
-      "name": "user32_Ordinal2556",
-      "start": 1975177392
-    },
-    {
-      "name": "user32_SetActiveWindow",
-      "start": 1975177424
-    },
-    {
-      "name": "user32_Ordinal2627",
-      "start": 1975177456
-    },
-    {
-      "name": "user32_Ordinal2522",
-      "start": 1975177472
-    },
-    {
-      "name": "user32_Ordinal2531",
-      "start": 1975177488
-    },
-    {
-      "name": "user32_SetCapture",
-      "start": 1975177504
-    },
-    {
-      "name": "user32_Ordinal2005",
-      "start": 1975177520
-    },
-    {
-      "name": "user32_SetClassWord",
-      "start": 1975177536
-    },
-    {
-      "name": "user32_SetCoreWindow",
-      "start": 1975177568
-    },
-    {
-      "name": "user32_SetCursorContents",
-      "start": 1975177600
-    },
-    {
-      "name": "user32_SetDesktopColorTransform",
-      "start": 1975177616
-    },
-    {
-      "name": "user32_SetDialogControlDpiChangeBehavior",
-      "start": 1975177632
-    },
-    {
-      "name": "user32_Ordinal2625",
-      "start": 1975177648
-    },
-    {
-      "name": "user32_SetDisplayAutoRotationPreferences",
-      "start": 1975177664
-    },
-    {
-      "name": "user32_Ordinal2532",
-      "start": 1975177680
-    },
-    {
-      "name": "user32_Ordinal2511",
-      "start": 1975177696
-    },
-    {
-      "name": "user32_SetFocus",
-      "start": 1975177728
-    },
-    {
-      "name": "user32_Ordinal2592",
-      "start": 1975177760
-    },
-    {
-      "name": "user32_Ordinal2594",
-      "start": 1975177776
-    },
-    {
-      "name": "user32_SetInternalWindowPos",
-      "start": 1975177792
-    },
-    {
-      "name": "user32_SetKeyboardState",
-      "start": 1975177808
-    },
-    {
-      "name": "user32_SetLayeredWindowAttributes",
-      "start": 1975177824
-    },
-    {
-      "name": "user32_Ordinal2624",
-      "start": 1975177904
-    },
-    {
-      "name": "user32_Ordinal2622",
-      "start": 1975178016
-    },
-    {
-      "name": "user32_SetThreadInputBlocked",
-      "start": 1975178032
-    },
-    {
-      "name": "user32_Ordinal2566",
-      "start": 1975178048
-    },
-    {
-      "name": "user32_SetWindowFeedbackSetting",
-      "start": 1975178112
-    },
-    {
-      "name": "user32_SetWindowPlacement",
-      "start": 1975178144
-    },
-    {
-      "name": "user32_Ordinal2579",
-      "start": 1975178176
-    },
-    {
-      "name": "user32_SetWindowWord",
-      "start": 1975178192
-    },
-    {
-      "name": "user32_ShowScrollBar",
-      "start": 1975178224
-    },
-    {
-      "name": "user32_ShowSystemCursor",
-      "start": 1975178240
-    },
-    {
-      "name": "user32_ShowWindow",
-      "start": 1975178256
-    },
-    {
-      "name": "user32_ShutdownBlockReasonDestroy",
-      "start": 1975178288
-    },
-    {
-      "name": "user32_SignalRedirectionStartComplete",
-      "start": 1975178320
-    },
-    {
-      "name": "user32_Ordinal2010",
-      "start": 1975178352
-    },
-    {
-      "name": "user32_TrackMouseEvent",
-      "start": 1975178384
-    },
-    {
-      "name": "user32_UndelegateInput",
-      "start": 1975178416
-    },
-    {
-      "name": "user32_UnlockWindowStation",
-      "start": 1975178448
-    },
-    {
-      "name": "user32_UnregisterSessionPort",
-      "start": 1975178480
-    },
-    {
-      "name": "user32_UnregisterUserApiHook",
-      "start": 1975178496
-    },
-    {
-      "name": "user32_UpdateDefaultDesktopThumbnail",
-      "start": 1975178512
-    },
-    {
-      "name": "user32_UpdateWindowInputSinkHints",
-      "start": 1975178528
-    },
-    {
-      "name": "user32_Ordinal2585",
-      "start": 1975178544
-    },
-    {
-      "name": "user32_ValidateRect",
-      "start": 1975178576
-    },
-    {
-      "name": "user32_Ordinal2530",
-      "start": 1975178592
-    },
-    {
-      "name": "user32_WaitMessage",
-      "start": 1975178624
-    },
-    {
-      "name": "user32_WindowFromPhysicalPoint",
-      "start": 1975178656
-    },
-    {
       "name": "combase_RoFailFastWithErrorContextInternal2",
       "start": 1975181488
     },
@@ -31817,14 +31011,6 @@
       "start": 1975289248
     },
     {
-      "name": "user32_EnumPropsExA",
-      "start": 1975289344
-    },
-    {
-      "name": "user32_Ordinal2506",
-      "start": 1975290944
-    },
-    {
       "name": "combase_CoGetTreatAsClass",
       "start": 1975294176
     },
@@ -31841,24 +31027,12 @@
       "start": 1975315520
     },
     {
-      "name": "user32_DdeUninitialize",
-      "start": 1975325536
-    },
-    {
       "name": "combase_CStdStubBuffer_Invoke",
       "start": 1975325568
     },
     {
       "name": "combase_HMONITOR_UserFree",
       "start": 1975330848
-    },
-    {
-      "name": "user32_PackDDElParam",
-      "start": 1975330896
-    },
-    {
-      "name": "user32_ReuseDDElParam",
-      "start": 1975331008
     },
     {
       "name": "combase_NdrExtStubInitialize",
@@ -31871,10 +31045,6 @@
     {
       "name": "combase_CStdStubBuffer_AddRef",
       "start": 1975363472
-    },
-    {
-      "name": "user32_PrivateExtractIconExA",
-      "start": 1975363616
     },
     {
       "name": "combase_RoGetAgileReference",
@@ -31891,58 +31061,6 @@
     {
       "name": "combase_CoMarshalInterface",
       "start": 1975377472
-    },
-    {
-      "name": "user32_MITSynthesizeMouseInput",
-      "start": 1975430256
-    },
-    {
-      "name": "user32_IsCharAlphaNumericW",
-      "start": 1975460496
-    },
-    {
-      "name": "user32_IsCharLowerW",
-      "start": 1975460592
-    },
-    {
-      "name": "user32_CreateWindowStationW",
-      "start": 1975471568
-    },
-    {
-      "name": "user32_Ordinal2600",
-      "start": 1975472032
-    },
-    {
-      "name": "user32_GetKeyboardType",
-      "start": 1975472288
-    },
-    {
-      "name": "user32_GetWinStationInfo",
-      "start": 1975472944
-    },
-    {
-      "name": "user32_GrayStringW",
-      "start": 1975473184
-    },
-    {
-      "name": "user32_Ordinal2599",
-      "start": 1975473232
-    },
-    {
-      "name": "user32_Ordinal2565",
-      "start": 1975473296
-    },
-    {
-      "name": "user32_NotifyOverlayWindow",
-      "start": 1975473872
-    },
-    {
-      "name": "user32_Ordinal2619",
-      "start": 1975503888
-    },
-    {
-      "name": "user32_SetDisplayConfig",
-      "start": 1975503984
     },
     {
       "name": "combase_CoCreateFreeThreadedMarshaler",
@@ -33097,10 +32215,6 @@
       "start": 1977520512
     },
     {
-      "name": "shell32_SHELL32_IconOverlayManagerInit",
-      "start": 1977522112
-    },
-    {
       "name": "msctf_TextInputClientWrapperCreate",
       "start": 1977538064
     },
@@ -33359,30 +32473,6 @@
     {
       "name": "msctf_TF_MapCompatibleKeyboardTip",
       "start": 1977820288
-    },
-    {
-      "name": "shell32_Ordinal20",
-      "start": 1977821472
-    },
-    {
-      "name": "shell32_ILCombine",
-      "start": 1977823248
-    },
-    {
-      "name": "shell32_SHGetDataFromIDListW",
-      "start": 1978001808
-    },
-    {
-      "name": "shell32_Ordinal244",
-      "start": 1978018192
-    },
-    {
-      "name": "shell32_SHELL32_IconCache_DoneExtractingIcons",
-      "start": 1978023920
-    },
-    {
-      "name": "shell32_SHELL32_IconCacheDestroy",
-      "start": 1978028240
     },
     {
       "name": "msvcrt_atof_l",
@@ -38957,10 +38047,6 @@
       "start": 1981055962
     },
     {
-      "name": "shell32_SHELL32_SendToMenu_InvokeTargetedCommand",
-      "start": 1981056192
-    },
-    {
       "name": "powrprof_PowerGeneralizePlatformSettings",
       "start": 1981056288
     },
@@ -39587,10 +38673,6 @@
     {
       "name": "ole32_DdeBindToObject",
       "start": 1981751520
-    },
-    {
-      "name": "shell32_Ordinal523",
-      "start": 1981769040
     },
     {
       "name": "ole32_OleCreateEx",
@@ -60177,10 +59259,6 @@
       "start": 1996955856
     },
     {
-      "name": "ole32_OleUninitialize",
-      "start": 1996958528
-    },
-    {
       "name": "oleaut32_GetAltMonthNames",
       "start": 1996963104
     },
@@ -60319,10 +59397,6 @@
     {
       "name": "oleaut32_VarTokenizeFormatString",
       "start": 1997012512
-    },
-    {
-      "name": "ole32_CoUnloadingWOW",
-      "start": 1997027856
     },
     {
       "name": "wintrust_CryptCATGetMemberInfo",
@@ -60687,10 +59761,6 @@
     {
       "name": "wintrust_mssip32DllUnregisterServer",
       "start": 1997391808
-    },
-    {
-      "name": "ole32_OleTranslateAccelerator",
-      "start": 1997403360
     },
     {
       "name": "wintrust_OpenPersonalTrustDBDialogEx",
@@ -61797,14 +60867,6 @@
       "start": 1997869856
     },
     {
-      "name": "msvcp_win_std::basic_ios<unsigned short,std::char_traits<unsigned short> >::`vftable'",
-      "start": 1997870308
-    },
-    {
-      "name": "msvcp_win_std::time_base::`vftable'",
-      "start": 1997870512
-    },
-    {
       "name": "ucrtbase__BuildCatchObject",
       "start": 1997872768
     },
@@ -62389,68 +61451,12 @@
       "start": 1998565424
     },
     {
-      "name": "wow64_Wow64KiUserCallbackDispatcher",
-      "start": 1999720592
-    },
-    {
       "name": "j_combase_CoTaskMemFree",
       "start": 2000682448
     },
     {
       "name": "j_kernelbase_RegCloseKey",
       "start": 2000751424
-    },
-    {
-      "name": "ntdll_LdrGetProcedureAddressEx",
-      "start": 2000770256
-    },
-    {
-      "name": "ntdll_RtlIpv6StringToAddressExA",
-      "start": 2000780416
-    },
-    {
-      "name": "ntdll_RtlGetPersistedStateLocation",
-      "start": 2000781120
-    },
-    {
-      "name": "ntdll_RtlGuardCheckLongJumpTarget",
-      "start": 2000797040
-    },
-    {
-      "name": "ntdll_TpSetPoolThreadBasePriority",
-      "start": 2000798448
-    },
-    {
-      "name": "ntdll_RtlDispatchAPC",
-      "start": 2000799840
-    },
-    {
-      "name": "ntdll_RtlLockHeap",
-      "start": 2000832896
-    },
-    {
-      "name": "ntdll_RtlImageNtHeader",
-      "start": 2000857936
-    },
-    {
-      "name": "ntdll_TpSetTimer",
-      "start": 2000956160
-    },
-    {
-      "name": "ntdll_TpWaitForTimer",
-      "start": 2000963328
-    },
-    {
-      "name": "ntdll_LdrUnloadAlternateResourceModule",
-      "start": 2000991664
-    },
-    {
-      "name": "ntdll_RtlFlsAlloc",
-      "start": 2001001216
-    },
-    {
-      "name": "ntdll_RtlCreateUnicodeStringFromAsciiz",
-      "start": 2001003664
     },
     {
       "name": "j_msvcrt__CxxFrameHandler_8",
@@ -62625,52 +61631,8 @@
       "start": 2001015781
     },
     {
-      "name": "ntdll_RtlFormatMessageEx",
-      "start": 2001019184
-    },
-    {
       "name": "j_ntdll_ApiSetQueryApiSetPresence_13",
       "start": 2001019653
-    },
-    {
-      "name": "ntdll_RtlQueryPackageIdentity",
-      "start": 2001020288
-    },
-    {
-      "name": "ntdll_RtlFreeThreadActivationContextStack",
-      "start": 2001024928
-    },
-    {
-      "name": "ntdll_RtlAreBitsSet",
-      "start": 2001027392
-    },
-    {
-      "name": "ntdll_CsrClientConnectToServer",
-      "start": 2001038480
-    },
-    {
-      "name": "ntdll_NtWriteVirtualMemory",
-      "start": 2001054832
-    },
-    {
-      "name": "ntdll_isalnum",
-      "start": 2001067968
-    },
-    {
-      "name": "ntdll_isdigit",
-      "start": 2001068112
-    },
-    {
-      "name": "ntdll_isprint",
-      "start": 2001068256
-    },
-    {
-      "name": "ntdll_isupper",
-      "start": 2001068400
-    },
-    {
-      "name": "ntdll_wcsncat_s",
-      "start": 2001110672
     },
     {
       "name": "____alloca_probe_16",
@@ -62695,294 +61657,6 @@
     {
       "name": "j_msvcrt_memcmp_8",
       "start": 2001269847
-    },
-    {
-      "name": "ntdll_RtlDoesFileExists_U",
-      "start": 2001287808
-    },
-    {
-      "name": "ntdll_RtlDosLongPathNameToNtPathName_U_WithStatus",
-      "start": 2001287840
-    },
-    {
-      "name": "ntdll_RtlDosLongPathNameToRelativeNtPathName_U_WithStatus",
-      "start": 2001287888
-    },
-    {
-      "name": "ntdll_RtlDosSearchPath_U",
-      "start": 2001287936
-    },
-    {
-      "name": "ntdll_DbgUiConnectToDbg",
-      "start": 2001289152
-    },
-    {
-      "name": "ntdll_DbgUiDebugActiveProcess",
-      "start": 2001289840
-    },
-    {
-      "name": "ntdll_DbgUiGetThreadDebugObject",
-      "start": 2001289920
-    },
-    {
-      "name": "ntdll_DbgUiIssueRemoteBreakin",
-      "start": 2001289952
-    },
-    {
-      "name": "ntdll_DbgUiSetThreadDebugObject",
-      "start": 2001290128
-    },
-    {
-      "name": "ntdll_LdrCreateEnclave",
-      "start": 2001290256
-    },
-    {
-      "name": "ntdll_RtlSetEnvironmentStrings",
-      "start": 2001290608
-    },
-    {
-      "name": "ntdll_RtlGetThreadErrorMode",
-      "start": 2001292112
-    },
-    {
-      "name": "ntdll_RtlGetFrame",
-      "start": 2001292208
-    },
-    {
-      "name": "ntdll_RtlPopFrame",
-      "start": 2001292240
-    },
-    {
-      "name": "ntdll_RtlPushFrame",
-      "start": 2001292288
-    },
-    {
-      "name": "ntdll_LdrFastFailInLoaderCallout",
-      "start": 2001293104
-    },
-    {
-      "name": "ntdll_LdrGetFailureData",
-      "start": 2001293152
-    },
-    {
-      "name": "ntdll_LdrQueryModuleServiceTags",
-      "start": 2001293472
-    },
-    {
-      "name": "ntdll_LdrQueryProcessModuleInformation",
-      "start": 2001293632
-    },
-    {
-      "name": "ntdll_LdrVerifyImageMatchesChecksum",
-      "start": 2001295056
-    },
-    {
-      "name": "ntdll_LdrVerifyImageMatchesChecksumEx",
-      "start": 2001295168
-    },
-    {
-      "name": "ntdll_RtlGetUnloadEventTrace",
-      "start": 2001296320
-    },
-    {
-      "name": "ntdll_RtlGetUnloadEventTraceEx",
-      "start": 2001296336
-    },
-    {
-      "name": "ntdll_LdrQueryOptionalDelayLoadedAPI",
-      "start": 2001296496
-    },
-    {
-      "name": "ntdll_RtlCreateUserSecurityObject",
-      "start": 2001321136
-    },
-    {
-      "name": "ntdll_RtlNewInstanceSecurityObject",
-      "start": 2001321984
-    },
-    {
-      "name": "ntdll_RtlNewSecurityGrantedAccess",
-      "start": 2001322176
-    },
-    {
-      "name": "ntdll_RtlNewSecurityObjectWithMultipleInheritance",
-      "start": 2001322432
-    },
-    {
-      "name": "ntdll_RtlQuerySecurityObject",
-      "start": 2001322480
-    },
-    {
-      "name": "ntdll_RtlSetSecurityObject",
-      "start": 2001323136
-    },
-    {
-      "name": "ntdll_RtlDeCommitDebugInfo",
-      "start": 2001323840
-    },
-    {
-      "name": "ntdll_RtlDestroyQueryDebugBuffer",
-      "start": 2001323872
-    },
-    {
-      "name": "ntdll_RtlWow64GetSharedInfoProcess",
-      "start": 2001338176
-    },
-    {
-      "name": "ntdll_RtlWow64IsWowGuestMachineSupported",
-      "start": 2001338272
-    },
-    {
-      "name": "ntdll_RtlWow64PopAllCrossProcessWork",
-      "start": 2001338480
-    },
-    {
-      "name": "ntdll_RtlWow64PopCrossProcessWork",
-      "start": 2001338656
-    },
-    {
-      "name": "ntdll_RtlWow64PushCrossProcessWork",
-      "start": 2001338768
-    },
-    {
-      "name": "ntdll_RtlReportSqmEscalation",
-      "start": 2001340976
-    },
-    {
-      "name": "ntdll_RtlWerpReportException",
-      "start": 2001341648
-    },
-    {
-      "name": "ntdll_LdrSetDefaultDllDirectories",
-      "start": 2001350272
-    },
-    {
-      "name": "ntdll_RtlComputeImportTableHash",
-      "start": 2001356240
-    },
-    {
-      "name": "ntdll_CsrAllocateCaptureBuffer",
-      "start": 2001356688
-    },
-    {
-      "name": "ntdll_CsrAllocateMessagePointer",
-      "start": 2001356704
-    },
-    {
-      "name": "ntdll_CsrCaptureMessageBuffer",
-      "start": 2001356720
-    },
-    {
-      "name": "ntdll_CsrCaptureMessageMultiUnicodeStringsInPlace",
-      "start": 2001356736
-    },
-    {
-      "name": "ntdll_CsrCaptureMessageString",
-      "start": 2001356880
-    },
-    {
-      "name": "ntdll_CsrCaptureTimeout",
-      "start": 2001356960
-    },
-    {
-      "name": "ntdll_AlpcFreeCompletionListMessage",
-      "start": 2001357360
-    },
-    {
-      "name": "ntdll_AlpcRundownCompletionList",
-      "start": 2001358288
-    },
-    {
-      "name": "ntdll_RtlNormalizeProcessParams",
-      "start": 2001363072
-    },
-    {
-      "name": "ntdll_LdrOpenImageFileOptionsKey",
-      "start": 2001363232
-    },
-    {
-      "name": "ntdll_RtlQueryImageMitigationPolicy",
-      "start": 2001363392
-    },
-    {
-      "name": "ntdll_RtlSetImageMitigationPolicy",
-      "start": 2001365936
-    },
-    {
-      "name": "ntdll_RtlTestProtectedAccess",
-      "start": 2001369648
-    },
-    {
-      "name": "ntdll_RtlQueryModuleInformation",
-      "start": 2001372000
-    },
-    {
-      "name": "ntdll_RtlInitCodePageTable",
-      "start": 2001377248
-    },
-    {
-      "name": "ntdll_RtlResetRtlTranslations",
-      "start": 2001377536
-    },
-    {
-      "name": "ntdll_RtlGetInterruptTimePrecise",
-      "start": 2001379424
-    },
-    {
-      "name": "ntdll_NtGetTickCount",
-      "start": 2001379696
-    },
-    {
-      "name": "ntdll_RtlLocalTimeToSystemTime",
-      "start": 2001379808
-    },
-    {
-      "name": "ntdll_RtlSecondsSince1980ToTime",
-      "start": 2001379968
-    },
-    {
-      "name": "ntdll_RtlTimeToSecondsSince1970",
-      "start": 2001380240
-    },
-    {
-      "name": "ntdll_RtlTimeToSecondsSince1980",
-      "start": 2001380320
-    },
-    {
-      "name": "ntdll_PfxFindPrefix",
-      "start": 2001380848
-    },
-    {
-      "name": "ntdll_RtlInitializeRXact",
-      "start": 2001382560
-    },
-    {
-      "name": "ntdll_RtlAreAllAccessesGranted",
-      "start": 2001384224
-    },
-    {
-      "name": "ntdll_RtlCopySidAndAttributesArray",
-      "start": 2001384480
-    },
-    {
-      "name": "ntdll_RtlCreateVirtualAccountSid",
-      "start": 2001384624
-    },
-    {
-      "name": "ntdll_RtlEqualLuid",
-      "start": 2001384848
-    },
-    {
-      "name": "ntdll_RtlEraseUnicodeString",
-      "start": 2001384896
-    },
-    {
-      "name": "ntdll_RtlGetAppContainerSidType",
-      "start": 2001385136
-    },
-    {
-      "name": "ntdll_RtlIsUntrustedObject",
-      "start": 2001385712
     },
     {
       "name": "SEH_772CE47E",
@@ -88411,6 +87085,48 @@
     },
     {
       "idx": 46,
+      "members": [
+        {
+          "name": "spellID",
+          "offset": 0,
+          "size": 1
+        },
+        {
+          "name": "mpCost",
+          "offset": 1,
+          "size": 1
+        },
+        {
+          "name": "allCount",
+          "offset": 2,
+          "size": 1
+        },
+        {
+          "name": "quadEnabled",
+          "offset": 3,
+          "size": 1
+        },
+        {
+          "name": "quadCount",
+          "offset": 4,
+          "size": 1
+        },
+        {
+          "name": "target_data",
+          "offset": 5,
+          "size": 1
+        },
+        {
+          "name": "specialProperties",
+          "offset": 6,
+          "size": 2
+        }
+      ],
+      "name": "enabledSpellData",
+      "xrefs": []
+    },
+    {
+      "idx": 47,
       "members": [
         {
           "name": "statToBoost1",
