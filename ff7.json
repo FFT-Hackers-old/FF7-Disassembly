@@ -1666,7 +1666,7 @@
     {
       "address": 10079756,
       "flags": 542135296,
-      "name": "BattleContextPtr",
+      "name": "battleContextPtr",
       "sz": 4
     },
     {
@@ -1676,10 +1676,70 @@
       "sz": 1
     },
     {
+      "address": 10083628,
+      "flags": 21504,
+      "name": "kernelSceneLookUp",
+      "sz": 1
+    },
+    {
+      "address": 10085128,
+      "flags": 536892416,
+      "name": "damageContextStruct",
+      "sz": 4
+    },
+    {
       "address": 10093880,
       "flags": 536892416,
       "name": "InsertedCD",
       "sz": 4
+    },
+    {
+      "address": 10127176,
+      "flags": 268456960,
+      "name": "enemyIDs",
+      "sz": 2
+    },
+    {
+      "address": 10127184,
+      "flags": 268456960,
+      "name": "setupData",
+      "sz": 2
+    },
+    {
+      "address": 10127204,
+      "flags": 268456960,
+      "name": "cameraData",
+      "sz": 2
+    },
+    {
+      "address": 10127252,
+      "flags": 268456960,
+      "name": "formationData",
+      "sz": 2
+    },
+    {
+      "address": 10127254,
+      "flags": 268456960,
+      "name": "enemyXLoc",
+      "sz": 2
+    },
+    {
+      "address": 10127256,
+      "flags": 268456960,
+      "name": "enemyYLoc",
+      "sz": 2
+    },
+    {
+      "address": 10127258,
+      "flags": 268456960,
+      "name": "enemyZLoc",
+      "sz": 2
+    },
+    {
+      "address": 10127348,
+      "flags": 21504,
+      "name": "characterID",
+      "sz": 1
     },
     {
       "address": 10128144,
@@ -1712,6 +1772,18 @@
       "sz": 1
     },
     {
+      "address": 10129052,
+      "flags": 21504,
+      "name": "sceneEnemyData",
+      "sz": 1
+    },
+    {
+      "address": 10130500,
+      "flags": 268456960,
+      "name": "sceneActionIDs",
+      "sz": 2
+    },
+    {
       "address": 10131588,
       "flags": 536892416,
       "name": "poppedCommand",
@@ -1722,6 +1794,12 @@
       "flags": 536892416,
       "name": "ActionQueueLowBytes",
       "sz": 4
+    },
+    {
+      "address": 10132732,
+      "flags": 268456960,
+      "name": "sceneAIData",
+      "sz": 2
     },
     {
       "address": 10136830,
@@ -1812,6 +1890,24 @@
       "flags": 21504,
       "name": "CommandIndexCopy2",
       "sz": 1
+    },
+    {
+      "address": 10148460,
+      "flags": 536892416,
+      "name": "currentScenePtr",
+      "sz": 4
+    },
+    {
+      "address": 10148476,
+      "flags": 536892416,
+      "name": "destinationPtr",
+      "sz": 4
+    },
+    {
+      "address": 10148484,
+      "flags": 536892416,
+      "name": "currentByteCtr",
+      "sz": 4
     },
     {
       "address": 10150528,
@@ -1910,9 +2006,33 @@
       "sz": 1
     },
     {
+      "address": 12529180,
+      "flags": 21504,
+      "name": "isTargetingAll",
+      "sz": 1
+    },
+    {
       "address": 12609712,
       "flags": 536892416,
       "name": "ActorDataPtr",
+      "sz": 4
+    },
+    {
+      "address": 12609976,
+      "flags": 536892416,
+      "name": "blockRelativeIndex",
+      "sz": 4
+    },
+    {
+      "address": 12841776,
+      "flags": 536892416,
+      "name": "battleContextPtr2",
+      "sz": 4
+    },
+    {
+      "address": 12841780,
+      "flags": 536892416,
+      "name": "executingScriptPtr",
       "sz": 4
     },
     {
@@ -1986,6 +2106,12 @@
       "flags": 268456960,
       "name": "counterActionChance",
       "sz": 2
+    },
+    {
+      "address": 14394692,
+      "flags": 21504,
+      "name": "enabledLimits",
+      "sz": 1
     },
     {
       "address": 14394784,
@@ -18923,7 +19049,8 @@
   "functions": [
     {
       "name": "LoadKernelBin",
-      "start": 4199130
+      "start": 4199130,
+      "type": "void(void);"
     },
     {
       "name": "GetInsertedCD",
@@ -19752,6 +19879,11 @@
       "type": "char *__cdecl _strchr(const char *, int);"
     },
     {
+      "name": "readFileBlock",
+      "start": 4297232,
+      "type": "int __cdecl readFileBlock(char *filename, int sceneBlockStart, int size, void **dst, void (*a5)(void));"
+    },
+    {
       "name": "loadKernelObjectText",
       "start": 4298300,
       "type": "void **__cdecl loadKernelObjectText(unsigned int a1, signed int indexIntoTextArray, int a3);"
@@ -19774,8 +19906,13 @@
       "start": 4309179
     },
     {
-      "name": "MemSetZeroAnimDataChunks",
+      "name": "ClearBattleData",
       "start": 4312242
+    },
+    {
+      "name": "copyCurrentScene",
+      "start": 4313856,
+      "type": "int __cdecl copyCurrentScene(unsigned __int8 *sceneStart, int destination);"
     },
     {
       "name": "runAnimationScript",
@@ -19788,7 +19925,8 @@
     },
     {
       "name": "HandleAnimatingAbilityAnimations",
-      "start": 4358577
+      "start": 4358577,
+      "type": "int __cdecl HandleAnimatingAbilityAnimations(char actorID);"
     },
     {
       "name": "ExecuteAnimationEffect",
@@ -19803,7 +19941,7 @@
       "start": 4377593
     },
     {
-      "name": "EndBattleHandler?",
+      "name": "endBattleHandler",
       "start": 4394448
     },
     {
@@ -19841,7 +19979,7 @@
       "start": 4405383
     },
     {
-      "name": "VTimerIncrement?",
+      "name": "initializeTimerIncrements",
       "start": 4405698
     },
     {
@@ -19906,8 +20044,9 @@
       "start": 4413321
     },
     {
-      "name": "MainActionRoutine",
-      "start": 4414849
+      "name": "mainActionRoutine",
+      "start": 4414849,
+      "type": "int __cdecl mainActionRoutine(unsigned __int8 *queueActionStruct);"
     },
     {
       "name": "initializeAnimationStruct",
@@ -19938,6 +20077,11 @@
       "type": "int __cdecl checkCommandsEnabled(signed int partyMemberIndex, __int16 partyMemberStatusMask);"
     },
     {
+      "name": "setupBattle",
+      "start": 4423088,
+      "type": "__int16 __cdecl setupBattle(int formationID);"
+    },
+    {
       "name": "__cfltcvt_init_5",
       "start": 5805580
     },
@@ -19950,6 +20094,11 @@
       "start": 6061546
     },
     {
+      "name": "getSceneIndexFromActionID",
+      "start": 6061690,
+      "type": "signed int __cdecl getSceneIndexFromActionID(int actionIndex);"
+    },
+    {
       "name": "ApplyPrcntStatMods",
       "start": 6061797
     },
@@ -19959,8 +20108,33 @@
       "type": "int __cdecl BattleQueuePop(int actorID, signed int a2);"
     },
     {
+      "name": "encMemCpy",
+      "start": 6062080,
+      "type": "int __cdecl encMemCpy(int destinationPtr, int sourceptr, int encodedSize);"
+    },
+    {
       "name": "SomethingToDoMateriaInventory",
       "start": 6063341
+    },
+    {
+      "name": "getLimitRelativeIndex",
+      "start": 6063748,
+      "type": "int __cdecl getLimitRelativeIndex(signed int characterID, int limitBreakIndex);"
+    },
+    {
+      "name": "executeAIScript",
+      "start": 6063840,
+      "type": "signed int __cdecl executeAIScript(signed int actorIndex, int scriptID, int a3);"
+    },
+    {
+      "name": "getAIScriptPtr",
+      "start": 6064327,
+      "type": "int __cdecl getAIScriptPtr(int enemyAIDataStart, int enemyScriptID, int scriptID);"
+    },
+    {
+      "name": "actorDeathHandler",
+      "start": 6064610,
+      "type": "int __cdecl actorDeathHandler(signed int a1, signed int actorIndex, int a3);"
     },
     {
       "name": "getRandomNumber",
@@ -19988,11 +20162,13 @@
     },
     {
       "name": "copyAdditionalEffects",
-      "start": 6072098
+      "start": 6072098,
+      "type": "void *__cdecl copyAdditionalEffects(int abilityEffects, int additionalEffectModifier);"
     },
     {
-      "name": "StatusMasksFromAbility",
-      "start": 6072166
+      "name": "setAbilityStatusData",
+      "start": 6072166,
+      "type": "void *__cdecl setAbilityStatusData(unsigned int statusInflictionByte, void *inflictedStatusMask);"
     },
     {
       "name": "CalculateOffsetIndexes",
@@ -20012,6 +20188,10 @@
       "type": "int __cdecl recalculateDerivedStats(char partyMemberIndex);"
     },
     {
+      "name": "runPartyInitScripts",
+      "start": 6094352
+    },
+    {
       "name": "handleAccessorySpecialEffect",
       "start": 6095511,
       "type": "__int16 *__cdecl handleAccessorySpecialEffect(int actor, int accessory_id);"
@@ -20019,6 +20199,19 @@
     {
       "name": "BattleStatSetup?",
       "start": 6096528
+    },
+    {
+      "name": "runEnemyInitAIScripts",
+      "start": 6097887
+    },
+    {
+      "name": "loadBattleFormation",
+      "start": 6099024,
+      "type": "__int16 __cdecl loadBattleFormation(int formationIndex, int (*a2)(void));"
+    },
+    {
+      "name": "getSceneBlockIndex",
+      "start": 6100137
     },
     {
       "name": "initializeBattleInventory",
@@ -20029,8 +20222,18 @@
       "start": 6100799
     },
     {
+      "name": "runAIScript?",
+      "start": 6127588,
+      "type": "int __cdecl runAIScript?(int actorID, int scriptPtr, int charID);"
+    },
+    {
       "name": "alsoEnqueueActions?",
       "start": 6133404
+    },
+    {
+      "name": "getMPCost",
+      "start": 6133595,
+      "type": "int __cdecl getMPCost(signed int attackID);"
     },
     {
       "name": "ApplyActionDamage",
@@ -20077,6 +20280,16 @@
       "start": 6152078
     },
     {
+      "name": "getPhysEvade",
+      "start": 6152945,
+      "type": "int __cdecl getPhysEvade(int actorID);"
+    },
+    {
+      "name": "applyFuryPenalty",
+      "start": 6153602,
+      "type": "signed int __cdecl applyFuryPenalty(signed int totalAccuracy);"
+    },
+    {
       "name": "PhysicalDamage",
       "start": 6153695
     },
@@ -20097,8 +20310,18 @@
       "start": 6154680
     },
     {
+      "name": "getAttackDataPtr",
+      "start": 6156416,
+      "type": "char *__cdecl getAttackDataPtr(signed int attackID);"
+    },
+    {
       "name": "VincentTransformation?",
       "start": 6158682
+    },
+    {
+      "name": "initializeSceneLocalStruct",
+      "start": 6159880,
+      "type": "char *__cdecl initializeSceneLocalStruct(char *localptr);"
     },
     {
       "name": "Set_play_animation",
@@ -20205,6 +20428,11 @@
       "name": "?CleanupTopologyInformation@ResourceManager@details@Concurrency@@CAXXZ",
       "start": 6824015,
       "type": "void __cdecl ?CleanupTopologyInformation@ResourceManager@details@Concurrency@@CAXXZ();"
+    },
+    {
+      "name": "gameLoadFile",
+      "start": 6824146,
+      "type": "int __cdecl gameLoadFile(int, char *);"
     },
     {
       "name": "PlaceAnimationEffectCallback",
@@ -21722,6 +21950,14 @@
     {
       "name": "SEH_100313E0",
       "start": 268622496
+    },
+    {
+      "name": "_______alloca_probe_16",
+      "start": 268665840
+    },
+    {
+      "name": "_______alloca_probe_8",
+      "start": 268665862
     },
     {
       "name": "______________alloca_probe",
@@ -40152,6 +40388,18 @@
       "start": 1983153008
     },
     {
+      "name": "crypt32_CryptMemFree",
+      "start": 1983356512
+    },
+    {
+      "name": "crypt32_CryptFindOIDInfo",
+      "start": 1983475648
+    },
+    {
+      "name": "crypt32_CryptEnumOIDFunction",
+      "start": 1983476800
+    },
+    {
       "name": "fltlib_FilterCreate",
       "start": 1986795392
     },
@@ -56816,6 +57064,10 @@
       "start": 1995006400
     },
     {
+      "name": "user32_IsDialogMessageA",
+      "start": 1995006816
+    },
+    {
       "name": "user32_MapDialogRect",
       "start": 1995006944
     },
@@ -58318,6 +58570,14 @@
     {
       "name": "j_user32_Wow64Transition",
       "start": 1995176800
+    },
+    {
+      "name": "kernel32_BaseSetLastNTError",
+      "start": 1995185200
+    },
+    {
+      "name": "kernel32_BaseIsDosApplication",
+      "start": 1995232128
     },
     {
       "name": "user32_LoadCursorFromFileW",
@@ -62844,8 +63104,44 @@
       "start": 2003349360
     },
     {
+      "name": "ucrtbase_strtoul",
+      "start": 2003880528
+    },
+    {
       "name": "ucrtbase_o_toupper",
       "start": 2003897264
+    },
+    {
+      "name": "ucrtbase__DestructExceptionObject",
+      "start": 2003976016
+    },
+    {
+      "name": "ucrtbase_except_handler4_common",
+      "start": 2004007264
+    },
+    {
+      "name": "ucrtbase_local_unwind4",
+      "start": 2004007856
+    },
+    {
+      "name": "ucrtbase_memset",
+      "start": 2004008240
+    },
+    {
+      "name": "ucrtbase_memcpy",
+      "start": 2004016720
+    },
+    {
+      "name": "ucrtbase__report_gsfailure",
+      "start": 2004024896
+    },
+    {
+      "name": "ucrtbase_crt_debugger_hook",
+      "start": 2004025680
+    },
+    {
+      "name": "ucrtbase_o_strtoul",
+      "start": 2004246048
     },
     {
       "name": "bcryptprimitives_ProcessPrng",
@@ -62878,6 +63174,450 @@
     {
       "name": "",
       "start": 2005555920
+    },
+    {
+      "name": "kernelbase_GetCPHashNode",
+      "start": 2005686048
+    },
+    {
+      "name": "kernelbase_CreateProcessInternalW",
+      "start": 2005725920
+    },
+    {
+      "name": "kernelbase_IsProcessInJob",
+      "start": 2005733296
+    },
+    {
+      "name": "kernelbase_SearchPathW",
+      "start": 2005733984
+    },
+    {
+      "name": "kernelbase_GetUserOverrideWord",
+      "start": 2005739392
+    },
+    {
+      "name": "kernelbase_GetProcessId",
+      "start": 2005739632
+    },
+    {
+      "name": "kernelbase_NlsWriteEtwEvent",
+      "start": 2005741760
+    },
+    {
+      "name": "kernelbase_WriteProcessMemory",
+      "start": 2005748128
+    },
+    {
+      "name": "kernelbase_GetCurrentPackageFamilyName",
+      "start": 2005754624
+    },
+    {
+      "name": "kernelbase_VirtualFreeEx",
+      "start": 2005760400
+    },
+    {
+      "name": "kernelbase_UpdateProcThreadAttribute",
+      "start": 2005771424
+    },
+    {
+      "name": "kernelbase_InitializeProcThreadAttributeList",
+      "start": 2005772416
+    },
+    {
+      "name": "kernelbase_AddMUIStringToCache",
+      "start": 2005775936
+    },
+    {
+      "name": "kernelbase_GetFullPathNameW",
+      "start": 2005781040
+    },
+    {
+      "name": "kernelbase_GetFileAttributesW",
+      "start": 2005801488
+    },
+    {
+      "name": "kernelbase_FreeLibrary",
+      "start": 2005803008
+    },
+    {
+      "name": "kernelbase_CreateEventW",
+      "start": 2005805024
+    },
+    {
+      "name": "kernelbase_CreateFileMappingNumaW",
+      "start": 2005805136
+    },
+    {
+      "name": "kernelbase_BaseFormatObjectAttributes",
+      "start": 2005805696
+    },
+    {
+      "name": "kernelbase_BasepAdjustObjectAttributesForPrivateNamespace",
+      "start": 2005806576
+    },
+    {
+      "name": "kernelbase_BaseGetNamedObjectDirectory",
+      "start": 2005806816
+    },
+    {
+      "name": "kernelbase_GetErrorMode",
+      "start": 2005807424
+    },
+    {
+      "name": "kernelbase_GetEnvironmentVariableW",
+      "start": 2005808032
+    },
+    {
+      "name": "kernelbase_CreateFileW",
+      "start": 2005808160
+    },
+    {
+      "name": "kernelbase_OpenThreadToken",
+      "start": 2005809776
+    },
+    {
+      "name": "kernelbase_LoadLibraryExW",
+      "start": 2005809840
+    },
+    {
+      "name": "kernelbase_ReadFile",
+      "start": 2005811808
+    },
+    {
+      "name": "kernelbase_CloseHandle",
+      "start": 2005812224
+    },
+    {
+      "name": "kernelbase_WaitForSingleObjectEx",
+      "start": 2005812736
+    },
+    {
+      "name": "kernelbase_SetErrorMode",
+      "start": 2005813024
+    },
+    {
+      "name": "kernelbase_GetLastError",
+      "start": 2005813136
+    },
+    {
+      "name": "kernelbase_GetNamedLocaleHashNode",
+      "start": 2005813376
+    },
+    {
+      "name": "kernelbase_GetUserOverrideString",
+      "start": 2005813648
+    },
+    {
+      "name": "kernelbase_CompareStringA",
+      "start": 2005818448
+    },
+    {
+      "name": "kernelbase_MultiByteToWideChar",
+      "start": 2005820080
+    },
+    {
+      "name": "kernelbase_StrStrIW",
+      "start": 2005821808
+    },
+    {
+      "name": "kernelbase_CompareStringW",
+      "start": 2005822336
+    },
+    {
+      "name": "kernelbase_GetLocaleInfoHelper",
+      "start": 2005823872
+    },
+    {
+      "name": "kernelbase_NlsValidateLocale",
+      "start": 2005831024
+    },
+    {
+      "name": "kernelbase_lstrlenW",
+      "start": 2005832624
+    },
+    {
+      "name": "kernelbase_LocalAlloc",
+      "start": 2005832752
+    },
+    {
+      "name": "kernelbase_StrDupW",
+      "start": 2005833280
+    },
+    {
+      "name": "kernelbase_RegOpenKeyExA",
+      "start": 2005833984
+    },
+    {
+      "name": "kernelbase_RegOpenKeyExInternalA",
+      "start": 2005834032
+    },
+    {
+      "name": "kernelbase_RegEnumKeyExW",
+      "start": 2005834480
+    },
+    {
+      "name": "kernelbase_RegQueryValueExA",
+      "start": 2005835312
+    },
+    {
+      "name": "kernelbase_RegGetValueW",
+      "start": 2005836080
+    },
+    {
+      "name": "kernelbase_RegQueryValueExW",
+      "start": 2005836880
+    },
+    {
+      "name": "kernelbase_RegOpenKeyExW",
+      "start": 2005838336
+    },
+    {
+      "name": "kernelbase_RegOpenKeyExInternalW",
+      "start": 2005838384
+    },
+    {
+      "name": "kernelbase_MapPredefinedHandleInternal",
+      "start": 2005838928
+    },
+    {
+      "name": "kernelbase_RegCloseKey",
+      "start": 2005841888
+    },
+    {
+      "name": "kernelbase_CLOSE_LOCAL_HANDLE_INTERNAL",
+      "start": 2005842864
+    },
+    {
+      "name": "kernelbase_RegEnumValueW",
+      "start": 2005844912
+    },
+    {
+      "name": "kernelbase_LocalFree",
+      "start": 2005850096
+    },
+    {
+      "name": "kernelbase_ExpandEnvironmentStringsW",
+      "start": 2005851440
+    },
+    {
+      "name": "kernelbase_RegQueryInfoKeyW",
+      "start": 2005851776
+    },
+    {
+      "name": "kernelbase_RegEnumKeyExA",
+      "start": 2005853856
+    },
+    {
+      "name": "kernelbase_CloseGlobalizationUserSettingsKey",
+      "start": 2005863536
+    },
+    {
+      "name": "kernelbase_OpenGlobalizationUserSettingsKey",
+      "start": 2005863584
+    },
+    {
+      "name": "kernelbase_SHLoadIndirectStringInternal",
+      "start": 2005866944
+    },
+    {
+      "name": "kernelbase_StrChrW",
+      "start": 2005867408
+    },
+    {
+      "name": "kernelbase_LoadStringByReference",
+      "start": 2005867664
+    },
+    {
+      "name": "kernelbase_GetProcAddress",
+      "start": 2005870704
+    },
+    {
+      "name": "kernelbase_GetMUIStringFromCache",
+      "start": 2005871968
+    },
+    {
+      "name": "kernelbase_OpenMuiStringCache",
+      "start": 2005872368
+    },
+    {
+      "name": "kernelbase_FormatMessageW",
+      "start": 2005873008
+    },
+    {
+      "name": "kernelbase_LocalReAlloc",
+      "start": 2005873776
+    },
+    {
+      "name": "kernelbase_RegLoadMUIStringW",
+      "start": 2005874144
+    },
+    {
+      "name": "kernelbase_CompareStringOrdinal",
+      "start": 2005876480
+    },
+    {
+      "name": "kernelbase_WideCharToMultiByte",
+      "start": 2005880208
+    },
+    {
+      "name": "kernelbase_GetSystemTimeAsFileTime",
+      "start": 2005885328
+    },
+    {
+      "name": "kernelbase_GetStringTableEntry",
+      "start": 2005885680
+    },
+    {
+      "name": "kernelbase_FindResourceExW",
+      "start": 2005886336
+    },
+    {
+      "name": "kernelbase_BaseDllMapResourceIdW",
+      "start": 2005886592
+    },
+    {
+      "name": "kernelbase_SizeofResource",
+      "start": 2005886800
+    },
+    {
+      "name": "kernelbase_VirtualAllocExNuma",
+      "start": 2005889264
+    },
+    {
+      "name": "kernelbase_Sleep",
+      "start": 2005889392
+    },
+    {
+      "name": "kernelbase_SleepEx",
+      "start": 2005889424
+    },
+    {
+      "name": "kernelbase_GetModuleHandleA",
+      "start": 2005890144
+    },
+    {
+      "name": "kernelbase_GetUserDefaultUILanguage",
+      "start": 2005893440
+    },
+    {
+      "name": "kernelbase_LoadStringW",
+      "start": 2005893744
+    },
+    {
+      "name": "kernelbase_LoadStringBaseExW",
+      "start": 2005893792
+    },
+    {
+      "name": "kernelbase_GetFileSize",
+      "start": 2005895552
+    },
+    {
+      "name": "kernelbase_CreateEventExW",
+      "start": 2005896480
+    },
+    {
+      "name": "kernelbase_ResetEvent",
+      "start": 2005902144
+    },
+    {
+      "name": "kernelbase_DuplicateHandle",
+      "start": 2005908976
+    },
+    {
+      "name": "kernelbase_SetUnhandledExceptionFilter",
+      "start": 2005912800
+    },
+    {
+      "name": "kernelbase_VirtualQueryEx",
+      "start": 2005913200
+    },
+    {
+      "name": "kernelbase_ResolveDelayLoadedAPI",
+      "start": 2005915568
+    },
+    {
+      "name": "kernelbase_RevertToSelf",
+      "start": 2005917264
+    },
+    {
+      "name": "kernelbase_CompareFileTime",
+      "start": 2005917456
+    },
+    {
+      "name": "kernelbase_ExpandEnvironmentStringsA",
+      "start": 2005922880
+    },
+    {
+      "name": "kernelbase_KernelBaseGetGlobalData",
+      "start": 2005924816
+    },
+    {
+      "name": "kernelbase_RaiseException",
+      "start": 2005932096
+    },
+    {
+      "name": "kernelbase_GetCurrentPackageFullName",
+      "start": 2005933408
+    },
+    {
+      "name": "kernelbase_GetSystemDefaultUILanguage",
+      "start": 2005934224
+    },
+    {
+      "name": "kernelbase_GetCurrentThreadId",
+      "start": 2005936720
+    },
+    {
+      "name": "kernelbase_CreateNamedPipeW",
+      "start": 2005947456
+    },
+    {
+      "name": "kernelbase_RegCloseKey_SEH",
+      "start": 2005950512
+    },
+    {
+      "name": "kernelbase_DebugBreak",
+      "start": 2006127856
+    },
+    {
+      "name": "kernelbase_GetFallbackDisplayName",
+      "start": 2006137584
+    },
+    {
+      "name": "kernelbase_GetPackageFamilyNameFromToken",
+      "start": 2006309232
+    },
+    {
+      "name": "kernelbase_ImpersonateLoggedOnUser",
+      "start": 2006408640
+    },
+    {
+      "name": "kernelbase_DelayLoadFailureHook",
+      "start": 2006410688
+    },
+    {
+      "name": "kernelbase_OutputDebugStringW",
+      "start": 2006430656
+    },
+    {
+      "name": "kernelbase_GetThreadId",
+      "start": 2006443888
+    },
+    {
+      "name": "kernelbase_UnmapViewOfFile2",
+      "start": 2006454464
+    },
+    {
+      "name": "kernelbase_SetStdHandleEx",
+      "start": 2006472784
+    },
+    {
+      "name": "kernelbase_RaiseFailFastException",
+      "start": 2006473296
+    },
+    {
+      "name": "kernelbase_UnhandledExceptionFilter",
+      "start": 2006474096
     },
     {
       "name": "ntdll_RtlIpv6StringToAddressExW",
@@ -69739,6 +70479,98 @@
           "type": 3
         },
         {
+          "from": 2005811858,
+          "type": 2
+        },
+        {
+          "from": 2005832674,
+          "type": 2
+        },
+        {
+          "from": 2005832802,
+          "type": 2
+        },
+        {
+          "from": 2005834530,
+          "type": 2
+        },
+        {
+          "from": 2005835362,
+          "type": 2
+        },
+        {
+          "from": 2005836930,
+          "type": 2
+        },
+        {
+          "from": 2005838434,
+          "type": 2
+        },
+        {
+          "from": 2005839669,
+          "type": 2
+        },
+        {
+          "from": 2005841941,
+          "type": 2
+        },
+        {
+          "from": 2006025199,
+          "type": 3
+        },
+        {
+          "from": 2006038676,
+          "type": 3
+        },
+        {
+          "from": 2006038810,
+          "type": 3
+        },
+        {
+          "from": 2006039461,
+          "type": 3
+        },
+        {
+          "from": 2006040126,
+          "type": 3
+        },
+        {
+          "from": 2006040297,
+          "type": 3
+        },
+        {
+          "from": 2006040813,
+          "type": 3
+        },
+        {
+          "from": 2006041261,
+          "type": 3
+        },
+        {
+          "from": 2006041782,
+          "type": 3
+        },
+        {
+          "from": 2006042766,
+          "type": 3
+        },
+        {
+          "from": 2006474149,
+          "type": 2
+        },
+        {
+          "from": 2006474254,
+          "type": 3
+        },
+        {
+          "from": 2006474810,
+          "type": 3
+        },
+        {
+          "from": 2006475093,
+          "type": 3
+        },
+        {
           "from": 2006764738,
           "type": 2
         },
@@ -70520,6 +71352,46 @@
         },
         {
           "from": 2001014091,
+          "type": 3
+        },
+        {
+          "from": 2006025180,
+          "type": 3
+        },
+        {
+          "from": 2006038657,
+          "type": 3
+        },
+        {
+          "from": 2006038788,
+          "type": 3
+        },
+        {
+          "from": 2006039445,
+          "type": 3
+        },
+        {
+          "from": 2006040110,
+          "type": 3
+        },
+        {
+          "from": 2006040281,
+          "type": 3
+        },
+        {
+          "from": 2006040797,
+          "type": 3
+        },
+        {
+          "from": 2006041245,
+          "type": 3
+        },
+        {
+          "from": 2006041766,
+          "type": 3
+        },
+        {
+          "from": 2006042750,
           "type": 3
         },
         {
@@ -77772,6 +78644,371 @@
           "type": 3
         },
         {
+          "from": 2005810259,
+          "type": 2
+        },
+        {
+          "from": 2005810265,
+          "offset": 4294967295,
+          "type": 1
+        },
+        {
+          "from": 2005810339,
+          "type": 2
+        },
+        {
+          "from": 2005810476,
+          "type": 2
+        },
+        {
+          "from": 2005810490,
+          "type": 3
+        },
+        {
+          "from": 2005811843,
+          "type": 2
+        },
+        {
+          "from": 2005811849,
+          "offset": 4294967295,
+          "type": 1
+        },
+        {
+          "from": 2005811983,
+          "type": 3
+        },
+        {
+          "from": 2005812062,
+          "type": 3
+        },
+        {
+          "from": 2005812086,
+          "type": 2
+        },
+        {
+          "from": 2005812098,
+          "type": 2
+        },
+        {
+          "from": 2005812110,
+          "type": 3
+        },
+        {
+          "from": 2005812153,
+          "type": 3
+        },
+        {
+          "from": 2005812771,
+          "type": 2
+        },
+        {
+          "from": 2005812777,
+          "offset": 4294967295,
+          "type": 1
+        },
+        {
+          "from": 2005812841,
+          "type": 2
+        },
+        {
+          "from": 2005812906,
+          "type": 2
+        },
+        {
+          "from": 2005812920,
+          "type": 3
+        },
+        {
+          "from": 2005832659,
+          "type": 2
+        },
+        {
+          "from": 2005832665,
+          "offset": 4294967295,
+          "type": 1
+        },
+        {
+          "from": 2005832684,
+          "type": 2
+        },
+        {
+          "from": 2005832709,
+          "type": 2
+        },
+        {
+          "from": 2005832716,
+          "type": 3
+        },
+        {
+          "from": 2005832787,
+          "type": 2
+        },
+        {
+          "from": 2005832793,
+          "offset": 4294967295,
+          "type": 1
+        },
+        {
+          "from": 2005832892,
+          "type": 3
+        },
+        {
+          "from": 2005832924,
+          "type": 2
+        },
+        {
+          "from": 2005832927,
+          "type": 2
+        },
+        {
+          "from": 2005833046,
+          "type": 2
+        },
+        {
+          "from": 2005833053,
+          "type": 2
+        },
+        {
+          "from": 2005834515,
+          "type": 2
+        },
+        {
+          "from": 2005834521,
+          "offset": 4294967295,
+          "type": 1
+        },
+        {
+          "from": 2005834791,
+          "type": 3
+        },
+        {
+          "from": 2005835347,
+          "type": 2
+        },
+        {
+          "from": 2005835353,
+          "offset": 4294967295,
+          "type": 1
+        },
+        {
+          "from": 2005835652,
+          "type": 3
+        },
+        {
+          "from": 2005836915,
+          "type": 2
+        },
+        {
+          "from": 2005836921,
+          "offset": 4294967295,
+          "type": 1
+        },
+        {
+          "from": 2005837142,
+          "type": 3
+        },
+        {
+          "from": 2005838419,
+          "type": 2
+        },
+        {
+          "from": 2005838425,
+          "offset": 4294967295,
+          "type": 1
+        },
+        {
+          "from": 2005838785,
+          "type": 3
+        },
+        {
+          "from": 2005839648,
+          "type": 2
+        },
+        {
+          "from": 2005839660,
+          "offset": 4294967295,
+          "type": 1
+        },
+        {
+          "from": 2005839750,
+          "type": 2
+        },
+        {
+          "from": 2005839755,
+          "type": 2
+        },
+        {
+          "from": 2005839957,
+          "type": 3
+        },
+        {
+          "from": 2005841920,
+          "type": 2
+        },
+        {
+          "from": 2005841932,
+          "offset": 4294967295,
+          "type": 1
+        },
+        {
+          "from": 2005842206,
+          "type": 3
+        },
+        {
+          "from": 2005889459,
+          "type": 2
+        },
+        {
+          "from": 2005889465,
+          "offset": 4294967295,
+          "type": 1
+        },
+        {
+          "from": 2005889521,
+          "type": 2
+        },
+        {
+          "from": 2005889588,
+          "type": 2
+        },
+        {
+          "from": 2005889610,
+          "type": 3
+        },
+        {
+          "from": 2005889658,
+          "type": 3
+        },
+        {
+          "from": 2006038679,
+          "type": 2
+        },
+        {
+          "from": 2006038826,
+          "type": 2
+        },
+        {
+          "from": 2006039394,
+          "type": 2
+        },
+        {
+          "from": 2006039433,
+          "type": 2
+        },
+        {
+          "from": 2006039470,
+          "type": 2
+        },
+        {
+          "from": 2006040061,
+          "type": 2
+        },
+        {
+          "from": 2006040101,
+          "type": 2
+        },
+        {
+          "from": 2006040135,
+          "type": 2
+        },
+        {
+          "from": 2006040227,
+          "type": 2
+        },
+        {
+          "from": 2006040269,
+          "type": 2
+        },
+        {
+          "from": 2006040306,
+          "type": 2
+        },
+        {
+          "from": 2006040746,
+          "type": 2
+        },
+        {
+          "from": 2006040788,
+          "type": 2
+        },
+        {
+          "from": 2006040822,
+          "type": 2
+        },
+        {
+          "from": 2006041205,
+          "type": 2
+        },
+        {
+          "from": 2006041236,
+          "type": 2
+        },
+        {
+          "from": 2006041270,
+          "type": 2
+        },
+        {
+          "from": 2006041796,
+          "type": 2
+        },
+        {
+          "from": 2006042731,
+          "type": 2
+        },
+        {
+          "from": 2006042775,
+          "type": 2
+        },
+        {
+          "from": 2006474128,
+          "type": 2
+        },
+        {
+          "from": 2006474140,
+          "offset": 4294967295,
+          "type": 1
+        },
+        {
+          "from": 2006474222,
+          "type": 2
+        },
+        {
+          "from": 2006474239,
+          "type": 2
+        },
+        {
+          "from": 2006474294,
+          "type": 2
+        },
+        {
+          "from": 2006474707,
+          "type": 2
+        },
+        {
+          "from": 2006474795,
+          "type": 2
+        },
+        {
+          "from": 2006474818,
+          "type": 2
+        },
+        {
+          "from": 2006475057,
+          "type": 2
+        },
+        {
+          "from": 2006475078,
+          "type": 2
+        },
+        {
+          "from": 2006475096,
+          "type": 2
+        },
+        {
+          "from": 2006475313,
+          "type": 3
+        },
+        {
           "from": 2006764723,
           "type": 2
         },
@@ -79545,6 +80782,74 @@
           "type": 3
         },
         {
+          "from": 2005810490,
+          "type": 3
+        },
+        {
+          "from": 2005811983,
+          "type": 3
+        },
+        {
+          "from": 2005812062,
+          "type": 3
+        },
+        {
+          "from": 2005812110,
+          "type": 3
+        },
+        {
+          "from": 2005812153,
+          "type": 3
+        },
+        {
+          "from": 2005812920,
+          "type": 3
+        },
+        {
+          "from": 2005832716,
+          "type": 3
+        },
+        {
+          "from": 2005832892,
+          "type": 3
+        },
+        {
+          "from": 2005834791,
+          "type": 3
+        },
+        {
+          "from": 2005835652,
+          "type": 3
+        },
+        {
+          "from": 2005837142,
+          "type": 3
+        },
+        {
+          "from": 2005838785,
+          "type": 3
+        },
+        {
+          "from": 2005839957,
+          "type": 3
+        },
+        {
+          "from": 2005842206,
+          "type": 3
+        },
+        {
+          "from": 2005889610,
+          "type": 3
+        },
+        {
+          "from": 2005889658,
+          "type": 3
+        },
+        {
+          "from": 2006475313,
+          "type": 3
+        },
+        {
           "from": 2006764929,
           "type": 3
         },
@@ -80666,6 +81971,58 @@
         },
         {
           "from": 2001013987,
+          "type": 2
+        },
+        {
+          "from": 2005810259,
+          "type": 2
+        },
+        {
+          "from": 2005811843,
+          "type": 2
+        },
+        {
+          "from": 2005812771,
+          "type": 2
+        },
+        {
+          "from": 2005832659,
+          "type": 2
+        },
+        {
+          "from": 2005832787,
+          "type": 2
+        },
+        {
+          "from": 2005834515,
+          "type": 2
+        },
+        {
+          "from": 2005835347,
+          "type": 2
+        },
+        {
+          "from": 2005836915,
+          "type": 2
+        },
+        {
+          "from": 2005838419,
+          "type": 2
+        },
+        {
+          "from": 2005839648,
+          "type": 2
+        },
+        {
+          "from": 2005841920,
+          "type": 2
+        },
+        {
+          "from": 2005889459,
+          "type": 2
+        },
+        {
+          "from": 2006474128,
           "type": 2
         },
         {
@@ -84398,6 +85755,186 @@
         },
         {
           "from": 2001014113,
+          "type": 2
+        },
+        {
+          "from": 2005810339,
+          "type": 2
+        },
+        {
+          "from": 2005810476,
+          "type": 2
+        },
+        {
+          "from": 2005812086,
+          "type": 2
+        },
+        {
+          "from": 2005812098,
+          "type": 2
+        },
+        {
+          "from": 2005812841,
+          "type": 2
+        },
+        {
+          "from": 2005812906,
+          "type": 2
+        },
+        {
+          "from": 2005832684,
+          "type": 2
+        },
+        {
+          "from": 2005832709,
+          "type": 2
+        },
+        {
+          "from": 2005832924,
+          "type": 2
+        },
+        {
+          "from": 2005832927,
+          "type": 2
+        },
+        {
+          "from": 2005833046,
+          "type": 2
+        },
+        {
+          "from": 2005833053,
+          "type": 2
+        },
+        {
+          "from": 2005839750,
+          "type": 2
+        },
+        {
+          "from": 2005839755,
+          "type": 2
+        },
+        {
+          "from": 2005889521,
+          "type": 2
+        },
+        {
+          "from": 2005889588,
+          "type": 2
+        },
+        {
+          "from": 2006038679,
+          "type": 2
+        },
+        {
+          "from": 2006038826,
+          "type": 2
+        },
+        {
+          "from": 2006039394,
+          "type": 2
+        },
+        {
+          "from": 2006039433,
+          "type": 2
+        },
+        {
+          "from": 2006039470,
+          "type": 2
+        },
+        {
+          "from": 2006040061,
+          "type": 2
+        },
+        {
+          "from": 2006040101,
+          "type": 2
+        },
+        {
+          "from": 2006040135,
+          "type": 2
+        },
+        {
+          "from": 2006040227,
+          "type": 2
+        },
+        {
+          "from": 2006040269,
+          "type": 2
+        },
+        {
+          "from": 2006040306,
+          "type": 2
+        },
+        {
+          "from": 2006040746,
+          "type": 2
+        },
+        {
+          "from": 2006040788,
+          "type": 2
+        },
+        {
+          "from": 2006040822,
+          "type": 2
+        },
+        {
+          "from": 2006041205,
+          "type": 2
+        },
+        {
+          "from": 2006041236,
+          "type": 2
+        },
+        {
+          "from": 2006041270,
+          "type": 2
+        },
+        {
+          "from": 2006041796,
+          "type": 2
+        },
+        {
+          "from": 2006042731,
+          "type": 2
+        },
+        {
+          "from": 2006042775,
+          "type": 2
+        },
+        {
+          "from": 2006474222,
+          "type": 2
+        },
+        {
+          "from": 2006474239,
+          "type": 2
+        },
+        {
+          "from": 2006474294,
+          "type": 2
+        },
+        {
+          "from": 2006474707,
+          "type": 2
+        },
+        {
+          "from": 2006474795,
+          "type": 2
+        },
+        {
+          "from": 2006474818,
+          "type": 2
+        },
+        {
+          "from": 2006475057,
+          "type": 2
+        },
+        {
+          "from": 2006475078,
+          "type": 2
+        },
+        {
+          "from": 2006475096,
           "type": 2
         },
         {
