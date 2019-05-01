@@ -1742,6 +1742,12 @@
       "sz": 1
     },
     {
+      "address": 10127526,
+      "flags": 268456960,
+      "name": "battleFlags",
+      "sz": 2
+    },
+    {
       "address": 10128144,
       "flags": 268456960,
       "name": "VTimerIncrement",
@@ -1776,6 +1782,18 @@
       "flags": 21504,
       "name": "sceneEnemyData",
       "sz": 1
+    },
+    {
+      "address": 10129088,
+      "flags": 21504,
+      "name": "physicalAtk",
+      "sz": 1
+    },
+    {
+      "address": 10129216,
+      "flags": 536892416,
+      "name": "enemyHP",
+      "sz": 4
     },
     {
       "address": 10130500,
@@ -1818,6 +1836,12 @@
       "flags": 268456960,
       "name": "GlobalTimerValue",
       "sz": 2
+    },
+    {
+      "address": 10136892,
+      "flags": 536892416,
+      "name": "formationID",
+      "sz": 4
     },
     {
       "address": 10136944,
@@ -1890,6 +1914,12 @@
       "flags": 21504,
       "name": "CommandIndexCopy2",
       "sz": 1
+    },
+    {
+      "address": 10146236,
+      "flags": 542135296,
+      "name": "setUpBattleHandler",
+      "sz": 4
     },
     {
       "address": 10148460,
@@ -1970,21 +2000,15 @@
       "sz": 4
     },
     {
-      "address": 12456304,
-      "flags": 21504,
-      "name": "ActorID",
-      "sz": 1
-    },
-    {
       "address": 12456312,
       "flags": 268456960,
       "name": "AnimationDataStart?",
       "sz": 2
     },
     {
-      "address": 12456314,
+      "address": 12456326,
       "flags": 268456960,
-      "name": "CommandAnimationStart",
+      "name": "toPlayModelAnimOffset",
       "sz": 2
     },
     {
@@ -2004,6 +2028,24 @@
       "flags": 21504,
       "name": "ScriptPositionCounter?",
       "sz": 1
+    },
+    {
+      "address": 12459296,
+      "flags": 536892416,
+      "name": "modelAnimationsBase?",
+      "sz": 4
+    },
+    {
+      "address": 12525632,
+      "flags": 21504,
+      "name": "relativeEnemyIDGlobal",
+      "sz": 1
+    },
+    {
+      "address": 12525652,
+      "flags": 268456960,
+      "name": "EnemyAnimScriptIndex",
+      "sz": 2
     },
     {
       "address": 12529180,
@@ -2034,6 +2076,24 @@
       "flags": 536892416,
       "name": "executingScriptPtr",
       "sz": 4
+    },
+    {
+      "address": 13372800,
+      "flags": 536892416,
+      "name": "formationID_3",
+      "sz": 4
+    },
+    {
+      "address": 13372810,
+      "flags": 268456960,
+      "name": "formationID_2",
+      "sz": 2
+    },
+    {
+      "address": 14390664,
+      "flags": 268456960,
+      "name": "formationID_1",
+      "sz": 2
     },
     {
       "address": 14390672,
@@ -19057,6 +19117,14 @@
       "start": 4213373
     },
     {
+      "name": "setBattleFormation",
+      "start": 4227651
+    },
+    {
+      "name": "mainTransitionHandler",
+      "start": 4231398
+    },
+    {
       "name": "fptc",
       "start": 4238209,
       "type": "TIMECALLBACK;"
@@ -19898,6 +19966,14 @@
       "start": 4303732
     },
     {
+      "name": "enteringBattle",
+      "start": 4305664
+    },
+    {
+      "name": "setSomeBattleData",
+      "start": 4306295
+    },
+    {
       "name": "EndBattle?",
       "start": 4307155
     },
@@ -19920,6 +19996,11 @@
       "type": "char __cdecl runAnimationScript(__int16 actor_id, int ptr_to_script);"
     },
     {
+      "name": "playAnimation?",
+      "start": 4344651,
+      "type": "int __cdecl playAnimation?(__int16 actorID);"
+    },
+    {
       "name": "ProcessesMagicAnimCallback",
       "start": 4356392
     },
@@ -19929,16 +20010,50 @@
       "type": "int __cdecl HandleAnimatingAbilityAnimations(char actorID);"
     },
     {
-      "name": "ExecuteAnimationEffect",
+      "name": "loadAnimationEffect",
       "start": 4359335
+    },
+    {
+      "name": "nullModelsState",
+      "start": 4362073
+    },
+    {
+      "name": "setModelDataPtr",
+      "start": 4367152
     },
     {
       "name": "InitABunchOfBattleData",
       "start": 4368173
     },
     {
-      "name": "CopyCommandAnimationDataForScript",
+      "name": "setRelativeEnemyGlobal",
+      "start": 4369226,
+      "type": "signed int __cdecl setRelativeEnemyGlobal(int relativeID);"
+    },
+    {
+      "name": "setupActionAnimation",
       "start": 4377593
+    },
+    {
+      "name": "setCommandAnimData",
+      "start": 4379175
+    },
+    {
+      "name": "runsPartyAnimScripts",
+      "start": 4381074
+    },
+    {
+      "name": "runPartyAnimationScripts",
+      "start": 4383349
+    },
+    {
+      "name": "callsRunAnimScript1",
+      "start": 4383562,
+      "type": "char __cdecl callsRunAnimScript1(int actorID);"
+    },
+    {
+      "name": "setupAnimationCameraData",
+      "start": 4393639
     },
     {
       "name": "endBattleHandler",
@@ -20214,6 +20329,11 @@
       "start": 6100137
     },
     {
+      "name": "boostStat",
+      "start": 6100203,
+      "type": "int __cdecl boostStat(int stat);"
+    },
+    {
       "name": "initializeBattleInventory",
       "start": 6100256
     },
@@ -20329,6 +20449,11 @@
       "type": "int __cdecl Set_play_animation(int, char *);"
     },
     {
+      "name": "loadModelAnimationScripts",
+      "start": 6167250,
+      "type": "void **__cdecl loadModelAnimationScripts(int a1, int modelPtrArrayIndex, int callLocalPtr, int callerLocalPtr2, char *filename?);"
+    },
+    {
       "name": "__cfltcvt_init_6",
       "start": 6269808
     },
@@ -20393,6 +20518,15 @@
     {
       "name": "unknown_libname_8",
       "start": 6700044
+    },
+    {
+      "name": "printDebugString",
+      "start": 6704688,
+      "type": "int __cdecl printDebugString(LPCSTR lpOutputString);"
+    },
+    {
+      "name": "setModuleHandlers",
+      "start": 6712562
     },
     {
       "name": "?Next@?$LockFreeStack@VExternalContextBase@details@Concurrency@@@details@Concurrency@@SAPAVExternalContextBase@23@PAV423@@Z",
