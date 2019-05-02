@@ -1508,6 +1508,12 @@
       "sz": 4
     },
     {
+      "address": 8130712,
+      "flags": 542135296,
+      "name": "vincentTransformationNames",
+      "sz": 4
+    },
+    {
       "address": 8131080,
       "flags": 536892416,
       "name": "AdditionalEffectIndexedArray2",
@@ -1940,6 +1946,12 @@
       "sz": 4
     },
     {
+      "address": 10149592,
+      "flags": 536892416,
+      "name": "vincentTransformationIndex",
+      "sz": 4
+    },
+    {
       "address": 10150528,
       "flags": 21504,
       "name": "EventList",
@@ -2032,7 +2044,7 @@
     {
       "address": 12459296,
       "flags": 536892416,
-      "name": "modelAnimationsBase?",
+      "name": "modelAnimationStructPtr",
       "sz": 4
     },
     {
@@ -2048,10 +2060,22 @@
       "sz": 2
     },
     {
+      "address": 12526578,
+      "flags": 21504,
+      "name": "modelDataIndex",
+      "sz": 1
+    },
+    {
       "address": 12529180,
       "flags": 21504,
       "name": "isTargetingAll",
       "sz": 1
+    },
+    {
+      "address": 12563128,
+      "flags": 537940992,
+      "name": "modelDataPtrArray",
+      "sz": 4
     },
     {
       "address": 12609712,
@@ -20018,8 +20042,18 @@
       "start": 4362073
     },
     {
-      "name": "setModelDataPtr",
-      "start": 4367152
+      "name": "loadSceneEnemyModels",
+      "start": 4366717
+    },
+    {
+      "name": "setPlayerModelData",
+      "start": 4367152,
+      "type": "void **__cdecl setPlayerModelData(int a1, int a2, int actorIndex, char *filename);"
+    },
+    {
+      "name": "loadBattleModel",
+      "start": 4367425,
+      "type": "void **__cdecl loadBattleModel(int a1, int actorModelIndex, char *fileName);"
     },
     {
       "name": "InitABunchOfBattleData",
@@ -20449,9 +20483,19 @@
       "type": "int __cdecl Set_play_animation(int, char *);"
     },
     {
-      "name": "loadModelAnimationScripts",
+      "name": "loadModelFile",
+      "start": 6165658,
+      "type": "int *__cdecl loadModelFile(int a1, int a2, int structBase?, int a4, int a5, char *filename);"
+    },
+    {
+      "name": "loadEnemyModel",
+      "start": 6166632,
+      "type": "void **__cdecl loadEnemyModel(int a1, int enemyID, _DWORD *a3, _DWORD *a4);"
+    },
+    {
+      "name": "loadModelData",
       "start": 6167250,
-      "type": "void **__cdecl loadModelAnimationScripts(int a1, int modelPtrArrayIndex, int callLocalPtr, int callerLocalPtr2, char *filename?);"
+      "type": "void **__cdecl loadModelData(int a1, int modelPtrArrayIndex, int callLocalPtr, int callerLocalPtr2, char *filename?);"
     },
     {
       "name": "__cfltcvt_init_6",
@@ -20567,6 +20611,11 @@
       "name": "gameLoadFile",
       "start": 6824146,
       "type": "int __cdecl gameLoadFile(int, char *);"
+    },
+    {
+      "name": "stripExtension?",
+      "start": 6827153,
+      "type": "int __cdecl stripExtension?(char *, char *);"
     },
     {
       "name": "PlaceAnimationEffectCallback",
