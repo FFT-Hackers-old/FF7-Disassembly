@@ -2231,6 +2231,24 @@
       "sz": 1
     },
     {
+      "address": 12609362,
+      "flags": 21504,
+      "name": "quadEnabled",
+      "sz": 1
+    },
+    {
+      "address": 12609363,
+      "flags": 21504,
+      "name": "quadCount",
+      "sz": 1
+    },
+    {
+      "address": 12609364,
+      "flags": 21504,
+      "name": "specialProperties",
+      "sz": 1
+    },
+    {
       "address": 12609644,
       "flags": 536892416,
       "name": "toNextLevelAP",
@@ -20316,7 +20334,8 @@
     },
     {
       "name": "animateWeaponFrame?",
-      "start": 4363566
+      "start": 4363566,
+      "type": "void __cdecl animateWeaponFrame?(int a1, int actorID, int a3, int a4);"
     },
     {
       "name": "loadSceneEnemyModels",
@@ -20380,6 +20399,11 @@
       "name": "playCorrectWeaponAnimation",
       "start": 4391884,
       "type": "int __cdecl playCorrectWeaponAnimation(int actorIndex);"
+    },
+    {
+      "name": "playsWeaponAnimation",
+      "start": 4392811,
+      "type": "void __cdecl playsWeaponAnimation(int actorID);"
     },
     {
       "name": "setupAnimationCameraData",
@@ -20709,6 +20733,11 @@
       "name": "enableCounterAction",
       "start": 6079144,
       "type": "char __cdecl enableCounterAction(unsigned __int8 supportMateriaLevel, unsigned __int8 materiaID, int materiaAP);"
+    },
+    {
+      "name": "applyMPTurboT9",
+      "start": 6080181,
+      "type": "void __cdecl applyMPTurboT9(unsigned __int8 supportMateriaLevel, unsigned __int8 pairedMateriaID, int pairedMateriaAP);"
     },
     {
       "name": "stealAsWell",
@@ -21051,12 +21080,12 @@
     {
       "name": "allocationAnimationMemory",
       "start": 6161129,
-      "type": "ModelAnimationData *__cdecl allocationAnimationMemory(size_t totalAnimations, signed int weaponCount);"
+      "type": "ModelData *__cdecl allocationAnimationMemory(size_t totalAnimations, signed int weaponCount);"
     },
     {
       "name": "playWeaponAnimation",
       "start": 6163934,
-      "type": "void __cdecl playWeaponAnimation(int isLimitBreak, int animationIndex, int currentFrame, int weaponIndex, ModelAnimationData *modelData);"
+      "type": "void __cdecl playWeaponAnimation(int isLimitBreak, int animationIndex, int currentFrame, int weaponIndex, ModelData *modelData);"
     },
     {
       "name": "loadModelSkeleton",
@@ -21071,7 +21100,7 @@
     {
       "name": "createModelStruct",
       "start": 6165658,
-      "type": "ModelAnimationData *__cdecl createModelStruct(int a1, int weaponModelID, SkeletonHeaderAA *skelHeader, int callerLocalAddr, FileContextStruct *fileContext, char *filename);"
+      "type": "ModelData *__cdecl createModelStruct(int a1, int weaponModelID, SkeletonHeaderAA *skelHeader, int callerLocalAddr, FileContextStruct *fileContext, char *filename);"
     },
     {
       "name": "loadEnemyModel",
@@ -21081,7 +21110,7 @@
     {
       "name": "allocModelData",
       "start": 6167250,
-      "type": "ModelAnimationData *__cdecl allocModelData(int a1, int modelPtrArrayIndex, int callLocalPtr, int callerLocalPtr2, char *filename);"
+      "type": "ModelData *__cdecl allocModelData(int a1, int modelPtrArrayIndex, int callLocalPtr, int callerLocalPtr2, char *filename);"
     },
     {
       "name": "assmeblePolygonFileName",
@@ -21096,7 +21125,7 @@
     {
       "name": "loadAnimationFromDA",
       "start": 6192612,
-      "type": "int __cdecl loadAnimationFromDA(int a1, int frameCount, int a3, int a4);"
+      "type": "BattleAnimation *__cdecl loadAnimationFromDA(int a1, int boneCount, int frameCount, int a4);"
     },
     {
       "name": "loadAnimations",
@@ -21175,9 +21204,9 @@
       "start": 6684441
     },
     {
-      "name": "AllocateMemory",
+      "name": "allocateMemory",
       "start": 6684505,
-      "type": "void *__cdecl AllocateMemory(size_t a1, size_t a2, const char *file, int line);"
+      "type": "void *__cdecl allocateMemory(size_t a1, size_t a2, const char *file, int line);"
     },
     {
       "name": "ClearMem",
@@ -21481,6 +21510,16 @@
       "start": 6853296
     },
     {
+      "name": "getAnimDataSize",
+      "start": 6889054,
+      "type": "int __cdecl getAnimDataSize(BattleAnimation *a1);"
+    },
+    {
+      "name": "createModelAnimation",
+      "start": 6889219,
+      "type": "BattleAnimation *__cdecl createModelAnimation(int frameCount, int boneCount, int unkAnimValue);"
+    },
+    {
       "name": "allocateModelSkeleton",
       "start": 6893128,
       "type": "MemModelSkeleton *__cdecl allocateModelSkeleton(size_t totalBones);"
@@ -21489,6 +21528,10 @@
       "name": "parseBoneStructure",
       "start": 6895874,
       "type": "void __cdecl parseBoneStructure(int someflag, MemModelSkeleton *skeleton, FileContextStruct *fileContext, FFContext *graphicsContext);"
+    },
+    {
+      "name": "initializeMatrix",
+      "start": 6904133
     },
     {
       "name": "loadPolygonFile",
@@ -125102,6 +125145,58 @@
       "idx": 45,
       "members": [
         {
+          "name": "field_0",
+          "offset": 0,
+          "size": 4
+        },
+        {
+          "name": "frameCount",
+          "offset": 4,
+          "size": 4
+        },
+        {
+          "name": "boneCount",
+          "offset": 8,
+          "size": 4
+        },
+        {
+          "name": "unkAnimValue",
+          "offset": 12,
+          "size": 4
+        },
+        {
+          "name": "frameDataBuffer",
+          "offset": 16,
+          "size": 4
+        },
+        {
+          "name": "frameDataView",
+          "offset": 20,
+          "size": 4
+        },
+        {
+          "name": "field_18",
+          "offset": 24,
+          "size": 4
+        },
+        {
+          "name": "field_1C",
+          "offset": 28,
+          "size": 4
+        },
+        {
+          "name": "field_20",
+          "offset": 32,
+          "size": 4
+        }
+      ],
+      "name": "BattleAnimation",
+      "xrefs": []
+    },
+    {
+      "idx": 46,
+      "members": [
+        {
           "name": "animationScriptsStruct",
           "offset": 0,
           "size": 4
@@ -125142,21 +125237,31 @@
           "size": 4
         },
         {
-          "name": "field_20",
+          "name": "matrixHeader",
           "offset": 32,
+          "size": 44
+        },
+        {
+          "name": "modelMatrix",
+          "offset": 76,
+          "size": 64
+        },
+        {
+          "name": "field_8C",
+          "offset": 140,
           "size": 4
         },
         {
-          "name": "field_24",
-          "offset": 36,
+          "name": "field_90",
+          "offset": 144,
           "size": 4
         }
       ],
-      "name": "ModelAnimationData",
+      "name": "ModelData",
       "xrefs": []
     },
     {
-      "idx": 46,
+      "idx": 47,
       "members": [
         {
           "name": "statusMasks",
@@ -125494,7 +125599,7 @@
       ]
     },
     {
-      "idx": 47,
+      "idx": 48,
       "members": [
         {
           "name": "attackerID",
@@ -125951,7 +126056,7 @@
       "xrefs": []
     },
     {
-      "idx": 48,
+      "idx": 49,
       "members": [
         {
           "name": "enemyName",
@@ -126118,7 +126223,7 @@
       "xrefs": []
     },
     {
-      "idx": 49,
+      "idx": 50,
       "members": [
         {
           "name": "apLevel",
@@ -126159,7 +126264,7 @@
       ]
     },
     {
-      "idx": 50,
+      "idx": 51,
       "members": [
         {
           "name": "id",
@@ -126181,7 +126286,7 @@
       "xrefs": []
     },
     {
-      "idx": 51,
+      "idx": 52,
       "members": [
         {
           "name": "targetFlags",
@@ -126378,7 +126483,7 @@
       "xrefs": []
     },
     {
-      "idx": 52,
+      "idx": 53,
       "members": [
         {
           "name": "unknown1",
@@ -126540,7 +126645,7 @@
       ]
     },
     {
-      "idx": 53,
+      "idx": 54,
       "members": [
         {
           "name": "unknown_byte_1",
@@ -126652,7 +126757,7 @@
       "xrefs": []
     },
     {
-      "idx": 54,
+      "idx": 55,
       "members": [
         {
           "name": "spellID",
@@ -126687,14 +126792,19 @@
         {
           "name": "specialProperties",
           "offset": 6,
-          "size": 2
+          "size": 1
+        },
+        {
+          "name": "supportFlags",
+          "offset": 7,
+          "size": 1
         }
       ],
       "name": "EnabledSpell",
       "xrefs": []
     },
     {
-      "idx": 55,
+      "idx": 56,
       "members": [
         {
           "name": "priority",
@@ -126752,7 +126862,7 @@
       ]
     },
     {
-      "idx": 56,
+      "idx": 57,
       "members": [
         {
           "name": "apLevel1",
@@ -126824,7 +126934,7 @@
       "xrefs": []
     },
     {
-      "idx": 57,
+      "idx": 58,
       "members": [
         {
           "name": "characterID",
@@ -127053,7 +127163,7 @@
       ]
     },
     {
-      "idx": 58,
+      "idx": 59,
       "members": [
         {
           "name": "commandID",
@@ -127090,7 +127200,7 @@
       "xrefs": []
     },
     {
-      "idx": 59,
+      "idx": 60,
       "members": [
         {
           "name": "characterID",
@@ -127312,7 +127422,7 @@
       ]
     },
     {
-      "idx": 60,
+      "idx": 61,
       "members": [
         {
           "name": "pad",
@@ -127329,7 +127439,7 @@
       "xrefs": []
     },
     {
-      "idx": 61,
+      "idx": 62,
       "members": [
         {
           "name": "mode",
@@ -127356,7 +127466,7 @@
       "xrefs": []
     },
     {
-      "idx": 62,
+      "idx": 63,
       "members": [
         {
           "name": "field_0",
@@ -127403,7 +127513,7 @@
       "xrefs": []
     },
     {
-      "idx": 63,
+      "idx": 64,
       "members": [
         {
           "name": "field_0",
@@ -127435,7 +127545,7 @@
       "xrefs": []
     },
     {
-      "idx": 64,
+      "idx": 65,
       "members": [
         {
           "name": "abilityHitRate",
@@ -127537,7 +127647,7 @@
       "xrefs": []
     },
     {
-      "idx": 65,
+      "idx": 66,
       "members": [
         {
           "name": "statToBoost1",
@@ -127594,7 +127704,7 @@
       "xrefs": []
     },
     {
-      "idx": 66,
+      "idx": 67,
       "members": [
         {
           "name": "PartyDataArray",
@@ -127606,7 +127716,7 @@
       "xrefs": []
     },
     {
-      "idx": 67,
+      "idx": 68,
       "members": [
         {
           "name": "spellID",
@@ -127648,7 +127758,7 @@
       "xrefs": []
     },
     {
-      "idx": 68,
+      "idx": 69,
       "members": [
         {
           "name": "ddGuid",
@@ -127685,7 +127795,7 @@
       "xrefs": []
     },
     {
-      "idx": 69,
+      "idx": 70,
       "members": [
         {
           "name": "unk0",
@@ -129272,7 +129382,7 @@
       "xrefs": []
     },
     {
-      "idx": 70,
+      "idx": 71,
       "members": [
         {
           "name": "field_0",
@@ -129364,7 +129474,7 @@
       "xrefs": []
     },
     {
-      "idx": 71,
+      "idx": 72,
       "members": [
         {
           "name": "field_0",
@@ -129401,7 +129511,7 @@
       "xrefs": []
     },
     {
-      "idx": 72,
+      "idx": 73,
       "members": [
         {
           "name": "x",
@@ -129463,7 +129573,7 @@
       "xrefs": []
     },
     {
-      "idx": 73,
+      "idx": 74,
       "members": [
         {
           "name": "indices",
@@ -129490,7 +129600,7 @@
       "xrefs": []
     },
     {
-      "idx": 74,
+      "idx": 75,
       "members": [
         {
           "name": "CreateContext",
@@ -129797,7 +129907,7 @@
       "xrefs": []
     },
     {
-      "idx": 75,
+      "idx": 76,
       "members": [
         {
           "name": "mode",
@@ -129858,7 +129968,7 @@
       ]
     },
     {
-      "idx": 76,
+      "idx": 77,
       "members": [
         {
           "name": "field_0",
@@ -129905,7 +130015,7 @@
       "xrefs": []
     },
     {
-      "idx": 77,
+      "idx": 78,
       "members": [
         {
           "name": "debug",
@@ -129922,7 +130032,7 @@
       "xrefs": []
     },
     {
-      "idx": 78,
+      "idx": 79,
       "members": [
         {
           "name": "dwSize",
@@ -130209,7 +130319,7 @@
       "xrefs": []
     },
     {
-      "idx": 79,
+      "idx": 80,
       "members": [
         {
           "name": "dwCaps",
@@ -130221,7 +130331,7 @@
       "xrefs": []
     },
     {
-      "idx": 80,
+      "idx": 81,
       "members": [
         {
           "name": "dwSize",
@@ -130435,7 +130545,7 @@
       ]
     },
     {
-      "idx": 81,
+      "idx": 82,
       "members": [
         {
           "name": "lPitch",
@@ -130447,7 +130557,7 @@
       "xrefs": []
     },
     {
-      "idx": 82,
+      "idx": 83,
       "members": [
         {
           "name": "dwMipMapCount",
@@ -130459,7 +130569,7 @@
       "xrefs": []
     },
     {
-      "idx": 83,
+      "idx": 84,
       "members": [
         {
           "name": "dwColorSpaceLowValue",
@@ -130476,7 +130586,7 @@
       "xrefs": []
     },
     {
-      "idx": 84,
+      "idx": 85,
       "members": [
         {
           "name": "dwSize",
@@ -130523,7 +130633,7 @@
       "xrefs": []
     },
     {
-      "idx": 85,
+      "idx": 86,
       "members": [
         {
           "name": "dwRGBBitCount",
@@ -130535,7 +130645,7 @@
       "xrefs": []
     },
     {
-      "idx": 86,
+      "idx": 87,
       "members": [
         {
           "name": "dwRBitMask",
@@ -130547,7 +130657,7 @@
       "xrefs": []
     },
     {
-      "idx": 87,
+      "idx": 88,
       "members": [
         {
           "name": "dwGBitMask",
@@ -130559,7 +130669,7 @@
       "xrefs": []
     },
     {
-      "idx": 88,
+      "idx": 89,
       "members": [
         {
           "name": "dwBBitMask",
@@ -130571,7 +130681,7 @@
       "xrefs": []
     },
     {
-      "idx": 89,
+      "idx": 90,
       "members": [
         {
           "name": "dwRGBAlphaBitMask",
@@ -130583,7 +130693,7 @@
       "xrefs": []
     },
     {
-      "idx": 90,
+      "idx": 91,
       "members": [
         {
           "name": "dwSize",
@@ -130870,7 +130980,7 @@
       "xrefs": []
     },
     {
-      "idx": 91,
+      "idx": 92,
       "members": [
         {
           "name": "dwCaps",
@@ -130888,7 +130998,7 @@
       ]
     },
     {
-      "idx": 92,
+      "idx": 93,
       "members": [
         {
           "name": "lpVtbl",
@@ -130900,7 +131010,7 @@
       "xrefs": []
     },
     {
-      "idx": 93,
+      "idx": 94,
       "members": [
         {
           "name": "QueryInterface",
@@ -131022,7 +131132,7 @@
       "xrefs": []
     },
     {
-      "idx": 94,
+      "idx": 95,
       "members": [
         {
           "name": "QueryInterface",
@@ -131209,7 +131319,7 @@
       "xrefs": []
     },
     {
-      "idx": 95,
+      "idx": 96,
       "members": [
         {
           "name": "QueryInterface",
@@ -131336,7 +131446,7 @@
       "xrefs": []
     },
     {
-      "idx": 96,
+      "idx": 97,
       "members": [
         {
           "name": "lpVtbl",
