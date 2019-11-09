@@ -1539,6 +1539,12 @@
       "sz": 4
     },
     {
+      "address": 8129280,
+      "flags": 2415940608,
+      "name": "gBattleFrameLimit",
+      "sz": 8
+    },
+    {
       "address": 8130712,
       "flags": 542135296,
       "name": "vincentTransformationNames",
@@ -1591,6 +1597,12 @@
       "flags": 542135296,
       "name": "PointersToCallBacks",
       "sz": 4
+    },
+    {
+      "address": 8137424,
+      "flags": 21504,
+      "name": "gPartyActorCycle",
+      "sz": 1
     },
     {
       "address": 9429676,
@@ -2061,6 +2073,12 @@
       "sz": 2
     },
     {
+      "address": 10137744,
+      "flags": 2415940608,
+      "name": "gModuleSleepAmt",
+      "sz": 8
+    },
+    {
       "address": 10137760,
       "flags": 1610634240,
       "name": "AI_BATTLE_STATE",
@@ -2096,6 +2114,12 @@
       "flags": 21504,
       "name": "restrictionMask?",
       "sz": 1
+    },
+    {
+      "address": 10144624,
+      "flags": 805327872,
+      "name": "gGlobalQPC",
+      "sz": 8
     },
     {
       "address": 10144664,
@@ -2634,7 +2658,7 @@
     {
       "address": 14421616,
       "flags": 21504,
-      "name": "battlePaused",
+      "name": "gBattlePaused",
       "sz": 1
     },
     {
@@ -20802,7 +20826,8 @@
     },
     {
       "name": "mainTransitionHandler",
-      "start": 4231398
+      "start": 4231398,
+      "type": "void __cdecl mainTransitionHandler(int);"
     },
     {
       "name": "SetupContext",
@@ -21671,15 +21696,20 @@
     {
       "name": "enteringBattle",
       "start": 4305664,
-      "type": "void __cdecl enteringBattle(float *a1);"
+      "type": "void __cdecl enteringBattle(FFContext *ffContext);"
     },
     {
       "name": "setSomeBattleData",
-      "start": 4306295
+      "start": 4306295,
+      "type": "int __cdecl setSomeBattleData(FFContext *a1);"
     },
     {
       "name": "EndBattle?",
       "start": 4307155
+    },
+    {
+      "name": "blockForDelay",
+      "start": 4307301
     },
     {
       "name": "battleMain",
@@ -22029,6 +22059,15 @@
       "name": "_is_wctype",
       "start": 4420348,
       "type": "int __cdecl _is_wctype(wint_t, wctype_t);"
+    },
+    {
+      "name": "getActivatingPartyIdx",
+      "start": 4420870
+    },
+    {
+      "name": "cycleActiveMember",
+      "start": 4421002,
+      "type": "void __cdecl cycleActiveMember();"
     },
     {
       "name": "updateCommandsActive",
@@ -23199,13 +23238,14 @@
       "type": "char *__cdecl strdup(const char *a1);"
     },
     {
-      "name": "GetTimeCPU",
-      "start": 6685552
+      "name": "getQPC",
+      "start": 6685552,
+      "type": "void __cdecl getQPC(void *a1);"
     },
     {
       "name": "Sub64",
       "start": 6685600,
-      "type": "__int64 __cdecl Sub64(_QWORD *a1, _QWORD *a2, _QWORD *dst);"
+      "type": "void __cdecl Sub64(_QWORD *a1, _QWORD *a2, _QWORD *dst);"
     },
     {
       "name": "Double64",
@@ -23342,7 +23382,7 @@
     {
       "name": "SetContext",
       "start": 6776171,
-      "type": "FFContext *__cdecl SetContext(FFContext *ctx);"
+      "type": "void __cdecl SetContext(FFContext *ctx);"
     },
     {
       "name": "GetContext",
@@ -23387,6 +23427,11 @@
       "name": "MakeContext",
       "start": 6778494,
       "type": "FFContext *__cdecl MakeContext();"
+    },
+    {
+      "name": "timeFrames",
+      "start": 6778528,
+      "type": "void __cdecl timeFrames(FFContext *arg0);"
     },
     {
       "name": "Callback",
@@ -23774,7 +23819,7 @@
     {
       "name": "initHandlerCursorState",
       "start": 7146233,
-      "type": "int __cdecl initHandlerCursorState(__int16 a1, __int16 a2, __int16 handler_index);"
+      "type": "void __cdecl initHandlerCursorState(__int16 a1, __int16 a2, __int16 handler_index);"
     },
     {
       "name": "setViewState3",
@@ -23854,7 +23899,7 @@
       "start": 7179376
     },
     {
-      "name": "baseMenuHandler",
+      "name": "baseInputHandler",
       "start": 7179381
     },
     {
@@ -23971,6 +24016,10 @@
       "start": 7216996
     },
     {
+      "name": "tifaSlotsHandler",
+      "start": 7221557
+    },
+    {
       "name": "setCursorTargetingData",
       "start": 7232594
     },
@@ -24041,7 +24090,7 @@
     {
       "name": "renderNumbers",
       "start": 7313209,
-      "type": "int __cdecl renderNumbers(int a1, signed int a2, unsigned int a3, char a4, char a5, float a6);"
+      "type": "void __cdecl renderNumbers(int a1, signed int a2, unsigned int a3, char a4, char a5, float a6);"
     },
     {
       "name": "displayNumberAtLocation2",
@@ -24337,6 +24386,11 @@
       "name": "playMenuSound",
       "start": 7624714,
       "type": "void __cdecl playMenuSound(int sound_id?);"
+    },
+    {
+      "name": "wordlMapMain",
+      "start": 7650889,
+      "type": "void __cdecl wordlMapMain(FFContext *a1);"
     },
     {
       "name": "??__E?m_badAllocExceptionPtr@__ExceptionPtr@@0V?$shared_ptr@V__ExceptionPtr@@@std@@A@@YAXXZ",
@@ -31615,26 +31669,6 @@
     {
       "name": "",
       "start": 1764712635
-    },
-    {
-      "name": "samcli_NetUserGetLocalGroups",
-      "start": 1766206032
-    },
-    {
-      "name": "samcli_NetLocalGroupAddMembers",
-      "start": 1766231856
-    },
-    {
-      "name": "samcli_NetLocalGroupGetInfo",
-      "start": 1766233184
-    },
-    {
-      "name": "samcli_NetGetDisplayInformationIndex",
-      "start": 1766236528
-    },
-    {
-      "name": "samcli_NetGroupDelUser",
-      "start": 1766237360
     },
     {
       "name": "nvoglv32_DrvCopyContext",
@@ -40049,20 +40083,12 @@
       "start": 1954779616
     },
     {
-      "name": "gdi32full_SetTextAlignImpl",
-      "start": 1954784656
-    },
-    {
       "name": "shell32_SHChangeNotify",
       "start": 1954823920
     },
     {
       "name": "shell32_SHChangeNotifyRegister",
       "start": 1954827024
-    },
-    {
-      "name": "gdi32full_SetWindowOrgEx",
-      "start": 1954854688
     },
     {
       "name": "shell32_SHChangeNotifyRegisterThread",
@@ -40101,10 +40127,6 @@
       "start": 1954925904
     },
     {
-      "name": "gdi32full_ScriptFreeCache",
-      "start": 1954927952
-    },
-    {
       "name": "shell32_SHCreateItemWithParent",
       "start": 1954928672
     },
@@ -40129,14 +40151,6 @@
       "start": 1954957392
     },
     {
-      "name": "gdi32full_GetKerningPairsW",
-      "start": 1954962448
-    },
-    {
-      "name": "gdi32full_GetTextFaceA",
-      "start": 1954963536
-    },
-    {
       "name": "shell32_SHGetItemFromDataObject",
       "start": 1954965504
     },
@@ -40145,60 +40159,12 @@
       "start": 1954966208
     },
     {
-      "name": "gdi32full_hdcCreateDCW",
-      "start": 1954974160
-    },
-    {
-      "name": "gdi32full_GdiGetLocalDC",
-      "start": 1954985488
-    },
-    {
-      "name": "gdi32full_NtGdiAddFontResourceW",
-      "start": 1954992144
-    },
-    {
-      "name": "gdi32full_NtGdiBRUSHOBJ_hGetColorTransform",
-      "start": 1954992272
-    },
-    {
-      "name": "gdi32full_NtGdiCreateBitmapFromDxSurface2",
-      "start": 1954992640
-    },
-    {
-      "name": "gdi32full_NtGdiCreateMetafileDC",
-      "start": 1954992832
-    },
-    {
-      "name": "gdi32full_NtGdiDdDDIAdjustFullscreenGamma",
-      "start": 1954993200
-    },
-    {
       "name": "shell32_ReadCabinetState",
       "start": 1954993232
     },
     {
-      "name": "gdi32full_NtGdiDdDDINetDispStartMiracastDisplayDevice",
-      "start": 1954994608
-    },
-    {
-      "name": "gdi32full_NtGdiDdDDIOpenAdapterFromHdc",
-      "start": 1954994688
-    },
-    {
-      "name": "gdi32full_NtGdiDdDDISetAllocationPriority",
-      "start": 1954995472
-    },
-    {
-      "name": "gdi32full_NtGdiDdDDISetContextSchedulingPriority",
-      "start": 1954995504
-    },
-    {
       "name": "shell32_SHGetSetSettings",
       "start": 1954998160
-    },
-    {
-      "name": "gdi32full_NtGdiStretchDIBitsInternal",
-      "start": 1955000304
     },
     {
       "name": "shell32_Ordinal893",
@@ -40381,236 +40347,8 @@
       "start": 1955110128
     },
     {
-      "name": "gdi32full_Ordinal1013",
-      "start": 1955112016
-    },
-    {
-      "name": "gdi32full_Ordinal1003",
-      "start": 1955112144
-    },
-    {
-      "name": "gdi32full_Ordinal1009",
-      "start": 1955112464
-    },
-    {
-      "name": "gdi32full_Ordinal1002",
-      "start": 1955112592
-    },
-    {
-      "name": "gdi32full_Ordinal1005",
-      "start": 1955112624
-    },
-    {
-      "name": "gdi32full_GetCharABCWidthsFloatA",
-      "start": 1955112736
-    },
-    {
-      "name": "gdi32full_GetCharABCWidthsFloatW",
-      "start": 1955112832
-    },
-    {
-      "name": "gdi32full_GetCharABCWidthsI",
-      "start": 1955112880
-    },
-    {
-      "name": "gdi32full_GetCharWidth32A",
-      "start": 1955112928
-    },
-    {
-      "name": "gdi32full_GetCharWidthFloatA",
-      "start": 1955113024
-    },
-    {
-      "name": "gdi32full_GetCharWidthI",
-      "start": 1955113120
-    },
-    {
-      "name": "gdi32full_GetCharacterPlacementA",
-      "start": 1955113216
-    },
-    {
       "name": "shell32_Ordinal683",
       "start": 1955113904
-    },
-    {
-      "name": "gdi32full_GetCharacterPlacementW",
-      "start": 1955113936
-    },
-    {
-      "name": "gdi32full_GetColorAdjustment",
-      "start": 1955114096
-    },
-    {
-      "name": "gdi32full_GetGlyphIndicesA",
-      "start": 1955114128
-    },
-    {
-      "name": "gdi32full_GetGlyphOutlineA",
-      "start": 1955114608
-    },
-    {
-      "name": "gdi32full_GetTextExtentExPointA",
-      "start": 1955114912
-    },
-    {
-      "name": "gdi32full_GetTextExtentExPointWPri",
-      "start": 1955115648
-    },
-    {
-      "name": "gdi32full_GdiEntry11",
-      "start": 1955116080
-    },
-    {
-      "name": "gdi32full_GdiEntry1",
-      "start": 1955116144
-    },
-    {
-      "name": "gdi32full_GdiEntry5",
-      "start": 1955116400
-    },
-    {
-      "name": "gdi32full_NtGdiDdCreateSurface",
-      "start": 1955116576
-    },
-    {
-      "name": "gdi32full_NtGdiDdQueryDirectDrawObject",
-      "start": 1955116624
-    },
-    {
-      "name": "gdi32full_NtGdiD3dContextCreate",
-      "start": 1955116656
-    },
-    {
-      "name": "gdi32full_GdiIsMetaFileDC",
-      "start": 1955116720
-    },
-    {
-      "name": "gdi32full_SelectBrushLocal",
-      "start": 1955116880
-    },
-    {
-      "name": "gdi32full_CreateDCExW",
-      "start": 1955116912
-    },
-    {
-      "name": "gdi32full_CreateDIBPatternBrushPt",
-      "start": 1955116976
-    },
-    {
-      "name": "gdi32full_CreateEllipticRgn",
-      "start": 1955117040
-    },
-    {
-      "name": "gdi32full_CreateEllipticRgnIndirect",
-      "start": 1955117072
-    },
-    {
-      "name": "gdi32full_CreateHatchBrush",
-      "start": 1955117248
-    },
-    {
-      "name": "gdi32full_GdiIsScreenDC",
-      "start": 1955117808
-    },
-    {
-      "name": "gdi32full_CreatePolyPolygonRgn",
-      "start": 1955118384
-    },
-    {
-      "name": "gdi32full_PolyBezier",
-      "start": 1955118432
-    },
-    {
-      "name": "gdi32full_PolyPolyline",
-      "start": 1955118752
-    },
-    {
-      "name": "gdi32full_MirrorRgn",
-      "start": 1955118912
-    },
-    {
-      "name": "gdi32full_ClearBitmapAttributes",
-      "start": 1955120032
-    },
-    {
-      "name": "gdi32full_ClearBrushAttributes",
-      "start": 1955120064
-    },
-    {
-      "name": "gdi32full_CreateSessionMappedDIBSection",
-      "start": 1955120208
-    },
-    {
-      "name": "gdi32full_SetBitmapAttributes",
-      "start": 1955120400
-    },
-    {
-      "name": "gdi32full_SetBrushAttributes",
-      "start": 1955120432
-    },
-    {
-      "name": "gdi32full_CombineTransform",
-      "start": 1955120464
-    },
-    {
-      "name": "gdi32full_GetTransform",
-      "start": 1955120496
-    },
-    {
-      "name": "gdi32full_ScaleViewportExtEx",
-      "start": 1955120528
-    },
-    {
-      "name": "gdi32full_ScaleWindowExtEx",
-      "start": 1955120832
-    },
-    {
-      "name": "gdi32full_SetVirtualResolution",
-      "start": 1955121136
-    },
-    {
-      "name": "gdi32full_CancelDC",
-      "start": 1955121168
-    },
-    {
-      "name": "gdi32full_OffsetClipRgn",
-      "start": 1955121360
-    },
-    {
-      "name": "gdi32full_SetArcDirection",
-      "start": 1955121504
-    },
-    {
-      "name": "gdi32full_SetColorAdjustment",
-      "start": 1955121552
-    },
-    {
-      "name": "gdi32full_SetMapperFlags",
-      "start": 1955121648
-    },
-    {
-      "name": "gdi32full_SetSystemPaletteUse",
-      "start": 1955121840
-    },
-    {
-      "name": "gdi32full_AddFontMemResourceEx",
-      "start": 1955121872
-    },
-    {
-      "name": "gdi32full_AddFontResourceA",
-      "start": 1955121936
-    },
-    {
-      "name": "gdi32full_AddFontResourceExA",
-      "start": 1955121968
-    },
-    {
-      "name": "gdi32full_AddFontResourceExW",
-      "start": 1955122272
-    },
-    {
-      "name": "gdi32full_AddFontResourceTracking",
-      "start": 1955122320
     },
     {
       "name": "shell32_OpenAs_RunDLL",
@@ -40619,10 +40357,6 @@
     {
       "name": "shell32_Ordinal840",
       "start": 1955132112
-    },
-    {
-      "name": "gdi32full_ColorMatchToTarget",
-      "start": 1955133440
     },
     {
       "name": "shell32_SHGetSetFolderCustomSettings",
@@ -40813,10 +40547,6 @@
       "start": 1955161672
     },
     {
-      "name": "gdi32full_CopyMetaFileW",
-      "start": 1955161728
-    },
-    {
       "name": "j_kernelbase_SizeofResource",
       "start": 1955161738
     },
@@ -40843,50 +40573,6 @@
     {
       "name": "j_ntdll_ApiSetQueryApiSetPresence_14",
       "start": 1955162383
-    },
-    {
-      "name": "gdi32full_Chord",
-      "start": 1955167200
-    },
-    {
-      "name": "gdi32full_DeviceCapabilitiesExA",
-      "start": 1955167456
-    },
-    {
-      "name": "gdi32full_DrawEscape",
-      "start": 1955167696
-    },
-    {
-      "name": "gdi32full_Ellipse",
-      "start": 1955167808
-    },
-    {
-      "name": "gdi32full_FloodFill",
-      "start": 1955168464
-    },
-    {
-      "name": "gdi32full_GdiConsoleTextOut",
-      "start": 1955168752
-    },
-    {
-      "name": "gdi32full_GdiGetBatchLimit",
-      "start": 1955168784
-    },
-    {
-      "name": "gdi32full_MaskBlt",
-      "start": 1955168992
-    },
-    {
-      "name": "gdi32full_NamedEscape",
-      "start": 1955169280
-    },
-    {
-      "name": "gdi32full_PolyTextOutA",
-      "start": 1955170224
-    },
-    {
-      "name": "gdi32full_GdiResetDCEMF",
-      "start": 1955179760
     },
     {
       "name": "shell32_Ordinal660",
@@ -40947,94 +40633,6 @@
     {
       "name": "j_msvcrt_memset_13",
       "start": 1955239440
-    },
-    {
-      "name": "gdi32full_GdiArtificialDecrementDriver",
-      "start": 1955248912
-    },
-    {
-      "name": "gdi32full_GdiGetVariationStoreDelta",
-      "start": 1955250080
-    },
-    {
-      "name": "gdi32full_ScriptApplyLogicalWidth",
-      "start": 1955251824
-    },
-    {
-      "name": "gdi32full_ScriptCacheGetHeight",
-      "start": 1955252448
-    },
-    {
-      "name": "gdi32full_ScriptGetFontProperties",
-      "start": 1955252544
-    },
-    {
-      "name": "gdi32full_ScriptGetGlyphABCWidth",
-      "start": 1955252736
-    },
-    {
-      "name": "gdi32full_ScriptIsComplex",
-      "start": 1955252832
-    },
-    {
-      "name": "gdi32full_ScriptJustify",
-      "start": 1955253312
-    },
-    {
-      "name": "gdi32full_ScriptLayout",
-      "start": 1955254992
-    },
-    {
-      "name": "gdi32full_ScriptPlace",
-      "start": 1955255104
-    },
-    {
-      "name": "gdi32full_ScriptStringGetLogicalWidths",
-      "start": 1955255504
-    },
-    {
-      "name": "gdi32full_ScriptStringGetOrder",
-      "start": 1955255728
-    },
-    {
-      "name": "gdi32full_ScriptStringValidate",
-      "start": 1955256192
-    },
-    {
-      "name": "gdi32full_ScriptString_pLogAttr",
-      "start": 1955256416
-    },
-    {
-      "name": "gdi32full_ScriptString_pSize",
-      "start": 1955256448
-    },
-    {
-      "name": "gdi32full_ScriptString_pcOutChars",
-      "start": 1955256480
-    },
-    {
-      "name": "gdi32full_ScriptGetFontAlternateGlyphs",
-      "start": 1955256512
-    },
-    {
-      "name": "gdi32full_ScriptGetFontFeatureTags",
-      "start": 1955256720
-    },
-    {
-      "name": "gdi32full_ScriptGetFontLanguageTags",
-      "start": 1955257088
-    },
-    {
-      "name": "gdi32full_ScriptGetFontScriptTags",
-      "start": 1955257392
-    },
-    {
-      "name": "gdi32full_ScriptPositionSingleGlyph",
-      "start": 1955257568
-    },
-    {
-      "name": "gdi32full_ScriptSubstituteSingleGlyph",
-      "start": 1955257920
     },
     {
       "name": "shell32_SHCreateStdEnumFmtEtc",
@@ -41141,10 +40739,6 @@
       "start": 1955900656
     },
     {
-      "name": "crypt32_CertIsValidCRLForCertificate",
-      "start": 1955922272
-    },
-    {
       "name": "shell32_Ordinal851",
       "start": 1955927328
     },
@@ -41243,10 +40837,6 @@
     {
       "name": "shell32_Control_RunDLLW",
       "start": 1956065632
-    },
-    {
-      "name": "crypt32_CryptBinaryToStringA",
-      "start": 1956080848
     },
     {
       "name": "shell32_Ordinal264",
@@ -41349,18 +40939,6 @@
       "start": 1956267264
     },
     {
-      "name": "crypt32_CertCreateCTLContext",
-      "start": 1956269168
-    },
-    {
-      "name": "crypt32_CertCreateCTLEntryFromCertificateContextProperties",
-      "start": 1956269216
-    },
-    {
-      "name": "crypt32_CertDeleteCRLFromStore",
-      "start": 1956270464
-    },
-    {
       "name": "shell32_SHHandleUpdateImage",
       "start": 1956274032
     },
@@ -41379,10 +40957,6 @@
     {
       "name": "shell32_SHDestroyPropSheetExtArray",
       "start": 1956276256
-    },
-    {
-      "name": "crypt32_CertAddRefServerOcspResponse",
-      "start": 1956277712
     },
     {
       "name": "shell32_Ordinal781",
@@ -41481,10 +41055,6 @@
       "start": 1956460080
     },
     {
-      "name": "crypt32_I_CryptAddRefLruEntry",
-      "start": 1956500048
-    },
-    {
       "name": "j_kernelbase_RegCloseKey_0",
       "start": 1957722384
     },
@@ -41493,124 +41063,36 @@
       "start": 1958079712
     },
     {
-      "name": "msvcp_win_std::basic_istream<char,std::char_traits<char> >::`vbase destructor'",
-      "start": 1958468912
+      "name": "",
+      "start": 1960720928
     },
     {
-      "name": "msvcp_win_std::basic_ostream<char,std::char_traits<char> >::`vbase destructor'",
-      "start": 1958474928
+      "name": "",
+      "start": 1960731744
     },
     {
-      "name": "msvcp_win_std::locale::_Locimp::_Addfac",
-      "start": 1958478448
+      "name": "",
+      "start": 1960731936
     },
     {
-      "name": "msvcp_win_std::locale::facet::facet",
-      "start": 1958479264
+      "name": "",
+      "start": 1960732176
     },
     {
-      "name": "msvcp_win_std::locale::facet::_Incref",
-      "start": 1958479296
+      "name": "",
+      "start": 1960776048
     },
     {
-      "name": "msvcp_win_Cnd_wait",
-      "start": 1958490464
+      "name": "",
+      "start": 1960805712
     },
     {
-      "name": "msvcp_win_std::codecvt<wchar_t,char,_Mbstatet>::_Getcat",
-      "start": 1958495232
+      "name": "",
+      "start": 1960909904
     },
     {
-      "name": "msvcp_win_std::_Locinfo::_Getcvt",
-      "start": 1958503408
-    },
-    {
-      "name": "msvcp_win_std::_Xbad_alloc",
-      "start": 1958507840
-    },
-    {
-      "name": "msvcp_win_std::_Locinfo::_Getdateorder",
-      "start": 1958534256
-    },
-    {
-      "name": "msvcp_win_std::_Locinfo::_Getctype",
-      "start": 1958534352
-    },
-    {
-      "name": "msvcp_win_std::ctype<wchar_t>::_Dowiden",
-      "start": 1958535296
-    },
-    {
-      "name": "msvcp_win_std::ctype<wchar_t>::~ctype<wchar_t>",
-      "start": 1958535456
-    },
-    {
-      "name": "msvcp_win_std::basic_ostream<wchar_t,std::char_traits<wchar_t> >::~basic_ostream<wchar_t,std::char_traits<wchar_t> >",
-      "start": 1958537632
-    },
-    {
-      "name": "msvcp_win_FCosh",
-      "start": 1958542576
-    },
-    {
-      "name": "msvcp_win_FSinh",
-      "start": 1958546336
-    },
-    {
-      "name": "msvcp_win_Mtxunlock",
-      "start": 1958549408
-    },
-    {
-      "name": "msvcp_win_Stof",
-      "start": 1958551968
-    },
-    {
-      "name": "msvcp_win_Stold",
-      "start": 1958553280
-    },
-    {
-      "name": "msvcp_win_std::_Locinfo::`default constructor closure'",
-      "start": 1958563968
-    },
-    {
-      "name": "msvcp_win_To_wide",
-      "start": 1958574448
-    },
-    {
-      "name": "msvcp_win_Mtx_getconcrtcs",
-      "start": 1958659824
-    },
-    {
-      "name": "msvcp_win_Concurrency::details::platform::GetNextAsyncId",
-      "start": 1958660112
-    },
-    {
-      "name": "msvcp_win_Concurrency::details::_ContextCallback::_IsCurrentOriginSTA",
-      "start": 1958660368
-    },
-    {
-      "name": "msvcp_win_std::basic_streambuf<unsigned short,std::char_traits<unsigned short> >::_Gndec",
-      "start": 1958661264
-    },
-    {
-      "name": "msvcp_win_std::basic_streambuf<char,std::char_traits<char> >::showmanyc",
-      "start": 1958663296
-    },
-    {
-      "name": "msvcp_win_std::basic_streambuf<wchar_t,std::char_traits<wchar_t> >::sgetn",
-      "start": 1958724096
-    },
-    {
-      "name": "msvcp_win_std::basic_streambuf<char,std::char_traits<char> >::stossc",
-      "start": 1958724560
-    },
-    {
-      "name": "msvcp_win_std::basic_ios<char,std::char_traits<char> >::swap",
-      "start": 1958724960
-    },
-    {
-      "name": "msvcp_win_std::basic_streambuf<char,std::char_traits<char> >::swap",
-      "start": 1958725376
+      "name": "",
+      "start": 1961096592
     },
     {
       "name": "",
@@ -53377,14 +52859,6 @@
       "start": 1982531552
     },
     {
-      "name": "gdi32_StretchBlt",
-      "start": 1982546192
-    },
-    {
-      "name": "gdi32_CreatePen",
-      "start": 1982548352
-    },
-    {
       "name": "setupapi_pSetupStringTableAddString",
       "start": 1982550480
     },
@@ -53417,28 +52891,12 @@
       "start": 1982560688
     },
     {
-      "name": "gdi32_D3DKMTGetProcessList",
-      "start": 1982563808
-    },
-    {
-      "name": "gdi32_D3DKMTReleaseKeyedMutex",
-      "start": 1982564912
-    },
-    {
       "name": "setupapi_SetupDiGetSelectedDriverW",
       "start": 1982565008
     },
     {
       "name": "setupapi_SetupDiEnumDriverInfoW",
       "start": 1982565232
-    },
-    {
-      "name": "gdi32_D3DKMTSubmitWaitForSyncObjectsToHwQueue",
-      "start": 1982565520
-    },
-    {
-      "name": "gdi32_D3DKMTWaitForVerticalBlankEvent",
-      "start": 1982565792
     },
     {
       "name": "setupapi_SetupDiGetDriverInfoDetailW",
@@ -53473,10 +52931,6 @@
       "start": 1982570048
     },
     {
-      "name": "gdi32_EngDeleteSemaphore",
-      "start": 1982570384
-    },
-    {
       "name": "setupapi_pSetupAppendPath",
       "start": 1982570720
     },
@@ -53487,10 +52941,6 @@
     {
       "name": "setupapi_SetupDiDestroyDriverInfoList",
       "start": 1982571696
-    },
-    {
-      "name": "gdi32_GdiConvertBitmap",
-      "start": 1982572240
     },
     {
       "name": "setupapi_SetupDiGetDeviceInstallParamsW",
@@ -53505,10 +52955,6 @@
       "start": 1982574096
     },
     {
-      "name": "gdi32_GetArcDirection",
-      "start": 1982574880
-    },
-    {
       "name": "setupapi_SetupScanFileQueueW",
       "start": 1982575168
     },
@@ -53521,20 +52967,12 @@
       "start": 1982575968
     },
     {
-      "name": "gdi32_GetMetaFileW",
-      "start": 1982576224
-    },
-    {
       "name": "setupapi_SetupGetInfDriverStoreLocationW",
       "start": 1982577232
     },
     {
       "name": "setupapi_pSetupGetFileTitle",
       "start": 1982577536
-    },
-    {
-      "name": "gdi32_RemoveFontResourceExA",
-      "start": 1982577632
     },
     {
       "name": "setupapi_pSetupConcatenatePaths",
@@ -53601,20 +53039,12 @@
       "start": 1982583278
     },
     {
-      "name": "gdi32_AnimatePalette",
-      "start": 1982583296
-    },
-    {
       "name": "j_msvcrt_initterm_8",
       "start": 1982583773
     },
     {
       "name": "j_msvcrt_except_handler4_common_7",
       "start": 1982583873
-    },
-    {
-      "name": "gdi32_GetEnhMetaFileA",
-      "start": 1982584080
     },
     {
       "name": "________alloca_probe",
@@ -54101,18 +53531,6 @@
       "start": 1983124512
     },
     {
-      "name": "win32u_NtGdiRectVisible",
-      "start": 1983131136
-    },
-    {
-      "name": "win32u_NtGdiDdDDIDestroyKeyedMutex",
-      "start": 1983137488
-    },
-    {
-      "name": "win32u_NtGdiSetColorSpace",
-      "start": 1983142560
-    },
-    {
       "name": "setupapi_pSetupEnablePrivilege",
       "start": 1983144352
     },
@@ -54121,12 +53539,8 @@
       "start": 1983145168
     },
     {
-      "name": "win32u_NtUserGetActiveProcessesDpis",
-      "start": 1983145392
-    },
-    {
-      "name": "win32u_NtUserInjectKeyboardInput",
-      "start": 1983147008
+      "name": "",
+      "start": 1983145744
     },
     {
       "name": "setupapi_pSetupMultiByteToUnicode",
@@ -54135,10 +53549,6 @@
     {
       "name": "setupapi_pSetupOpenAndMapFileForRead",
       "start": 1983149600
-    },
-    {
-      "name": "win32u_NtUserWindowFromPhysicalPoint",
-      "start": 1983149808
     },
     {
       "name": "setupapi_pSetupUnmapAndCloseFile",
@@ -54269,6 +53679,254 @@
       "start": 1985043152
     },
     {
+      "name": "",
+      "start": 1985300112
+    },
+    {
+      "name": "",
+      "start": 1985301360
+    },
+    {
+      "name": "",
+      "start": 1985338944
+    },
+    {
+      "name": "",
+      "start": 1985360256
+    },
+    {
+      "name": "",
+      "start": 1985372720
+    },
+    {
+      "name": "",
+      "start": 1985409504
+    },
+    {
+      "name": "",
+      "start": 1985416384
+    },
+    {
+      "name": "",
+      "start": 1985417280
+    },
+    {
+      "name": "",
+      "start": 1985417584
+    },
+    {
+      "name": "",
+      "start": 1985418096
+    },
+    {
+      "name": "",
+      "start": 1985420192
+    },
+    {
+      "name": "",
+      "start": 1985421968
+    },
+    {
+      "name": "",
+      "start": 1985422160
+    },
+    {
+      "name": "",
+      "start": 1985423264
+    },
+    {
+      "name": "",
+      "start": 1985423520
+    },
+    {
+      "name": "",
+      "start": 1985423632
+    },
+    {
+      "name": "",
+      "start": 1985424192
+    },
+    {
+      "name": "",
+      "start": 1985424752
+    },
+    {
+      "name": "",
+      "start": 1985425072
+    },
+    {
+      "name": "",
+      "start": 1985425312
+    },
+    {
+      "name": "",
+      "start": 1985426656
+    },
+    {
+      "name": "",
+      "start": 1985428336
+    },
+    {
+      "name": "",
+      "start": 1985430720
+    },
+    {
+      "name": "",
+      "start": 1985431200
+    },
+    {
+      "name": "",
+      "start": 1985431232
+    },
+    {
+      "name": "",
+      "start": 1985431632
+    },
+    {
+      "name": "",
+      "start": 1985431872
+    },
+    {
+      "name": "",
+      "start": 1985436784
+    },
+    {
+      "name": "",
+      "start": 1985456240
+    },
+    {
+      "name": "",
+      "start": 1985473584
+    },
+    {
+      "name": "",
+      "start": 1985487024
+    },
+    {
+      "name": "",
+      "start": 1985487072
+    },
+    {
+      "name": "",
+      "start": 1985494192
+    },
+    {
+      "name": "",
+      "start": 1985496496
+    },
+    {
+      "name": "",
+      "start": 1985497264
+    },
+    {
+      "name": "",
+      "start": 1985506096
+    },
+    {
+      "name": "",
+      "start": 1985509120
+    },
+    {
+      "name": "",
+      "start": 1985510080
+    },
+    {
+      "name": "",
+      "start": 1985512880
+    },
+    {
+      "name": "",
+      "start": 1985512912
+    },
+    {
+      "name": "",
+      "start": 1985516928
+    },
+    {
+      "name": "",
+      "start": 1985519152
+    },
+    {
+      "name": "",
+      "start": 1985519232
+    },
+    {
+      "name": "",
+      "start": 1985519472
+    },
+    {
+      "name": "",
+      "start": 1985519968
+    },
+    {
+      "name": "",
+      "start": 1985520256
+    },
+    {
+      "name": "",
+      "start": 1985525632
+    },
+    {
+      "name": "",
+      "start": 1985526928
+    },
+    {
+      "name": "",
+      "start": 1985537168
+    },
+    {
+      "name": "",
+      "start": 1985537536
+    },
+    {
+      "name": "",
+      "start": 1985540816
+    },
+    {
+      "name": "",
+      "start": 1985543136
+    },
+    {
+      "name": "",
+      "start": 1985547472
+    },
+    {
+      "name": "",
+      "start": 1985548320
+    },
+    {
+      "name": "",
+      "start": 1985552576
+    },
+    {
+      "name": "",
+      "start": 1985557056
+    },
+    {
+      "name": "",
+      "start": 1985557920
+    },
+    {
+      "name": "",
+      "start": 1985558256
+    },
+    {
+      "name": "",
+      "start": 1985790304
+    },
+    {
+      "name": "",
+      "start": 1986037904
+    },
+    {
+      "name": "",
+      "start": 1986072272
+    },
+    {
+      "name": "",
+      "start": 1986090480
+    },
+    {
       "name": "fltlib_FilterCreate",
       "start": 1986795392
     },
@@ -54339,10 +53997,6 @@
     {
       "name": "clbcatq_GetCatalogObject",
       "start": 1987105920
-    },
-    {
-      "name": "rpcrt4_I_RpcInitHttpImports",
-      "start": 1987114480
     },
     {
       "name": "clbcatq_DllCanUnloadNow",
@@ -64309,20 +63963,12 @@
       "start": 1990999392
     },
     {
-      "name": "shlwapi_PathCreateFromUrlW",
-      "start": 1990999888
-    },
-    {
       "name": "kernelbase_NlsUpdateLocale",
       "start": 1991000288
     },
     {
       "name": "kernelbase_NlsUpdateSystemLocale",
       "start": 1991000960
-    },
-    {
-      "name": "shlwapi_PathRemoveFileSpecW",
-      "start": 1991001808
     },
     {
       "name": "kernelbase_SetCalendarInfoW",
@@ -64481,10 +64127,6 @@
       "start": 1991033408
     },
     {
-      "name": "shlwapi_Ordinal400",
-      "start": 1991037424
-    },
-    {
       "name": "kernelbase_GetNLSVersionEx",
       "start": 1991041968
     },
@@ -64499,10 +64141,6 @@
     {
       "name": "kernelbase_GetIntegratedDisplaySize",
       "start": 1991043888
-    },
-    {
-      "name": "shlwapi_SHRegGetIntW",
-      "start": 1991045664
     },
     {
       "name": "kernelbase_AddConsoleAliasA",
@@ -65177,10 +64815,6 @@
       "start": 1991079728
     },
     {
-      "name": "shlwapi_Ordinal237",
-      "start": 1991080160
-    },
-    {
       "name": "kernelbase_Wow64SetThreadDefaultGuestMachine",
       "start": 1991080576
     },
@@ -65327,10 +64961,6 @@
     {
       "name": "kernelbase_PsmIsDynamicKey",
       "start": 1991089136
-    },
-    {
-      "name": "shlwapi_SHFreeShared",
-      "start": 1991091392
     },
     {
       "name": "kernelbase_AcquireStateLock",
@@ -65579,10 +65209,6 @@
     {
       "name": "kernelbase_WriteStateContainerValue",
       "start": 1991106992
-    },
-    {
-      "name": "shlwapi_Ordinal621",
-      "start": 1991121840
     },
     {
       "name": "kernelbase_PackageSidFromProductId",
@@ -67025,10 +66651,6 @@
       "start": 1991336448
     },
     {
-      "name": "shcore_Ordinal172",
-      "start": 1991353168
-    },
-    {
       "name": "??_7?$basic_filebuf@GU?$char_traits@G@std@@@std@@6B@",
       "start": 1991708820
     },
@@ -67633,10 +67255,6 @@
       "start": 1991951696
     },
     {
-      "name": "setupapi_SetupOpenFileQueue",
-      "start": 1991959136
-    },
-    {
       "name": "msvcp_win_std::ios_base::Init::_Init_dtor",
       "start": 1991959680
     },
@@ -67655,18 +67273,6 @@
     {
       "name": "msvcp_win__crtLCMapStringW",
       "start": 1991961104
-    },
-    {
-      "name": "setupapi_SetupGetFieldCount",
-      "start": 1991964496
-    },
-    {
-      "name": "setupapi_pSetupGetDriverDate",
-      "start": 1991965376
-    },
-    {
-      "name": "setupapi_SetupFindNextLine",
-      "start": 1991965568
     },
     {
       "name": "rpcrt4_NdrAsyncClientCall",
@@ -74861,6 +74467,10 @@
       "start": 1997755440
     },
     {
+      "name": "ucrtbase__dcrt_get_wide_environment_from_os",
+      "start": 1997755568
+    },
+    {
       "name": "ucrtbase_Gettnames",
       "start": 1997756160
     },
@@ -75241,8 +74851,20 @@
       "start": 1997797760
     },
     {
+      "name": "ucrtbase_dtest",
+      "start": 1997798320
+    },
+    {
       "name": "ucrtbase_towlower_l",
       "start": 1997801904
+    },
+    {
+      "name": "ucrtbase_fdunscale",
+      "start": 1997802784
+    },
+    {
+      "name": "ucrtbase_fdtest",
+      "start": 1997803648
     },
     {
       "name": "ucrtbase_o__i64tow_s",
@@ -75437,6 +75059,14 @@
       "start": 1997837152
     },
     {
+      "name": "ucrtbase_wcsnicoll",
+      "start": 1997837424
+    },
+    {
+      "name": "ucrtbase_wcsnicoll_l",
+      "start": 1997837632
+    },
+    {
       "name": "ucrtbase_wcspbrk",
       "start": 1997838144
     },
@@ -75457,6 +75087,10 @@
       "start": 1997850928
     },
     {
+      "name": "ucrtbase_CIcos",
+      "start": 1997851712
+    },
+    {
       "name": "ucrtbase_CIlog10",
       "start": 1997854912
     },
@@ -75471,6 +75105,14 @@
     {
       "name": "ucrtbase_CIpow",
       "start": 1997858496
+    },
+    {
+      "name": "ucrtbase_CIsin",
+      "start": 1997864928
+    },
+    {
+      "name": "ucrtbase_CIsqrt",
+      "start": 1997866112
     },
     {
       "name": "ucrtbase_CreateFrameInfo",
@@ -75667,6 +75309,10 @@
     {
       "name": "SEH_77131E60",
       "start": 1997975304
+    },
+    {
+      "name": "",
+      "start": 1998085328
     },
     {
       "name": "ucrtbase_o__Strftime",
@@ -75953,18 +75599,6 @@
       "start": 1998182272
     },
     {
-      "name": "msvcrt_ismbbpunct_l",
-      "start": 1998186384
-    },
-    {
-      "name": "msvcrt_ismbclower_l",
-      "start": 1998188256
-    },
-    {
-      "name": "msvcrt_mbctohira_l",
-      "start": 1998191264
-    },
-    {
       "name": "ucrtbase_seh_filter_dll",
       "start": 1998194304
     },
@@ -76021,6 +75655,10 @@
       "start": 1998213872
     },
     {
+      "name": "",
+      "start": 1998222032
+    },
+    {
       "name": "ucrtbase_get_printf_count_output",
       "start": 1998271584
     },
@@ -76041,12 +75679,44 @@
       "start": 1998280272
     },
     {
+      "name": "",
+      "start": 1998282416
+    },
+    {
+      "name": "ucrtbase_j0",
+      "start": 1998284928
+    },
+    {
+      "name": "",
+      "start": 1998285648
+    },
+    {
+      "name": "",
+      "start": 1998286080
+    },
+    {
+      "name": "ucrtbase_csqrtf",
+      "start": 1998305440
+    },
+    {
+      "name": "ucrtbase_fegetexceptflag",
+      "start": 1998313696
+    },
+    {
       "name": "ucrtbase_feholdexcept",
       "start": 1998313888
     },
     {
       "name": "ucrtbase_fesetenv",
       "start": 1998313968
+    },
+    {
+      "name": "ucrtbase_fesetexceptflag",
+      "start": 1998314032
+    },
+    {
+      "name": "ucrtbase_fetestexcept",
+      "start": 1998314240
     },
     {
       "name": "ucrtbase_except1",
@@ -76059,6 +75729,22 @@
     {
       "name": "ucrtbase_ldexp",
       "start": 1998322048
+    },
+    {
+      "name": "ucrtbase_log1pl",
+      "start": 1998327856
+    },
+    {
+      "name": "ucrtbase_log1pf",
+      "start": 1998328016
+    },
+    {
+      "name": "ucrtbase_fdnorm",
+      "start": 1998342992
+    },
+    {
+      "name": "ucrtbase_fdscale",
+      "start": 1998343872
     },
     {
       "name": "ucrtbase_putwch_nolock",
@@ -76077,6 +75763,10 @@
       "start": 1998424016
     },
     {
+      "name": "ucrtbase_waccess_s",
+      "start": 1998424160
+    },
+    {
       "name": "ucrtbase_wrmdir",
       "start": 1998426256
     },
@@ -76085,8 +75775,24 @@
       "start": 1998426304
     },
     {
+      "name": "",
+      "start": 1998426480
+    },
+    {
+      "name": "",
+      "start": 1998426608
+    },
+    {
+      "name": "",
+      "start": 1998429808
+    },
+    {
       "name": "ucrtbase_Wcsftime",
       "start": 1998462640
+    },
+    {
+      "name": "ucrtbase_wexecvp",
+      "start": 1998498336
     },
     {
       "name": "ucrtbase_mbsdec_l",
@@ -76115,94 +75821,6 @@
     {
       "name": "ucrtbase_fpclass",
       "start": 1998565424
-    },
-    {
-      "name": "user32_SendDlgItemMessageW",
-      "start": 2000046208
-    },
-    {
-      "name": "user32_CallWindowProcW",
-      "start": 2000058992
-    },
-    {
-      "name": "user32_GetSubMenu",
-      "start": 2000106352
-    },
-    {
-      "name": "user32_GetMenuItemCount",
-      "start": 2000106640
-    },
-    {
-      "name": "user32_GetMenuItemID",
-      "start": 2000106880
-    },
-    {
-      "name": "user32_CreateMenu",
-      "start": 2000157520
-    },
-    {
-      "name": "user32_CharLowerBuffW",
-      "start": 2000158144
-    },
-    {
-      "name": "user32_SetProcessDpiAwarenessInternal",
-      "start": 2000158784
-    },
-    {
-      "name": "user32_LoadImageW",
-      "start": 2000170800
-    },
-    {
-      "name": "user32_GetWindowThreadProcessId",
-      "start": 2000198768
-    },
-    {
-      "name": "user32_GetDC",
-      "start": 2000203040
-    },
-    {
-      "name": "user32_Ordinal2589",
-      "start": 2000210080
-    },
-    {
-      "name": "user32_Ordinal2517",
-      "start": 2000210688
-    },
-    {
-      "name": "user32_DdeAccessData",
-      "start": 2000401248
-    },
-    {
-      "name": "user32_DlgDirListA",
-      "start": 2000431440
-    },
-    {
-      "name": "user32_MessageBoxTimeoutA",
-      "start": 2000453712
-    },
-    {
-      "name": "user32_VkKeyScanA",
-      "start": 2000488512
-    },
-    {
-      "name": "user32_IsCharAlphaA",
-      "start": 2000495184
-    },
-    {
-      "name": "user32_Ordinal2584",
-      "start": 2000506512
-    },
-    {
-      "name": "user32_EnumClipboardFormats",
-      "start": 2000506592
-    },
-    {
-      "name": "user32_GetWinStationInfo",
-      "start": 2000507696
-    },
-    {
-      "name": "user32_SetCursorPos",
-      "start": 2000509264
     },
     {
       "name": "j_combase_CoTaskMemFree",
@@ -77469,24 +77087,8 @@
       "start": 2002159840
     },
     {
-      "name": "ole32_DllGetClassObject",
-      "start": 2002167744
-    },
-    {
       "name": "j_kernelbase_LocalFree_3",
       "start": 2002633840
-    },
-    {
-      "name": "ole32_STGMEDIUM_UserMarshalExt",
-      "start": 2002765760
-    },
-    {
-      "name": "ole32_CoGetClassObject",
-      "start": 2002818140
-    },
-    {
-      "name": "ole32_NdrProxyForwardingFunction26",
-      "start": 2002828471
     },
     {
       "name": "",
